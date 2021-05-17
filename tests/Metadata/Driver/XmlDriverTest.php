@@ -8,12 +8,10 @@ use Metadata\Driver\FileLocator;
 
 class XmlDriverTest extends BaseDriverTest
 {
-    /**
-     * @expectedException JMS\Serializer\Exception\XmlErrorException
-     * @expectedExceptionMessage [FATAL] Start tag expected, '<' not found
-     */
     public function testInvalidXml()
     {
+        $this->expectException(\JMS\Serializer\Exception\XmlErrorException::class);
+        $this->expectExceptionMessage('[FATAL] Start tag expected, \'<\' not found');
         $driver = $this->getDriver();
 
         $ref = new \ReflectionMethod($driver, 'loadMetadataFromFile');

@@ -8,7 +8,7 @@ use JMS\Serializer\EventDispatcher\EventDispatcherInterface;
 use JMS\Serializer\EventDispatcher\EventSubscriberInterface;
 use JMS\Serializer\EventDispatcher\ObjectEvent;
 
-class EventDispatcherTest extends \PHPUnit_Framework_TestCase
+class EventDispatcherTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var EventDispatcher
@@ -42,6 +42,9 @@ class EventDispatcherTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($this->dispatcher->hasListeners('baz', 'bAr', 'xml'));
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testDispatch()
     {
         $a = new MockListener();
@@ -143,7 +146,7 @@ class EventDispatcherTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->dispatcher = $this->createEventDispatcher();
-        $this->event = new ObjectEvent($this->getMockBuilder('JMS\Serializer\Context')->getMock(), new \stdClass(), array('name' => 'foo', 'params' => array()));
+        $this->event = new ObjectEvent($this->createMock('JMS\Serializer\Context'), new \stdClass(), array('name' => 'foo', 'params' => array()));
     }
 
     protected function createEventDispatcher()
@@ -191,6 +194,6 @@ class MockListener
 
     public function _verify($message = null)
     {
-        \PHPUnit_Framework_Assert::assertSame($this->expected, $this->actual, $message);
+        \PHPUnit\Framework\Assert::assertSame($this->expected, $this->actual, $message);
     }
 }

@@ -10,16 +10,19 @@ use JMS\Serializer\Tests\Fixtures\ExclusionStrategy\AlwaysExcludeExclusionStrate
 use JMS\Serializer\VisitorInterface;
 use Metadata\MetadataFactoryInterface;
 
-class ArrayCollectionHandlerTest extends \PHPUnit_Framework_TestCase
+class ArrayCollectionHandlerTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testSerializeArray()
     {
         $handler = new ArrayCollectionHandler();
 
-        $visitor = $this->getMockBuilder(VisitorInterface::class)->getMock();
+        $visitor = $this->createMock(VisitorInterface::class);
         $visitor->method('visitArray')->with(['foo'])->willReturn(['foo']);
 
-        $context = $this->getMockBuilder(SerializationContext::class)->getMock();
+        $context = $this->createMock(SerializationContext::class);
         $type = ['name' => 'ArrayCollection', 'params' => []];
 
         $collection = new ArrayCollection(['foo']);
@@ -27,16 +30,19 @@ class ArrayCollectionHandlerTest extends \PHPUnit_Framework_TestCase
         $handler->serializeCollection($visitor, $collection, $type, $context);
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testSerializeArraySkipByExclusionStrategy()
     {
         $handler = new ArrayCollectionHandler(false);
 
-        $visitor = $this->getMockBuilder(VisitorInterface::class)->getMock();
+        $visitor = $this->createMock(VisitorInterface::class);
         $visitor->method('visitArray')->with([])->willReturn([]);
 
-        $context = $this->getMockBuilder(SerializationContext::class)->getMock();
+        $context = $this->createMock(SerializationContext::class);
 
-        $factoryMock = $this->getMockBuilder(MetadataFactoryInterface::class)->getMock();
+        $factoryMock = $this->createMock(MetadataFactoryInterface::class);
         $factoryMock->method('getMetadataForClass')->willReturn(new ClassMetadata(ArrayCollection::class));
 
         $context->method('getExclusionStrategy')->willReturn(new AlwaysExcludeExclusionStrategy());

@@ -12,7 +12,7 @@ use JMS\Serializer\Tests\Fixtures\SimpleObjectProxy;
 use JMS\Serializer\VisitorInterface;
 use Metadata\MetadataFactoryInterface;
 
-class DoctrineProxySubscriberTest extends \PHPUnit_Framework_TestCase
+class DoctrineProxySubscriberTest extends \PHPUnit\Framework\TestCase
 {
     /** @var VisitorInterface */
     private $visitor;
@@ -58,7 +58,7 @@ class DoctrineProxySubscriberTest extends \PHPUnit_Framework_TestCase
     {
         $subscriber = new DoctrineProxySubscriber(false, false);
 
-        $factoryMock = $this->getMockBuilder(MetadataFactoryInterface::class)->getMock();
+        $factoryMock = $this->createMock(MetadataFactoryInterface::class);
         $factoryMock->method('getMetadataForClass')->willReturn(new ClassMetadata(SimpleObject::class));
 
         $this->visitor->method('getExclusionStrategy')->willReturn(new AlwaysExcludeExclusionStrategy());
@@ -128,7 +128,7 @@ class DoctrineProxySubscriberTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->subscriber = new DoctrineProxySubscriber();
-        $this->visitor = $this->getMockBuilder('JMS\Serializer\Context')->getMock();
+        $this->visitor = $this->createMock('JMS\Serializer\Context');
 
         $this->dispatcher = new EventDispatcher();
         $this->dispatcher->addSubscriber($this->subscriber);

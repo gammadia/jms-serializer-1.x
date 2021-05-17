@@ -4,7 +4,7 @@ namespace JMS\Serializer\Tests\Serializer\Naming;
 
 use JMS\Serializer\Naming\IdenticalPropertyNamingStrategy;
 
-class IdenticalPropertyNamingStrategyTest extends \PHPUnit_Framework_TestCase
+class IdenticalPropertyNamingStrategyTest extends \PHPUnit\Framework\TestCase
 {
     public function providePropertyNames()
     {
@@ -20,7 +20,7 @@ class IdenticalPropertyNamingStrategyTest extends \PHPUnit_Framework_TestCase
      */
     public function testTranslateName($propertyName)
     {
-        $mockProperty = $this->getMockBuilder('JMS\Serializer\Metadata\PropertyMetadata')->disableOriginalConstructor()->getMock();
+        $mockProperty = $this->createMock('JMS\Serializer\Metadata\PropertyMetadata');
         $mockProperty->name = $propertyName;
 
         $strategy = new IdenticalPropertyNamingStrategy();

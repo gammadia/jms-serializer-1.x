@@ -6,11 +6,11 @@ use JMS\Serializer\Twig\SerializerExtension;
 use JMS\Serializer\Twig\SerializerRuntimeExtension;
 use JMS\Serializer\Twig\SerializerRuntimeHelper;
 
-class SerializerExtensionTest extends \PHPUnit_Framework_TestCase
+class SerializerExtensionTest extends \PHPUnit\Framework\TestCase
 {
     public function testSerialize()
     {
-        $mockSerializer = $this->getMockBuilder('JMS\Serializer\SerializerInterface')->getMock();
+        $mockSerializer = $this->createMock('JMS\Serializer\SerializerInterface');
         $obj = new \stdClass();
         $mockSerializer
             ->expects($this->once())
@@ -31,11 +31,14 @@ class SerializerExtensionTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testRuntimeSerializerHelper()
     {
         $obj = new \stdClass();
 
-        $mockSerializer = $this->getMockBuilder('JMS\Serializer\SerializerInterface')->getMock();
+        $mockSerializer = $this->createMock('JMS\Serializer\SerializerInterface');
         $mockSerializer
             ->expects($this->once())
             ->method('serialize')

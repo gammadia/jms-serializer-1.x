@@ -10,7 +10,7 @@ use JMS\Serializer\Metadata\Driver\AnnotationDriver;
 use JMS\Serializer\Metadata\Driver\DoctrinePHPCRTypeDriver;
 use Doctrine\Persistence\ManagerRegistry;
 
-class DoctrinePHPCRDriverTest extends \PHPUnit_Framework_TestCase
+class DoctrinePHPCRDriverTest extends \PHPUnit\Framework\TestCase
 {
     public function getMetadata()
     {
@@ -87,7 +87,7 @@ class DoctrinePHPCRDriverTest extends \PHPUnit_Framework_TestCase
             new DoctrinePHPCRDriver(new AnnotationReader(), __DIR__ . '/../../Fixtures/DoctrinePHPCR')
         );
 
-        $session = $this->getMockBuilder('PHPCR\SessionInterface')->getMock();
+        $session = $this->createMock('PHPCR\SessionInterface');
 
         return DocumentManager::create($session, $config);
     }
@@ -99,7 +99,7 @@ class DoctrinePHPCRDriverTest extends \PHPUnit_Framework_TestCase
 
     protected function getDoctrinePHPCRDriver()
     {
-        $registry = $this->getMockBuilder(ManagerRegistry::class)->getMock();
+        $registry = $this->createMock(ManagerRegistry::class);
         $registry->expects($this->atLeastOnce())
             ->method('getManagerForClass')
             ->will($this->returnValue($this->getDocumentManager()));

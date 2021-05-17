@@ -7,7 +7,7 @@ use JMS\Serializer\Metadata\ClassMetadata;
 use JMS\Serializer\Metadata\StaticPropertyMetadata;
 use JMS\Serializer\SerializationContext;
 
-class DisjunctExclusionStrategyTest extends \PHPUnit_Framework_TestCase
+class DisjunctExclusionStrategyTest extends \PHPUnit\Framework\TestCase
 {
     public function testShouldSkipClassShortCircuiting()
     {
@@ -15,8 +15,8 @@ class DisjunctExclusionStrategyTest extends \PHPUnit_Framework_TestCase
         $context = SerializationContext::create();
 
         $strat = new DisjunctExclusionStrategy(array(
-            $first = $this->getMockBuilder('JMS\Serializer\Exclusion\ExclusionStrategyInterface')->getMock(),
-            $last = $this->getMockBuilder('JMS\Serializer\Exclusion\ExclusionStrategyInterface')->getMock(),
+            $first = $this->createMock('JMS\Serializer\Exclusion\ExclusionStrategyInterface'),
+            $last = $this->createMock('JMS\Serializer\Exclusion\ExclusionStrategyInterface'),
         ));
 
         $first->expects($this->once())
@@ -36,8 +36,8 @@ class DisjunctExclusionStrategyTest extends \PHPUnit_Framework_TestCase
         $context = SerializationContext::create();
 
         $strat = new DisjunctExclusionStrategy(array(
-            $first = $this->getMockBuilder('JMS\Serializer\Exclusion\ExclusionStrategyInterface')->getMock(),
-            $last = $this->getMockBuilder('JMS\Serializer\Exclusion\ExclusionStrategyInterface')->getMock(),
+            $first = $this->createMock('JMS\Serializer\Exclusion\ExclusionStrategyInterface'),
+            $last = $this->createMock('JMS\Serializer\Exclusion\ExclusionStrategyInterface'),
         ));
 
         $first->expects($this->once())
@@ -59,8 +59,8 @@ class DisjunctExclusionStrategyTest extends \PHPUnit_Framework_TestCase
         $context = SerializationContext::create();
 
         $strat = new DisjunctExclusionStrategy(array(
-            $first = $this->getMockBuilder('JMS\Serializer\Exclusion\ExclusionStrategyInterface')->getMock(),
-            $last = $this->getMockBuilder('JMS\Serializer\Exclusion\ExclusionStrategyInterface')->getMock(),
+            $first = $this->createMock('JMS\Serializer\Exclusion\ExclusionStrategyInterface'),
+            $last = $this->createMock('JMS\Serializer\Exclusion\ExclusionStrategyInterface'),
         ));
 
         $first->expects($this->once())
@@ -82,8 +82,8 @@ class DisjunctExclusionStrategyTest extends \PHPUnit_Framework_TestCase
         $context = SerializationContext::create();
 
         $strat = new DisjunctExclusionStrategy(array(
-            $first = $this->getMockBuilder('JMS\Serializer\Exclusion\ExclusionStrategyInterface')->getMock(),
-            $last = $this->getMockBuilder('JMS\Serializer\Exclusion\ExclusionStrategyInterface')->getMock(),
+            $first = $this->createMock('JMS\Serializer\Exclusion\ExclusionStrategyInterface'),
+            $last = $this->createMock('JMS\Serializer\Exclusion\ExclusionStrategyInterface'),
         ));
 
         $first->expects($this->once())
@@ -103,8 +103,8 @@ class DisjunctExclusionStrategyTest extends \PHPUnit_Framework_TestCase
         $context = SerializationContext::create();
 
         $strat = new DisjunctExclusionStrategy(array(
-            $first = $this->getMockBuilder('JMS\Serializer\Exclusion\ExclusionStrategyInterface')->getMock(),
-            $last = $this->getMockBuilder('JMS\Serializer\Exclusion\ExclusionStrategyInterface')->getMock(),
+            $first = $this->createMock('JMS\Serializer\Exclusion\ExclusionStrategyInterface'),
+            $last = $this->createMock('JMS\Serializer\Exclusion\ExclusionStrategyInterface'),
         ));
 
         $first->expects($this->once())
@@ -126,8 +126,8 @@ class DisjunctExclusionStrategyTest extends \PHPUnit_Framework_TestCase
         $context = SerializationContext::create();
 
         $strat = new DisjunctExclusionStrategy(array(
-            $first = $this->getMockBuilder('JMS\Serializer\Exclusion\ExclusionStrategyInterface')->getMock(),
-            $last = $this->getMockBuilder('JMS\Serializer\Exclusion\ExclusionStrategyInterface')->getMock(),
+            $first = $this->createMock('JMS\Serializer\Exclusion\ExclusionStrategyInterface'),
+            $last = $this->createMock('JMS\Serializer\Exclusion\ExclusionStrategyInterface'),
         ));
 
         $first->expects($this->once())
