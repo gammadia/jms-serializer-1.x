@@ -247,7 +247,7 @@ class JsonSerializationTest extends BaseSerializationTest
     {
         $this->expectException(\RuntimeException::class);
         $this->expectExceptionMessage('Your data could not be encoded because it contains invalid UTF8 characters.');
-        ini_set('display_errors', 1);
+        ini_set('display_errors', '1');
         $this->serialize(array('foo' => 'bar', 'bar' => pack("H*", 'c32e')));
     }
 
@@ -258,7 +258,7 @@ class JsonSerializationTest extends BaseSerializationTest
     {
         $this->expectException(\RuntimeException::class);
         $this->expectExceptionMessage('Your data could not be encoded because it contains invalid UTF8 characters.');
-        ini_set('display_errors', 0);
+        ini_set('display_errors', '0');
         $this->serialize(array('foo' => 'bar', 'bar' => pack("H*", 'c32e')));
     }
 

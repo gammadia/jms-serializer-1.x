@@ -385,7 +385,7 @@ class XmlDeserializationVisitor extends AbstractVisitor implements NullAwareVisi
      */
     private function getDomDocumentTypeEntitySubset($data)
     {
-        $startPos = $endPos = stripos($data, '<!doctype');
+        $startPos = $endPos = (int) stripos($data, '<!doctype');
         $braces = 0;
         do {
             $char = $data[$endPos++];

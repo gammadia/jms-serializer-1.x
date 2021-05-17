@@ -7,7 +7,7 @@ parameters:
     paths:
         - 'src'
         - 'tests'
-    phpVersion: 74000
+    phpVersion: 80005
     reportUnmatchedIgnoredErrors: true
     checkFunctionNameCase: true
     checkUninitializedProperties: true
