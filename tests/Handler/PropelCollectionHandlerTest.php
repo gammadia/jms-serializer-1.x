@@ -9,7 +9,7 @@ class PropelCollectionHandlerTest extends \PHPUnit\Framework\TestCase
     /** @var  $serializer \JMS\Serializer\Serializer */
     private $serializer;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->serializer = SerializerBuilder::create()
             ->addDefaultHandlers()//load PropelCollectionHandler

@@ -84,7 +84,7 @@ class SymfonyValidatorSubscriberTest extends \PHPUnit\Framework\TestCase
         $this->assertCount(2, $list);
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         if (!interface_exists('Symfony\Component\Validator\ValidatorInterface')) {
             $this->markTestSkipped('Symfony\Component\Validator\ValidatorInterface is not available');

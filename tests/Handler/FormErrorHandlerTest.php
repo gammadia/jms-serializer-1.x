@@ -35,7 +35,7 @@ class FormErrorHandlerTest extends \PHPUnit\Framework\TestCase
      */
     protected $factory;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->handler = new FormErrorHandler(new Translator('en'));
         $this->visitor = new JsonSerializationVisitor(new SerializedNameAnnotationStrategy(new CamelCaseNamingStrategy()));
@@ -43,7 +43,7 @@ class FormErrorHandlerTest extends \PHPUnit\Framework\TestCase
         $this->factory = $this->createMock('Symfony\Component\Form\FormFactoryInterface');
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->handler = null;
         $this->visitor = null;

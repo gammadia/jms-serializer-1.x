@@ -17,7 +17,7 @@ class ExpressionLanguageExclusionStrategyTest extends \PHPUnit\Framework\TestCas
     private $expressionEvaluator;
     private $exclusionStrategy;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->visitedObject = new \stdClass();
 

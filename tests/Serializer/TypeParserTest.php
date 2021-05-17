@@ -66,7 +66,7 @@ class TypeParserTest extends \PHPUnit\Framework\TestCase
         $this->parser->parse('Foo<\Bar>');
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->parser = new TypeParser();
     }

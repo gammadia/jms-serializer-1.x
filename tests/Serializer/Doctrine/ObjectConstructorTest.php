@@ -241,7 +241,7 @@ class ObjectConstructorTest extends \PHPUnit\Framework\TestCase
         $constructor->construct($this->visitor, $class, array('metaTitle' => 'test'), $type, $this->context);
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->visitor = $this->createMock('JMS\Serializer\VisitorInterface');
         $this->context = $this->createMock('JMS\Serializer\DeserializationContext');

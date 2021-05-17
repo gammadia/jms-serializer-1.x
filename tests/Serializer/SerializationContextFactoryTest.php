@@ -20,7 +20,7 @@ class SerializationContextFactoryTest extends \PHPUnit\Framework\TestCase
 {
     protected $serializer;
 
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
