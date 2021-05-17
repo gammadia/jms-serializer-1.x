@@ -16,7 +16,7 @@ class Comment
      */
     private $text;
 
-    public function __construct(Author $author = null, $text)
+    public function __construct(?Author $author, $text)
     {
         $this->author = $author;
         $this->text = $text;
