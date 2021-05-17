@@ -412,7 +412,7 @@ class XmlSerializationTest extends BaseSerializationTest
 
         $this->handlerRegistry->registerHandler(GraphNavigator::DIRECTION_SERIALIZATION, 'ObjectWithXmlNamespacesAndObjectPropertyAuthorVirtual', $this->getFormat(),
             function (XmlSerializationVisitor $visitor, $data, $type, Context $context) use ($author) {
-                $factory = $context->getMetadataFactory(get_class($author));
+                $factory = $context->getMetadataFactory();
                 $classMetadata = $factory->getMetadataForClass(get_class($author));
 
                 $metadata = new StaticPropertyMetadata(get_class($author), 'foo', $author);

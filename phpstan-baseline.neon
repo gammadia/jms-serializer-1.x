@@ -8491,11 +8491,6 @@ parameters:
 			path: tests/Serializer/XmlSerializationTest.php
 
 		-
-			message: "#^Method JMS\\\\Serializer\\\\Context\\:\\:getMetadataFactory\\(\\) invoked with 1 parameter, 0 required\\.$#"
-			count: 1
-			path: tests/Serializer/XmlSerializationTest.php
-
-		-
 			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Serializer\\\\XmlSerializationTest\\:\\:getContent\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Serializer/XmlSerializationTest.php
