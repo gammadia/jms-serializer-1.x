@@ -3,7 +3,7 @@
 use JMS\Serializer\Metadata\ClassMetadata;
 use JMS\Serializer\Metadata\PropertyMetadata;
 
-$metadata = new ClassMetadata('JMS\Serializer\Tests\Fixtures\ParentSkipWithEmptyChild');
+$metadata = new ClassMetadata(\JMS\Serializer\Tests\Fixtures\ParentSkipWithEmptyChild::class);
 
 $pMeta = new PropertyMetadata($metadata->name, 'c');
 $metadata->addPropertyMetadata($pMeta);

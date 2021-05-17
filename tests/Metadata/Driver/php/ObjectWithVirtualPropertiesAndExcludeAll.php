@@ -3,7 +3,7 @@
 use JMS\Serializer\Metadata\ClassMetadata;
 use JMS\Serializer\Metadata\VirtualPropertyMetadata;
 
-$className = 'JMS\Serializer\Tests\Fixtures\ObjectWithVirtualPropertiesAndExcludeAll';
+$className = \JMS\Serializer\Tests\Fixtures\ObjectWithVirtualPropertiesAndExcludeAll::class;
 
 $metadata = new ClassMetadata($className);
 

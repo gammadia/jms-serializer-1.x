@@ -21,7 +21,7 @@ class ClassMetadataTest extends \PHPUnit\Framework\TestCase
 
     public function testSerialization()
     {
-        $meta = new PropertyMetadata('JMS\Serializer\Tests\Metadata\PropertyMetadataOrder', 'b');
+        $meta = new PropertyMetadata(\JMS\Serializer\Tests\Metadata\PropertyMetadataOrder::class, 'b');
         $restoredMeta = unserialize(serialize($meta));
         $this->assertEquals($meta, $restoredMeta);
     }
@@ -31,9 +31,9 @@ class ClassMetadataTest extends \PHPUnit\Framework\TestCase
      */
     public function testSetAccessorOrderCustom(array $order, array $expected)
     {
-        $metadata = new ClassMetadata('JMS\Serializer\Tests\Metadata\PropertyMetadataOrder');
-        $metadata->addPropertyMetadata(new PropertyMetadata('JMS\Serializer\Tests\Metadata\PropertyMetadataOrder', 'b'));
-        $metadata->addPropertyMetadata(new PropertyMetadata('JMS\Serializer\Tests\Metadata\PropertyMetadataOrder', 'a'));
+        $metadata = new ClassMetadata(\JMS\Serializer\Tests\Metadata\PropertyMetadataOrder::class);
+        $metadata->addPropertyMetadata(new PropertyMetadata(\JMS\Serializer\Tests\Metadata\PropertyMetadataOrder::class, 'b'));
+        $metadata->addPropertyMetadata(new PropertyMetadata(\JMS\Serializer\Tests\Metadata\PropertyMetadataOrder::class, 'a'));
         $this->assertEquals(array('b', 'a'), array_keys($metadata->propertyMetadata));
 
         $metadata->setAccessorOrder(ClassMetadata::ACCESSOR_ORDER_CUSTOM, $order);
@@ -42,9 +42,9 @@ class ClassMetadataTest extends \PHPUnit\Framework\TestCase
 
     public function testSetAccessorOrderAlphabetical()
     {
-        $metadata = new ClassMetadata('JMS\Serializer\Tests\Metadata\PropertyMetadataOrder');
-        $metadata->addPropertyMetadata(new PropertyMetadata('JMS\Serializer\Tests\Metadata\PropertyMetadataOrder', 'b'));
-        $metadata->addPropertyMetadata(new PropertyMetadata('JMS\Serializer\Tests\Metadata\PropertyMetadataOrder', 'a'));
+        $metadata = new ClassMetadata(\JMS\Serializer\Tests\Metadata\PropertyMetadataOrder::class);
+        $metadata->addPropertyMetadata(new PropertyMetadata(\JMS\Serializer\Tests\Metadata\PropertyMetadataOrder::class, 'b'));
+        $metadata->addPropertyMetadata(new PropertyMetadata(\JMS\Serializer\Tests\Metadata\PropertyMetadataOrder::class, 'a'));
         $this->assertEquals(array('b', 'a'), array_keys($metadata->propertyMetadata));
 
         $metadata->setAccessorOrder(ClassMetadata::ACCESSOR_ORDER_ALPHABETICAL);

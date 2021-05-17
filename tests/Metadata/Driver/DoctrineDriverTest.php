@@ -14,7 +14,7 @@ class DoctrineDriverTest extends \PHPUnit\Framework\TestCase
 {
     public function getMetadata()
     {
-        $refClass = new \ReflectionClass('JMS\Serializer\Tests\Fixtures\Doctrine\BlogPost');
+        $refClass = new \ReflectionClass(\JMS\Serializer\Tests\Fixtures\Doctrine\BlogPost::class);
         $metadata = $this->getDoctrineDriver()->loadMetadataForClass($refClass);
 
         return $metadata;
@@ -25,7 +25,7 @@ class DoctrineDriverTest extends \PHPUnit\Framework\TestCase
         $metadata = $this->getMetadata();
 
         $this->assertEquals(
-            array('name' => 'DateTime', 'params' => array()),
+            array('name' => \DateTime::class, 'params' => array()),
             $metadata->propertyMetadata['createdAt']->type
         );
     }
@@ -34,7 +34,7 @@ class DoctrineDriverTest extends \PHPUnit\Framework\TestCase
     {
         $metadata = $this->getMetadata();
         $this->assertEquals(
-            array('name' => 'JMS\Serializer\Tests\Fixtures\Doctrine\Author', 'params' => array()),
+            array('name' => \JMS\Serializer\Tests\Fixtures\Doctrine\Author::class, 'params' => array()),
             $metadata->propertyMetadata['author']->type
         );
     }
@@ -45,7 +45,7 @@ class DoctrineDriverTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals(
             array('name' => 'ArrayCollection', 'params' => array(
-                array('name' => 'JMS\Serializer\Tests\Fixtures\Doctrine\Comment', 'params' => array()))
+                array('name' => \JMS\Serializer\Tests\Fixtures\Doctrine\Comment::class, 'params' => array()))
             ),
             $metadata->propertyMetadata['comments']->type
         );
@@ -72,7 +72,7 @@ class DoctrineDriverTest extends \PHPUnit\Framework\TestCase
     {
         // Note: Using regular BlogPost fixture here instead of Doctrine fixture
         // because it has no Doctrine metadata.
-        $refClass = new \ReflectionClass('JMS\Serializer\Tests\Fixtures\BlogPost');
+        $refClass = new \ReflectionClass(\JMS\Serializer\Tests\Fixtures\BlogPost::class);
 
         $plainMetadata = $this->getAnnotationDriver()->loadMetadataForClass($refClass);
         $doctrineMetadata = $this->getDoctrineDriver()->loadMetadataForClass($refClass);
@@ -88,7 +88,7 @@ class DoctrineDriverTest extends \PHPUnit\Framework\TestCase
     public function testExcludePropertyNoPublicAccessorException()
     {
         $first = $this->getAnnotationDriver()
-            ->loadMetadataForClass(new \ReflectionClass('JMS\Serializer\Tests\Fixtures\ExcludePublicAccessor'));
+            ->loadMetadataForClass(new \ReflectionClass(\JMS\Serializer\Tests\Fixtures\ExcludePublicAccessor::class));
 
         $this->assertArrayHasKey('id', $first->propertyMetadata);
         $this->assertArrayNotHasKey('iShallNotBeAccessed', $first->propertyMetadata);

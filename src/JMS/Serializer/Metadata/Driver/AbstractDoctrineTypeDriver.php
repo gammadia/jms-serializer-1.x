@@ -31,10 +31,10 @@ abstract class AbstractDoctrineTypeDriver implements DriverInterface
         'smallint' => 'integer',
         'bigint' => 'integer',
 
-        'datetime' => 'DateTime',
-        'datetimetz' => 'DateTime',
-        'time' => 'DateTime',
-        'date' => 'DateTime',
+        'datetime' => \DateTime::class,
+        'datetimetz' => \DateTime::class,
+        'time' => \DateTime::class,
+        'date' => \DateTime::class,
 
         'float' => 'float',
         'decimal' => 'float',

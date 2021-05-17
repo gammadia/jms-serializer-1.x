@@ -3,7 +3,7 @@
 use JMS\Serializer\Metadata\ClassMetadata;
 use JMS\Serializer\Metadata\PropertyMetadata;
 
-$className = 'JMS\Serializer\Tests\Fixtures\ObjectWithAbsentXmlListNode';
+$className = \JMS\Serializer\Tests\Fixtures\ObjectWithAbsentXmlListNode::class;
 
 $metadata = new ClassMetadata($className);
 

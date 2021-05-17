@@ -19,12 +19,12 @@ class XmlDriverTest extends BaseDriverTest
 
         $ref = new \ReflectionMethod($driver, 'loadMetadataFromFile');
         $ref->setAccessible(true);
-        $ref->invoke($driver, new \ReflectionClass('stdClass'), __DIR__ . '/xml/invalid.xml');
+        $ref->invoke($driver, new \ReflectionClass(\stdClass::class), __DIR__ . '/xml/invalid.xml');
     }
 
     public function testBlogPostExcludeAllStrategy()
     {
-        $m = $this->getDriver('exclude_all')->loadMetadataForClass(new \ReflectionClass('JMS\Serializer\Tests\Fixtures\BlogPost'));
+        $m = $this->getDriver('exclude_all')->loadMetadataForClass(new \ReflectionClass(\JMS\Serializer\Tests\Fixtures\BlogPost::class));
 
         $this->assertArrayHasKey('title', $m->propertyMetadata);
 
@@ -36,7 +36,7 @@ class XmlDriverTest extends BaseDriverTest
 
     public function testBlogPostExcludeNoneStrategy()
     {
-        $m = $this->getDriver('exclude_none')->loadMetadataForClass(new \ReflectionClass('JMS\Serializer\Tests\Fixtures\BlogPost'));
+        $m = $this->getDriver('exclude_none')->loadMetadataForClass(new \ReflectionClass(\JMS\Serializer\Tests\Fixtures\BlogPost::class));
 
         $this->assertArrayNotHasKey('title', $m->propertyMetadata);
 
@@ -48,7 +48,7 @@ class XmlDriverTest extends BaseDriverTest
 
     public function testBlogPostCaseInsensitive()
     {
-        $m = $this->getDriver('case')->loadMetadataForClass(new \ReflectionClass('JMS\Serializer\Tests\Fixtures\BlogPost'));
+        $m = $this->getDriver('case')->loadMetadataForClass(new \ReflectionClass(\JMS\Serializer\Tests\Fixtures\BlogPost::class));
 
         $p = new PropertyMetadata($m->name, 'title');
         $p->type = array('name' => 'string', 'params' => array());
@@ -57,7 +57,7 @@ class XmlDriverTest extends BaseDriverTest
 
     public function testAccessorAttributes()
     {
-        $m = $this->getDriver()->loadMetadataForClass(new \ReflectionClass('JMS\Serializer\Tests\Fixtures\GetSetObject'));
+        $m = $this->getDriver()->loadMetadataForClass(new \ReflectionClass(\JMS\Serializer\Tests\Fixtures\GetSetObject::class));
 
         $p = new PropertyMetadata($m->name, 'name');
         $p->type = array('name' => 'string', 'params' => array());
@@ -69,7 +69,7 @@ class XmlDriverTest extends BaseDriverTest
 
     public function testGroupsTrim()
     {
-        $first = $this->getDriver()->loadMetadataForClass(new \ReflectionClass('JMS\Serializer\Tests\Fixtures\GroupsTrim'));
+        $first = $this->getDriver()->loadMetadataForClass(new \ReflectionClass(\JMS\Serializer\Tests\Fixtures\GroupsTrim::class));
 
         $this->assertArrayHasKey('amount', $first->propertyMetadata);
         $this->assertArraySubset(['first.test.group', 'second.test.group'], $first->propertyMetadata['currency']->groups);
@@ -77,7 +77,7 @@ class XmlDriverTest extends BaseDriverTest
 
     public function testMultilineGroups()
     {
-        $first = $this->getDriver()->loadMetadataForClass(new \ReflectionClass('JMS\Serializer\Tests\Fixtures\MultilineGroupsFormat'));
+        $first = $this->getDriver()->loadMetadataForClass(new \ReflectionClass(\JMS\Serializer\Tests\Fixtures\MultilineGroupsFormat::class));
 
         $this->assertArrayHasKey('amount', $first->propertyMetadata);
         $this->assertArraySubset(['first.test.group', 'second.test.group'], $first->propertyMetadata['currency']->groups);

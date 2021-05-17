@@ -11,7 +11,7 @@ class InitializedBlogPostConstructor extends UnserializeObjectConstructor
 {
     public function construct(VisitorInterface $visitor, ClassMetadata $metadata, $data, array $type, DeserializationContext $context)
     {
-        if ($type['name'] !== 'JMS\Serializer\Tests\Fixtures\BlogPost') {
+        if ($type['name'] !== \JMS\Serializer\Tests\Fixtures\BlogPost::class) {
             return parent::construct($visitor, $metadata, $data, $type);
         }
 

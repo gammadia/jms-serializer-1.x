@@ -128,7 +128,7 @@ class DoctrineProxySubscriberTest extends \PHPUnit\Framework\TestCase
     protected function setUp(): void
     {
         $this->subscriber = new DoctrineProxySubscriber();
-        $this->visitor = $this->createMock('JMS\Serializer\Context');
+        $this->visitor = $this->createMock(\JMS\Serializer\Context::class);
 
         $this->dispatcher = new EventDispatcher();
         $this->dispatcher->addSubscriber($this->subscriber);

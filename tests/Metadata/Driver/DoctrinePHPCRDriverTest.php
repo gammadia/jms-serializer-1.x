@@ -14,7 +14,7 @@ class DoctrinePHPCRDriverTest extends \PHPUnit\Framework\TestCase
 {
     public function getMetadata()
     {
-        $refClass = new \ReflectionClass('JMS\Serializer\Tests\Fixtures\DoctrinePHPCR\BlogPost');
+        $refClass = new \ReflectionClass(\JMS\Serializer\Tests\Fixtures\DoctrinePHPCR\BlogPost::class);
         $metadata = $this->getDoctrinePHPCRDriver()->loadMetadataForClass($refClass);
 
         return $metadata;
@@ -24,7 +24,7 @@ class DoctrinePHPCRDriverTest extends \PHPUnit\Framework\TestCase
     {
         $metadata = $this->getMetadata();
         $this->assertEquals(
-            array('name' => 'DateTime', 'params' => array()),
+            array('name' => \DateTime::class, 'params' => array()),
             $metadata->propertyMetadata['createdAt']->type
         );
     }
@@ -33,7 +33,7 @@ class DoctrinePHPCRDriverTest extends \PHPUnit\Framework\TestCase
     {
         $metadata = $this->getMetadata();
         $this->assertEquals(
-            array('name' => 'JMS\Serializer\Tests\Fixtures\DoctrinePHPCR\Author', 'params' => array()),
+            array('name' => \JMS\Serializer\Tests\Fixtures\DoctrinePHPCR\Author::class, 'params' => array()),
             $metadata->propertyMetadata['author']->type
         );
     }
@@ -44,7 +44,7 @@ class DoctrinePHPCRDriverTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals(
             array('name' => 'ArrayCollection', 'params' => array(
-                array('name' => 'JMS\Serializer\Tests\Fixtures\DoctrinePHPCR\Comment', 'params' => array()))
+                array('name' => \JMS\Serializer\Tests\Fixtures\DoctrinePHPCR\Comment::class, 'params' => array()))
             ),
             $metadata->propertyMetadata['comments']->type
         );
@@ -65,7 +65,7 @@ class DoctrinePHPCRDriverTest extends \PHPUnit\Framework\TestCase
     {
         // Note: Using regular BlogPost fixture here instead of Doctrine fixture
         // because it has no Doctrine metadata.
-        $refClass = new \ReflectionClass('JMS\Serializer\Tests\Fixtures\BlogPost');
+        $refClass = new \ReflectionClass(\JMS\Serializer\Tests\Fixtures\BlogPost::class);
 
         $plainMetadata = $this->getAnnotationDriver()->loadMetadataForClass($refClass);
         $doctrineMetadata = $this->getDoctrinePHPCRDriver()->loadMetadataForClass($refClass);
@@ -87,7 +87,7 @@ class DoctrinePHPCRDriverTest extends \PHPUnit\Framework\TestCase
             new DoctrinePHPCRDriver(new AnnotationReader(), __DIR__ . '/../../Fixtures/DoctrinePHPCR')
         );
 
-        $session = $this->createMock('PHPCR\SessionInterface');
+        $session = $this->createMock(\PHPCR\SessionInterface::class);
 
         return DocumentManager::create($session, $config);
     }

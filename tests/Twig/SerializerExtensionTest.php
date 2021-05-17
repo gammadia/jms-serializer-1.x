@@ -10,7 +10,7 @@ class SerializerExtensionTest extends \PHPUnit\Framework\TestCase
 {
     public function testSerialize()
     {
-        $mockSerializer = $this->createMock('JMS\Serializer\SerializerInterface');
+        $mockSerializer = $this->createMock(\JMS\Serializer\SerializerInterface::class);
         $obj = new \stdClass();
         $mockSerializer
             ->expects($this->once())
@@ -35,7 +35,7 @@ class SerializerExtensionTest extends \PHPUnit\Framework\TestCase
     {
         $obj = new \stdClass();
 
-        $mockSerializer = $this->createMock('JMS\Serializer\SerializerInterface');
+        $mockSerializer = $this->createMock(\JMS\Serializer\SerializerInterface::class);
         $mockSerializer
             ->expects($this->once())
             ->method('serialize')

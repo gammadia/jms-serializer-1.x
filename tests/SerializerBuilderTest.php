@@ -107,7 +107,7 @@ class SerializerBuilderTest extends \PHPUnit\Framework\TestCase
 
     public function testSetSerializationContext()
     {
-        $contextFactoryMock = $this->getMockForAbstractClass('JMS\\Serializer\\ContextFactory\\SerializationContextFactoryInterface');
+        $contextFactoryMock = $this->getMockForAbstractClass(\JMS\Serializer\ContextFactory\SerializationContextFactoryInterface::class);
         $context = new SerializationContext();
         $context->setSerializeNull(true);
 
@@ -127,7 +127,7 @@ class SerializerBuilderTest extends \PHPUnit\Framework\TestCase
 
     public function testSetDeserializationContext()
     {
-        $contextFactoryMock = $this->getMockForAbstractClass('JMS\\Serializer\\ContextFactory\\DeserializationContextFactoryInterface');
+        $contextFactoryMock = $this->getMockForAbstractClass(\JMS\Serializer\ContextFactory\DeserializationContextFactoryInterface::class);
         $context = new DeserializationContext();
 
         $contextFactoryMock

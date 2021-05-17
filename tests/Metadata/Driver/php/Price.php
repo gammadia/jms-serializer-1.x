@@ -3,9 +3,9 @@
 use JMS\Serializer\Metadata\ClassMetadata;
 use JMS\Serializer\Metadata\PropertyMetadata;
 
-$metadata = new ClassMetadata('JMS\Serializer\Tests\Fixtures\Price');
+$metadata = new ClassMetadata(\JMS\Serializer\Tests\Fixtures\Price::class);
 
-$pMetadata = new PropertyMetadata('JMS\Serializer\Tests\Fixtures\Price', 'price');
+$pMetadata = new PropertyMetadata(\JMS\Serializer\Tests\Fixtures\Price::class, 'price');
 $pMetadata->setType('float');
 $pMetadata->xmlValue = true;
 $metadata->addPropertyMetadata($pMetadata);

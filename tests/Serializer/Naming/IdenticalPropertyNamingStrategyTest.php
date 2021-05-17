@@ -20,7 +20,7 @@ class IdenticalPropertyNamingStrategyTest extends \PHPUnit\Framework\TestCase
      */
     public function testTranslateName($propertyName)
     {
-        $mockProperty = $this->createMock('JMS\Serializer\Metadata\PropertyMetadata');
+        $mockProperty = $this->createMock(\JMS\Serializer\Metadata\PropertyMetadata::class);
         $mockProperty->name = $propertyName;
 
         $strategy = new IdenticalPropertyNamingStrategy();

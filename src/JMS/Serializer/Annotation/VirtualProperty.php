@@ -22,8 +22,8 @@ final class VirtualProperty
         }
 
         foreach ($data as $key => $value) {
-            if (!property_exists(__CLASS__, $key)) {
-                throw new \BadMethodCallException(sprintf('Unknown property "%s" on annotation "%s".', $key, __CLASS__));
+            if (!property_exists(self::class, $key)) {
+                throw new \BadMethodCallException(sprintf('Unknown property "%s" on annotation "%s".', $key, self::class));
             }
             $this->{$key} = $value;
         }

@@ -46,7 +46,7 @@ class DateHandlerTest extends \PHPUnit\Framework\TestCase
         $visitor->method('visitString')->with('2017-06-18');
 
         $datetime = new \DateTime('2017-06-18 14:30:59', $this->timezone);
-        $type = ['name' => 'DateTime', 'params' => $params];
+        $type = ['name' => \DateTime::class, 'params' => $params];
         $this->handler->serializeDateTime($visitor, $datetime, $type, $context);
     }
 
@@ -54,7 +54,7 @@ class DateHandlerTest extends \PHPUnit\Framework\TestCase
     {
         $visitor = $this->createMock(JsonDeserializationVisitor::class);
 
-        $type = ['name' => 'DateTime', 'params' => ['Y-m-d', '', 'Y-m-d|']];
+        $type = ['name' => \DateTime::class, 'params' => ['Y-m-d', '', 'Y-m-d|']];
         $this->assertEquals(
             \DateTime::createFromFormat('Y-m-d|', '2017-06-18', $this->timezone),
             $this->handler->deserializeDateTimeFromJson($visitor, '2017-06-18', $type)
@@ -74,14 +74,14 @@ class DateHandlerTest extends \PHPUnit\Framework\TestCase
         }
 
         // no custom deserialization format specified
-        $type = ['name' => 'DateTime', 'params' => ['Y-m-d']];
+        $type = ['name' => \DateTime::class, 'params' => ['Y-m-d']];
         $this->assertEquals(
             $expectedDateTime,
             $this->handler->deserializeDateTimeFromJson($visitor, '2017-06-18', $type)
         );
 
         // custom deserialization format specified
-        $type = ['name' => 'DateTime', 'params' => ['Y-m-d', '', 'Y-m-d']];
+        $type = ['name' => \DateTime::class, 'params' => ['Y-m-d', '', 'Y-m-d']];
         $this->assertEquals(
             $expectedDateTime,
             $this->handler->deserializeDateTimeFromJson($visitor, '2017-06-18', $type)
@@ -95,7 +95,7 @@ class DateHandlerTest extends \PHPUnit\Framework\TestCase
 
         $timestamp = time();
         $timezone = 'Europe/Brussels';
-        $type = ['name' => 'DateTime', 'params' => ['U', $timezone]];
+        $type = ['name' => \DateTime::class, 'params' => ['U', $timezone]];
 
         $expectedDateTime = \DateTime::createFromFormat('U', $timestamp);
         $expectedDateTime->setTimezone(new \DateTimeZone($timezone));
@@ -115,7 +115,7 @@ class DateHandlerTest extends \PHPUnit\Framework\TestCase
 
         $timestamp = time();
         $timezone = 'Europe/Brussels';
-        $type = ['name' => 'DateTimeImmutable', 'params' => ['U', $timezone]];
+        $type = ['name' => \DateTimeImmutable::class, 'params' => ['U', $timezone]];
 
         $expectedDateTime = \DateTime::createFromFormat('U', $timestamp);
         $expectedDateTime->setTimezone(new \DateTimeZone($timezone));

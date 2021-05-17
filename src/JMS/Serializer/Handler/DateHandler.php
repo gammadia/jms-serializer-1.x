@@ -19,8 +19,8 @@ class DateHandler implements SubscribingHandlerInterface
     public static function getSubscribingMethods()
     {
         $methods = array();
-        $deserializationTypes = array('DateTime', 'DateTimeImmutable', 'DateInterval');
-        $serialisationTypes = array('DateTime', 'DateTimeImmutable', 'DateInterval');
+        $deserializationTypes = array(\DateTime::class, \DateTimeImmutable::class, \DateInterval::class);
+        $serialisationTypes = array(\DateTime::class, \DateTimeImmutable::class, \DateInterval::class);
 
         foreach (array('json', 'xml', 'yml') as $format) {
 

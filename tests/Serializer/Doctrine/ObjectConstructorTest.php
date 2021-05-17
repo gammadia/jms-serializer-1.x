@@ -206,8 +206,8 @@ class ObjectConstructorTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp(): void
     {
-        $this->visitor = $this->createMock('JMS\Serializer\VisitorInterface');
-        $this->context = $this->createMock('JMS\Serializer\DeserializationContext');
+        $this->visitor = $this->createMock(\JMS\Serializer\VisitorInterface::class);
+        $this->context = $this->createMock(\JMS\Serializer\DeserializationContext::class);
 
         $connection = $this->createConnection();
         $entityManager = $this->createEntityManager($connection);

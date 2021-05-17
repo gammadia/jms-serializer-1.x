@@ -209,7 +209,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
             array('double'),
             array('float'),
             array('string'),
-            array('DateTime'),
+            array(\DateTime::class),
         );
     }
 
@@ -605,7 +605,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
     public function getDateTime()
     {
         return array(
-            array('date_time', new \DateTime('2011-08-30 00:00', new \DateTimeZone('UTC')), 'DateTime'),
+            array('date_time', new \DateTime('2011-08-30 00:00', new \DateTimeZone('UTC')), \DateTime::class),
         );
     }
 
@@ -629,7 +629,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
     public function getDateTimeImmutable()
     {
         return array(
-            array('date_time_immutable', new \DateTimeImmutable('2011-08-30 00:00', new \DateTimeZone('UTC')), 'DateTimeImmutable'),
+            array('date_time_immutable', new \DateTimeImmutable('2011-08-30 00:00', new \DateTimeZone('UTC')), \DateTimeImmutable::class),
         );
     }
 
@@ -815,7 +815,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($this->getContent('article'), $result);
 
         if ($this->hasDeserializer()) {
-            $this->assertEquals($article, $this->deserialize($result, 'JMS\Serializer\Tests\Fixtures\Article'));
+            $this->assertEquals($article, $this->deserialize($result, \JMS\Serializer\Tests\Fixtures\Article::class));
         }
     }
 
@@ -938,11 +938,11 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
 
     public function testNestedFormErrors()
     {
-        $dispatcher = $this->createMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
+        $dispatcher = $this->createMock(\Symfony\Component\EventDispatcher\EventDispatcherInterface::class);
 
         $formConfigBuilder = new \Symfony\Component\Form\FormConfigBuilder('foo', null, $dispatcher);
         $formConfigBuilder->setCompound(true);
-        $formConfigBuilder->setDataMapper($this->createMock('Symfony\Component\Form\DataMapperInterface'));
+        $formConfigBuilder->setDataMapper($this->createMock(\Symfony\Component\Form\DataMapperInterface::class));
         $fooConfig = $formConfigBuilder->getFormConfig();
 
         $form = new Form($fooConfig);
@@ -959,11 +959,11 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
 
     public function testFormErrorsWithNonFormComponents()
     {
-        if (!class_exists('Symfony\Component\Form\Extension\Core\Type\SubmitType')) {
+        if (!class_exists(\Symfony\Component\Form\Extension\Core\Type\SubmitType::class)) {
             $this->markTestSkipped('Not using Symfony Form >= 2.3 with submit type');
         }
 
-        $dispatcher = $this->createMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
+        $dispatcher = $this->createMock(\Symfony\Component\EventDispatcher\EventDispatcherInterface::class);
 
         $factoryBuilder = new FormFactoryBuilder();
         $factoryBuilder->addType(new \Symfony\Component\Form\Extension\Core\Type\SubmitType);
@@ -973,7 +973,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
         $formConfigBuilder = new \Symfony\Component\Form\FormConfigBuilder('foo', null, $dispatcher);
         $formConfigBuilder->setFormFactory($factory);
         $formConfigBuilder->setCompound(true);
-        $formConfigBuilder->setDataMapper($this->createMock('Symfony\Component\Form\DataMapperInterface'));
+        $formConfigBuilder->setDataMapper($this->createMock(\Symfony\Component\Form\DataMapperInterface::class));
         $fooConfig = $formConfigBuilder->getFormConfig();
 
         $form = new Form($fooConfig);
@@ -1040,7 +1040,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($this->getContent('mixed_access_types'), $this->serialize($object));
 
         if ($this->hasDeserializer()) {
-            $object = $this->deserialize($this->getContent('mixed_access_types'), 'JMS\Serializer\Tests\Fixtures\GetSetObject');
+            $object = $this->deserialize($this->getContent('mixed_access_types'), \JMS\Serializer\Tests\Fixtures\GetSetObject::class);
             $this->assertAttributeEquals(1, 'id', $object);
             $this->assertAttributeEquals('Johannes', 'name', $object);
             $this->assertAttributeEquals(42, 'readOnlyProperty', $object);
@@ -1250,7 +1250,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
                 new Car(5),
                 $this->deserialize(
                     $this->getContent('car'),
-                    'JMS\Serializer\Tests\Fixtures\Discriminator\Car'
+                    \JMS\Serializer\Tests\Fixtures\Discriminator\Car::class
                 ),
                 'Class is resolved correctly when concrete sub-class is used.'
             );
@@ -1259,7 +1259,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
                 new Car(5),
                 $this->deserialize(
                     $this->getContent('car'),
-                    'JMS\Serializer\Tests\Fixtures\Discriminator\Vehicle'
+                    \JMS\Serializer\Tests\Fixtures\Discriminator\Vehicle::class
                 ),
                 'Class is resolved correctly when least supertype is used.'
             );
@@ -1268,7 +1268,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
                 new Car(5),
                 $this->deserialize(
                     $this->getContent('car_without_type'),
-                    'JMS\Serializer\Tests\Fixtures\Discriminator\Car'
+                    \JMS\Serializer\Tests\Fixtures\Discriminator\Car::class
                 ),
                 'Class is resolved correctly when concrete sub-class is used and no type is defined.'
             );
@@ -1277,7 +1277,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
                 new Post('Post Title'),
                 $this->deserialize(
                     $this->getContent('post'),
-                    'JMS\Serializer\Tests\Fixtures\Discriminator\Post'
+                    \JMS\Serializer\Tests\Fixtures\Discriminator\Post::class
                 ),
                 'Class is resolved correctly when parent class is used and type is set.'
             );
@@ -1286,7 +1286,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
                 new ImagePost('Image Post Title'),
                 $this->deserialize(
                     $this->getContent('image_post'),
-                    'JMS\Serializer\Tests\Fixtures\Discriminator\Post'
+                    \JMS\Serializer\Tests\Fixtures\Discriminator\Post::class
                 ),
                 'Class is resolved correctly when least supertype is used.'
             );
@@ -1295,7 +1295,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
                 new ImagePost('Image Post Title'),
                 $this->deserialize(
                     $this->getContent('image_post'),
-                    'JMS\Serializer\Tests\Fixtures\Discriminator\ImagePost'
+                    \JMS\Serializer\Tests\Fixtures\Discriminator\ImagePost::class
                 ),
                 'Class is resolved correctly when concrete sub-class is used and no type is defined.'
             );
@@ -1318,7 +1318,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
                 $garage,
                 $this->deserialize(
                     $this->getContent('garage'),
-                    'JMS\Serializer\Tests\Fixtures\Garage'
+                    \JMS\Serializer\Tests\Fixtures\Garage::class
                 )
             );
         }
@@ -1340,7 +1340,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
                 $garage,
                 $this->deserialize(
                     $this->getContent('garage'),
-                    'JMS\Serializer\Tests\Fixtures\VehicleInterfaceGarage'
+                    \JMS\Serializer\Tests\Fixtures\VehicleInterfaceGarage::class
                 )
             );
         }
@@ -1358,7 +1358,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
 
         $this->deserialize(
             $this->getContent('car_without_type'),
-            'JMS\Serializer\Tests\Fixtures\Discriminator\Vehicle'
+            \JMS\Serializer\Tests\Fixtures\Discriminator\Vehicle::class
         );
     }
 
@@ -1419,7 +1419,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
 
         $this->assertSame($order, $deseralizedOrder);
         $this->assertEquals(new Order(new Price(12.34)), $deseralizedOrder);
-        $this->assertAttributeInstanceOf('JMS\Serializer\Tests\Fixtures\Price', 'cost', $deseralizedOrder);
+        $this->assertAttributeInstanceOf(\JMS\Serializer\Tests\Fixtures\Price::class, 'cost', $deseralizedOrder);
     }
 
     public function testObjectWithNullableArrays()
@@ -1469,7 +1469,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
                     'name' => 'array',
                     'params' => array(
                         array('name' => 'integer', 'params' => array()),
-                        array('name' => 'JMS\Serializer\Tests\Fixtures\Author', 'params' => array()),
+                        array('name' => \JMS\Serializer\Tests\Fixtures\Author::class, 'params' => array()),
                     ),
                 );
 

@@ -31,7 +31,7 @@ class ExpressionLanguageExclusionStrategyTest extends \PHPUnit\Framework\TestCas
 
     public function testExpressionLanguageExclusionWorks()
     {
-        $metadata = new StaticPropertyMetadata('stdClass', 'prop', 'propVal');
+        $metadata = new StaticPropertyMetadata(\stdClass::class, 'prop', 'propVal');
         $metadata->excludeIf = 'foo';
 
         $this->expressionEvaluator->expects($this->once())
@@ -48,7 +48,7 @@ class ExpressionLanguageExclusionStrategyTest extends \PHPUnit\Framework\TestCas
 
     public function testExpressionLanguageSkipsWhenNoExpression()
     {
-        $metadata = new StaticPropertyMetadata('stdClass', 'prop', 'propVal');
+        $metadata = new StaticPropertyMetadata(\stdClass::class, 'prop', 'propVal');
 
         $this->expressionEvaluator->expects($this->never())->method('evaluate');
 

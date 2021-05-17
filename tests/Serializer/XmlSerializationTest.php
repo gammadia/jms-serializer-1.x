@@ -81,11 +81,11 @@ class XmlSerializationTest extends BaseSerializationTest
                     <entry>collectionEntry</entry>
                 </collection>
             </AccessorSetter>',
-            'JMS\Serializer\Tests\Fixtures\AccessorSetter'
+            \JMS\Serializer\Tests\Fixtures\AccessorSetter::class
         );
 
-        $this->assertInstanceOf('stdClass', $object->getElement());
-        $this->assertInstanceOf('JMS\Serializer\Tests\Fixtures\AccessorSetterElement', $object->getElement()->element);
+        $this->assertInstanceOf(\stdClass::class, $object->getElement());
+        $this->assertInstanceOf(\JMS\Serializer\Tests\Fixtures\AccessorSetterElement::class, $object->getElement()->element);
         $this->assertEquals('attribute-different', $object->getElement()->element->getAttribute());
         $this->assertEquals('element-different', $object->getElement()->element->getElement());
         $this->assertEquals(['collectionEntry' => 'collectionEntry'], $object->getCollection());
@@ -125,14 +125,14 @@ class XmlSerializationTest extends BaseSerializationTest
             ]>
             <result>
                 &foo;
-            </result>', 'stdClass');
+            </result>', \stdClass::class);
     }
 
     public function testDocumentTypesAreNotAllowed()
     {
         $this->expectException(\JMS\Serializer\Exception\InvalidArgumentException::class);
         $this->expectExceptionMessage('The document type "<!DOCTYPE foo>" is not allowed. If it is safe, you may add it to the whitelist configuration.');
-        $this->deserialize('<?xml version="1.0"?><!DOCTYPE foo><foo></foo>', 'stdClass');
+        $this->deserialize('<?xml version="1.0"?><!DOCTYPE foo><foo></foo>', \stdClass::class);
     }
 
     /**
@@ -146,13 +146,13 @@ class XmlSerializationTest extends BaseSerializationTest
 
         $this->serializer->deserialize('<?xml version="1.0"?>
             <!DOCTYPE authorized SYSTEM "http://authorized_url.dtd">
-            <foo></foo>', 'stdClass', 'xml');
+            <foo></foo>', \stdClass::class, 'xml');
 
         $this->serializer->deserialize('<?xml version="1.0"?>
             <!DOCTYPE author [
                 <!ENTITY foo SYSTEM "php://filter/read=convert.base64-encode/resource=' . basename(__FILE__) . '">
             ]>
-            <foo></foo>', 'stdClass', 'xml');
+            <foo></foo>', \stdClass::class, 'xml');
     }
 
     public function testVirtualAttributes()
@@ -190,7 +190,7 @@ class XmlSerializationTest extends BaseSerializationTest
     public function testUnserializeMissingArray()
     {
         $xml = '<result></result>';
-        $object = $this->serializer->deserialize($xml, 'JMS\Serializer\Tests\Fixtures\ObjectWithAbsentXmlListNode', 'xml');
+        $object = $this->serializer->deserialize($xml, \JMS\Serializer\Tests\Fixtures\ObjectWithAbsentXmlListNode::class, 'xml');
         $this->assertEquals($object->absentAndNs, array());
 
         $xml = '<result xmlns:x="http://www.example.com">
@@ -198,7 +198,7 @@ class XmlSerializationTest extends BaseSerializationTest
                         <x:entry>foo</x:entry>
                     </absent_and_ns>
                   </result>';
-        $object = $this->serializer->deserialize($xml, 'JMS\Serializer\Tests\Fixtures\ObjectWithAbsentXmlListNode', 'xml');
+        $object = $this->serializer->deserialize($xml, \JMS\Serializer\Tests\Fixtures\ObjectWithAbsentXmlListNode::class, 'xml');
         $this->assertEquals($object->absentAndNs, array("foo"));
     }
 
@@ -537,7 +537,7 @@ class XmlSerializationTest extends BaseSerializationTest
     public function testDeserializeEmptyString()
     {
         $this->expectException(\JMS\Serializer\Exception\XmlErrorException::class);
-        $this->deserialize('', 'stdClass');
+        $this->deserialize('', \stdClass::class);
     }
 
     public function testEvaluatesToNull()
