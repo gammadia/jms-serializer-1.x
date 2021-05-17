@@ -11,7 +11,7 @@ class NullDriverTest extends \PHPUnit\Framework\TestCase
     {
         $driver = new NullDriver();
 
-        $metadata = $driver->loadMetadataForClass(new \ReflectionClass('stdClass'));
+        $metadata = $driver->loadMetadataForClass(new \ReflectionClass(\stdClass::class));
 
         $this->assertInstanceOf(ClassMetadata::class, $metadata);
         $this->assertCount(0, $metadata->propertyMetadata);

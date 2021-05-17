@@ -15,8 +15,8 @@ class PhpCollectionHandler implements SubscribingHandlerInterface
         $methods = array();
         $formats = array('json', 'xml', 'yml');
         $collectionTypes = array(
-            'PhpCollection\Sequence' => 'Sequence',
-            'PhpCollection\Map' => 'Map',
+            \PhpCollection\Sequence::class => 'Sequence',
+            \PhpCollection\Map::class => 'Map',
         );
 
         foreach ($collectionTypes as $type => $shortName) {

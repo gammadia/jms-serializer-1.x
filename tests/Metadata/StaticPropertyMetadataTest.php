@@ -8,7 +8,7 @@ class StaticPropertyMetadataTest extends AbstractPropertyMetadataTest
 {
     public function testSerialization()
     {
-        $meta = new StaticPropertyMetadata('stdClass', 'foo', 'fooVal');
+        $meta = new StaticPropertyMetadata(\stdClass::class, 'foo', 'fooVal');
         $this->setNonDefaultMetadataValues($meta);
 
         $restoredMeta = unserialize(serialize($meta));

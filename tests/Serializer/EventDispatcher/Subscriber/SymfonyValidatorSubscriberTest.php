@@ -65,7 +65,7 @@ class SymfonyValidatorSubscriberTest extends \PHPUnit\Framework\TestCase
     {
         $this->validator->expects($this->once())
             ->method('validate')
-            ->with($this->isInstanceOf('JMS\Serializer\Tests\Fixtures\AuthorList'), array('Foo'))
+            ->with($this->isInstanceOf(\JMS\Serializer\Tests\Fixtures\AuthorList::class), array('Foo'))
             ->will($this->returnValue(new ConstraintViolationList()));
 
         $subscriber = $this->subscriber;
@@ -76,7 +76,7 @@ class SymfonyValidatorSubscriberTest extends \PHPUnit\Framework\TestCase
             ->build()
             ->deserialize(
                 '{"authors":[{"full_name":"foo"},{"full_name":"bar"}]}',
-                'JMS\Serializer\Tests\Fixtures\AuthorList',
+                \JMS\Serializer\Tests\Fixtures\AuthorList::class,
                 'json',
                 DeserializationContext::create()->setAttribute('validation_groups', array('Foo'))
             );

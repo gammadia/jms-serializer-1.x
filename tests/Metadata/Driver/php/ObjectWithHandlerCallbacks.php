@@ -4,9 +4,9 @@ use JMS\Serializer\GraphNavigator;
 use JMS\Serializer\Metadata\ClassMetadata;
 use JMS\Serializer\Metadata\PropertyMetadata;
 
-$metadata = new ClassMetadata('JMS\Serializer\Tests\Fixtures\ObjectWithHandlerCallbacks');
+$metadata = new ClassMetadata(\JMS\Serializer\Tests\Fixtures\ObjectWithHandlerCallbacks::class);
 
-$pMetadata = new PropertyMetadata('JMS\Serializer\Tests\Fixtures\ObjectWithHandlerCallbacks', 'name');
+$pMetadata = new PropertyMetadata(\JMS\Serializer\Tests\Fixtures\ObjectWithHandlerCallbacks::class, 'name');
 $pMetadata->type = 'string';
 $metadata->addPropertyMetadata($pMetadata);
 

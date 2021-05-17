@@ -124,15 +124,15 @@ class JsonSerializationTest extends BaseSerializationTest
     {
         $this->dispatcher->addListener('serializer.post_serialize', function (Event $event) {
             $this->assertFalse($event->getVisitor()->hasData('_links'));
-        }, 'JMS\Serializer\Tests\Fixtures\Author', 'json');
+        }, \JMS\Serializer\Tests\Fixtures\Author::class, 'json');
 
         $this->dispatcher->addSubscriber(new LinkAddingSubscriber());
 
         $this->dispatcher->addListener('serializer.post_serialize', function (Event $event) {
             $this->assertTrue($event->getVisitor()->hasData('_links'));
-        }, 'JMS\Serializer\Tests\Fixtures\Author', 'json');
+        }, \JMS\Serializer\Tests\Fixtures\Author::class, 'json');
 
-        $this->handlerRegistry->registerHandler(GraphNavigator::DIRECTION_SERIALIZATION, 'JMS\Serializer\Tests\Fixtures\AuthorList', 'json',
+        $this->handlerRegistry->registerHandler(GraphNavigator::DIRECTION_SERIALIZATION, \JMS\Serializer\Tests\Fixtures\AuthorList::class, 'json',
             function (VisitorInterface $visitor, AuthorList $data, array $type, Context $context) {
                 return $visitor->visitArray(iterator_to_array($data), $type, $context);
             }
@@ -148,7 +148,7 @@ class JsonSerializationTest extends BaseSerializationTest
     public function testReplaceNameInOutput()
     {
         $this->dispatcher->addSubscriber(new ReplaceNameSubscriber());
-        $this->handlerRegistry->registerHandler(GraphNavigator::DIRECTION_SERIALIZATION, 'JMS\Serializer\Tests\Fixtures\AuthorList', 'json',
+        $this->handlerRegistry->registerHandler(GraphNavigator::DIRECTION_SERIALIZATION, \JMS\Serializer\Tests\Fixtures\AuthorList::class, 'json',
             function (VisitorInterface $visitor, AuthorList $data, array $type, Context $context) {
                 return $visitor->visitArray(iterator_to_array($data), $type, $context);
             }
@@ -166,17 +166,17 @@ class JsonSerializationTest extends BaseSerializationTest
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('Invalid data "baz"(string), expected "JMS\Serializer\Tests\Fixtures\Author".');
         $content = $this->getContent('object_with_object_property_no_array_to_author');
-        $object = $this->deserialize($content, 'JMS\Serializer\Tests\Fixtures\ObjectWithObjectProperty');
+        $object = $this->deserialize($content, \JMS\Serializer\Tests\Fixtures\ObjectWithObjectProperty::class);
         $this->assertEquals('bar', $object->getFoo());
-        $this->assertInstanceOf('JMS\Serializer\Tests\Fixtures\Author', $object->getAuthor());
+        $this->assertInstanceOf(\JMS\Serializer\Tests\Fixtures\Author::class, $object->getAuthor());
     }
 
     public function testDeserializingObjectWithObjectProperty()
     {
         $content = $this->getContent('object_with_object_property');
-        $object = $this->deserialize($content, 'JMS\Serializer\Tests\Fixtures\ObjectWithObjectProperty');
+        $object = $this->deserialize($content, \JMS\Serializer\Tests\Fixtures\ObjectWithObjectProperty::class);
         $this->assertEquals('bar', $object->getFoo());
-        $this->assertInstanceOf('JMS\Serializer\Tests\Fixtures\Author', $object->getAuthor());
+        $this->assertInstanceOf(\JMS\Serializer\Tests\Fixtures\Author::class, $object->getAuthor());
         $this->assertEquals('baz', $object->getAuthor()->getName());
     }
 
@@ -225,7 +225,7 @@ class JsonSerializationTest extends BaseSerializationTest
     {
         $visitor = $this->serializationVisitors->get('json')->get();
         $functionToCall = 'visit' . ucfirst($primitiveType);
-        $result = $visitor->$functionToCall($data, array(), $this->createMock('JMS\Serializer\Context'));
+        $result = $visitor->$functionToCall($data, array(), $this->createMock(\JMS\Serializer\Context::class));
         if ($primitiveType == 'double') {
             $primitiveType = 'float';
         }
@@ -402,7 +402,7 @@ class LinkAddingSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            array('event' => 'serializer.post_serialize', 'method' => 'onPostSerialize', 'format' => 'json', 'class' => 'JMS\Serializer\Tests\Fixtures\Author'),
+            array('event' => 'serializer.post_serialize', 'method' => 'onPostSerialize', 'format' => 'json', 'class' => \JMS\Serializer\Tests\Fixtures\Author::class),
         );
     }
 }
@@ -417,7 +417,7 @@ class ReplaceNameSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            array('event' => 'serializer.post_serialize', 'method' => 'onPostSerialize', 'format' => 'json', 'class' => 'JMS\Serializer\Tests\Fixtures\Author'),
+            array('event' => 'serializer.post_serialize', 'method' => 'onPostSerialize', 'format' => 'json', 'class' => \JMS\Serializer\Tests\Fixtures\Author::class),
         );
     }
 }

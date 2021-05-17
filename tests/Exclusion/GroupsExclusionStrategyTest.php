@@ -16,7 +16,7 @@ class GroupsExclusionStrategyTest extends \PHPUnit\Framework\TestCase
      */
     public function testUninitializedContextIsWorking(array $propertyGroups, array $groups, $exclude)
     {
-        $metadata = new StaticPropertyMetadata('stdClass', 'prop', 'propVal');
+        $metadata = new StaticPropertyMetadata(\stdClass::class, 'prop', 'propVal');
         $metadata->groups = $propertyGroups;
 
         $strat = new GroupsExclusionStrategy($groups);
@@ -62,7 +62,7 @@ class GroupsExclusionStrategyTest extends \PHPUnit\Framework\TestCase
         $context = SerializationContext::create();
 
         foreach ($propsVisited as $prop) {
-            $metadata = new StaticPropertyMetadata('stdClass', $prop, 'propVal');
+            $metadata = new StaticPropertyMetadata(\stdClass::class, $prop, 'propVal');
             $context->pushPropertyMetadata($metadata);
         }
 

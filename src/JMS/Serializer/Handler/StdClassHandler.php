@@ -20,7 +20,7 @@ class StdClassHandler implements SubscribingHandlerInterface
         foreach ($formats as $format) {
             $methods[] = array(
                 'direction' => GraphNavigator::DIRECTION_SERIALIZATION,
-                'type' => 'stdClass',
+                'type' => \stdClass::class,
                 'format' => $format,
                 'method' => 'serializeStdClass',
             );
@@ -31,14 +31,14 @@ class StdClassHandler implements SubscribingHandlerInterface
 
     public function serializeStdClass(VisitorInterface $visitor, \stdClass $stdClass, array $type, Context $context)
     {
-        $classMetadata = $context->getMetadataFactory()->getMetadataForClass('stdClass');
-        $visitor->startVisitingObject($classMetadata, $stdClass, array('name' => 'stdClass'), $context);
+        $classMetadata = $context->getMetadataFactory()->getMetadataForClass(\stdClass::class);
+        $visitor->startVisitingObject($classMetadata, $stdClass, array('name' => \stdClass::class), $context);
 
         foreach ((array)$stdClass as $name => $value) {
-            $metadata = new StaticPropertyMetadata('stdClass', $name, $value);
+            $metadata = new StaticPropertyMetadata(\stdClass::class, $name, $value);
             $visitor->visitProperty($metadata, $value, $context);
         }
 
-        return $visitor->endVisitingObject($classMetadata, $stdClass, array('name' => 'stdClass'), $context);
+        return $visitor->endVisitingObject($classMetadata, $stdClass, array('name' => \stdClass::class), $context);
     }
 }

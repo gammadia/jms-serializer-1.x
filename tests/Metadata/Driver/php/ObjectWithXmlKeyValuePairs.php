@@ -2,7 +2,7 @@
 use JMS\Serializer\Metadata\ClassMetadata;
 use JMS\Serializer\Metadata\PropertyMetadata;
 
-$className = 'JMS\Serializer\Tests\Fixtures\ObjectWithXmlKeyValuePairs';
+$className = \JMS\Serializer\Tests\Fixtures\ObjectWithXmlKeyValuePairs::class;
 
 $metadata = new ClassMetadata($className);
 

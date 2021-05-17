@@ -23,7 +23,7 @@ class ContextTest extends \PHPUnit\Framework\TestCase
 
         $self = $this;
 
-        $exclusionStrategy = $this->createMock('JMS\Serializer\Exclusion\ExclusionStrategyInterface');
+        $exclusionStrategy = $this->createMock(\JMS\Serializer\Exclusion\ExclusionStrategyInterface::class);
         $exclusionStrategy->expects($this->any())
             ->method('shouldSkipClass')
             ->with($this->anything(), $this->callback(function (SerializationContext $context) use ($self, $objects) {
@@ -31,7 +31,7 @@ class ContextTest extends \PHPUnit\Framework\TestCase
 
                 if ($context->getObject() === $objects[0]) {
                     $expectedDepth = 1;
-                    $expectedPath = 'JMS\Serializer\Tests\Fixtures\Node';
+                    $expectedPath = \JMS\Serializer\Tests\Fixtures\Node::class;
                 } elseif ($context->getObject() === $objects[1]) {
                     $expectedDepth = 2;
                     $expectedPath = 'JMS\Serializer\Tests\Fixtures\Node -> JMS\Serializer\Tests\Fixtures\Node';
@@ -57,7 +57,7 @@ class ContextTest extends \PHPUnit\Framework\TestCase
 
                 if ($context->getObject() === $objects[0]) {
                     $expectedDepth = 1;
-                    $expectedPath = 'JMS\Serializer\Tests\Fixtures\Node';
+                    $expectedPath = \JMS\Serializer\Tests\Fixtures\Node::class;
                 } elseif ($context->getObject() === $objects[1]) {
                     $expectedDepth = 2;
                     $expectedPath = 'JMS\Serializer\Tests\Fixtures\Node -> JMS\Serializer\Tests\Fixtures\Node';
@@ -88,7 +88,7 @@ class ContextTest extends \PHPUnit\Framework\TestCase
         ));
         $self = $this;
 
-        $exclusionStrategy = $this->createMock('JMS\Serializer\Exclusion\ExclusionStrategyInterface');
+        $exclusionStrategy = $this->createMock(\JMS\Serializer\Exclusion\ExclusionStrategyInterface::class);
         $exclusionStrategy->expects($this->any())
             ->method('shouldSkipClass')
             ->will($this->returnCallback(function (ClassMetadata $classMetadata, SerializationContext $context) use ($self, $object, $child) {
@@ -100,7 +100,7 @@ class ContextTest extends \PHPUnit\Framework\TestCase
 
                 if ($child === $context->getObject()) {
                     $self->assertEquals(2, $stack->count());
-                    $self->assertEquals('JMS\Serializer\Tests\Fixtures\Node', $stack[1]->name);
+                    $self->assertEquals(\JMS\Serializer\Tests\Fixtures\Node::class, $stack[1]->name);
                     $self->assertEquals('children', $stack[0]->name);
                 }
 
@@ -112,16 +112,16 @@ class ContextTest extends \PHPUnit\Framework\TestCase
             ->will($this->returnCallback(function (PropertyMetadata $propertyMetadata, SerializationContext $context) use ($self, $object, $child) {
                 $stack = $context->getMetadataStack();
 
-                if ('JMS\Serializer\Tests\Fixtures\Node' === $propertyMetadata->class && $propertyMetadata->name === 'children') {
+                if (\JMS\Serializer\Tests\Fixtures\Node::class === $propertyMetadata->class && $propertyMetadata->name === 'children') {
                     $self->assertEquals(1, $stack->count());
-                    $self->assertEquals('JMS\Serializer\Tests\Fixtures\Node', $stack[0]->name);
+                    $self->assertEquals(\JMS\Serializer\Tests\Fixtures\Node::class, $stack[0]->name);
                 }
 
-                if ('JMS\Serializer\Tests\Fixtures\InlineChild' === $propertyMetadata->class) {
+                if (\JMS\Serializer\Tests\Fixtures\InlineChild::class === $propertyMetadata->class) {
                     $self->assertEquals(3, $stack->count());
-                    $self->assertEquals('JMS\Serializer\Tests\Fixtures\Node', $stack[2]->name);
+                    $self->assertEquals(\JMS\Serializer\Tests\Fixtures\Node::class, $stack[2]->name);
                     $self->assertEquals('children', $stack[1]->name);
-                    $self->assertEquals('JMS\Serializer\Tests\Fixtures\InlineChild', $stack[0]->name);
+                    $self->assertEquals(\JMS\Serializer\Tests\Fixtures\InlineChild::class, $stack[0]->name);
                 }
 
                 return false;

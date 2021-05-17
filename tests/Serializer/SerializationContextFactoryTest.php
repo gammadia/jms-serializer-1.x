@@ -37,7 +37,7 @@ class SerializationContextFactoryTest extends \PHPUnit\Framework\TestCase
 
     public function testSerializeUseProvidedSerializationContext()
     {
-        $contextFactoryMock = $this->getMockForAbstractClass('JMS\\Serializer\\ContextFactory\\SerializationContextFactoryInterface');
+        $contextFactoryMock = $this->getMockForAbstractClass(\JMS\Serializer\ContextFactory\SerializationContextFactoryInterface::class);
         $context = new SerializationContext();
         $context->setSerializeNull(true);
 
@@ -55,7 +55,7 @@ class SerializationContextFactoryTest extends \PHPUnit\Framework\TestCase
 
     public function testDeserializeUseProvidedDeserializationContext()
     {
-        $contextFactoryMock = $this->getMockForAbstractClass('JMS\\Serializer\\ContextFactory\\DeserializationContextFactoryInterface');
+        $contextFactoryMock = $this->getMockForAbstractClass(\JMS\Serializer\ContextFactory\DeserializationContextFactoryInterface::class);
         $context = new DeserializationContext();
 
         $contextFactoryMock
@@ -72,7 +72,7 @@ class SerializationContextFactoryTest extends \PHPUnit\Framework\TestCase
 
     public function testToArrayUseProvidedSerializationContext()
     {
-        $contextFactoryMock = $this->getMockForAbstractClass('JMS\\Serializer\\ContextFactory\\SerializationContextFactoryInterface');
+        $contextFactoryMock = $this->getMockForAbstractClass(\JMS\Serializer\ContextFactory\SerializationContextFactoryInterface::class);
         $context = new SerializationContext();
         $context->setSerializeNull(true);
 
@@ -90,7 +90,7 @@ class SerializationContextFactoryTest extends \PHPUnit\Framework\TestCase
 
     public function testFromArrayUseProvidedDeserializationContext()
     {
-        $contextFactoryMock = $this->getMockForAbstractClass('JMS\\Serializer\\ContextFactory\\DeserializationContextFactoryInterface');
+        $contextFactoryMock = $this->getMockForAbstractClass(\JMS\Serializer\ContextFactory\DeserializationContextFactoryInterface::class);
         $context = new DeserializationContext();
 
         $contextFactoryMock

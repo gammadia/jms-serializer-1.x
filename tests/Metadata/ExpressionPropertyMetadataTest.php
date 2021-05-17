@@ -8,7 +8,7 @@ class ExpressionPropertyMetadataTest extends AbstractPropertyMetadataTest
 {
     public function testSerialization()
     {
-        $meta = new ExpressionPropertyMetadata('stdClass', 'foo', 'fooExpr');
+        $meta = new ExpressionPropertyMetadata(\stdClass::class, 'foo', 'fooExpr');
         $this->setNonDefaultMetadataValues($meta);
 
         $restoredMeta = unserialize(serialize($meta));

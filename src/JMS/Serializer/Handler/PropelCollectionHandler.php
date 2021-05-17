@@ -15,10 +15,10 @@ class PropelCollectionHandler implements SubscribingHandlerInterface
         $formats = array('json', 'xml', 'yml');
         //Note: issue when handling inheritance
         $collectionTypes = array(
-            'PropelCollection',
-            'PropelObjectCollection',
-            'PropelArrayCollection',
-            'PropelOnDemandCollection'
+            \PropelCollection::class,
+            \PropelObjectCollection::class,
+            \PropelArrayCollection::class,
+            \PropelOnDemandCollection::class
         );
 
         foreach ($collectionTypes as $type) {

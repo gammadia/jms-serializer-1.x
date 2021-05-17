@@ -60,7 +60,7 @@ class SymfonyValidatorValidatorSubscriberTest extends \PHPUnit\Framework\TestCas
     {
         $this->validator->expects($this->once())
             ->method('validate')
-            ->with($this->isInstanceOf('JMS\Serializer\Tests\Fixtures\AuthorList'), null, array('Foo'))
+            ->with($this->isInstanceOf(\JMS\Serializer\Tests\Fixtures\AuthorList::class), null, array('Foo'))
             ->will($this->returnValue(new ConstraintViolationList()));
 
         $subscriber = $this->subscriber;
@@ -71,7 +71,7 @@ class SymfonyValidatorValidatorSubscriberTest extends \PHPUnit\Framework\TestCas
             ->build()
             ->deserialize(
                 '{"authors":[{"full_name":"foo"},{"full_name":"bar"}]}',
-                'JMS\Serializer\Tests\Fixtures\AuthorList',
+                \JMS\Serializer\Tests\Fixtures\AuthorList::class,
                 'json',
                 DeserializationContext::create()->setAttribute('validation_groups', array('Foo'))
             );
@@ -81,11 +81,11 @@ class SymfonyValidatorValidatorSubscriberTest extends \PHPUnit\Framework\TestCas
 
     protected function setUp(): void
     {
-        if (!interface_exists('Symfony\Component\Validator\Validator\ValidatorInterface')) {
+        if (!interface_exists(\Symfony\Component\Validator\Validator\ValidatorInterface::class)) {
             $this->markTestSkipped('Symfony\Component\Validator\Validator\ValidatorInterface ^2.6|^3.0 is not available');
         }
 
-        $this->validator = $this->createMock('Symfony\Component\Validator\Validator\ValidatorInterface');
+        $this->validator = $this->createMock(\Symfony\Component\Validator\Validator\ValidatorInterface::class);
         $this->subscriber = new SymfonyValidatorValidatorSubscriber($this->validator);
     }
 }

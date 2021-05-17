@@ -55,7 +55,7 @@ class ArrayTest extends \PHPUnit\Framework\TestCase
      */
     public function testToArrayWithScalar($input)
     {
-        $this->expectException('JMS\Serializer\Exception\RuntimeException');
+        $this->expectException(\JMS\Serializer\Exception\RuntimeException::class);
         $this->expectExceptionMessage(sprintf(
             'The input data of type "%s" did not convert to an array, but got a result of type "%s".',
             gettype($input),
@@ -85,7 +85,7 @@ class ArrayTest extends \PHPUnit\Framework\TestCase
         );
 
         $expected = new Order(new Price(2.5));
-        $result = $this->serializer->fromArray($data, 'JMS\Serializer\Tests\Fixtures\Order');
+        $result = $this->serializer->fromArray($data, \JMS\Serializer\Tests\Fixtures\Order::class);
 
         $this->assertEquals($expected, $result);
     }

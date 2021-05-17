@@ -23,12 +23,12 @@ class FormErrorHandler implements SubscribingHandlerInterface
         foreach (array('xml', 'json', 'yml') as $format) {
             $methods[] = array(
                 'direction' => GraphNavigator::DIRECTION_SERIALIZATION,
-                'type' => 'Symfony\Component\Form\Form',
+                'type' => \Symfony\Component\Form\Form::class,
                 'format' => $format,
             );
             $methods[] = array(
                 'direction' => GraphNavigator::DIRECTION_SERIALIZATION,
-                'type' => 'Symfony\Component\Form\FormError',
+                'type' => \Symfony\Component\Form\FormError::class,
                 'format' => $format,
             );
         }
