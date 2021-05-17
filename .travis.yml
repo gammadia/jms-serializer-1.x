@@ -9,6 +9,8 @@ git:
 cache:
   directories:
     - $HOME/.composer/cache
+    - $HOME/.cache/composer
+    - var/cache
 
 jobs:
     include:
@@ -18,7 +20,6 @@ jobs:
         - php: 8.0
         - php: 7.2
           env: COMPOSER_FLAGS='--prefer-lowest --prefer-stable'
-    fast_finish: true
 
 before_script:
     - composer self-update
@@ -32,4 +33,3 @@ script:
 
 after_script:
     - vendor/bin/phpstan
-
