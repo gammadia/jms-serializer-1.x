@@ -82,7 +82,7 @@ class DoctrineProxySubscriber implements EventSubscriberInterface
 
         $object = $event->getObject();
         if ($object instanceof Proxy) {
-            $parentClassName = get_parent_class($object);
+            $parentClassName = (string) get_parent_class($object);
 
             // check if this is already a re-dispatch
             if (strtolower($class) !== strtolower($parentClassName)) {
