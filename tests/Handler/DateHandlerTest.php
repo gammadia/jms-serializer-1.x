@@ -7,7 +7,7 @@ use JMS\Serializer\JsonDeserializationVisitor;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\VisitorInterface;
 
-class DateHandlerTest extends \PHPUnit_Framework_TestCase
+class DateHandlerTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var DateHandler
@@ -36,12 +36,13 @@ class DateHandlerTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider getParams
      * @param array $params
+     * @doesNotPerformAssertions
      */
     public function testSerializeDate(array $params)
     {
-        $context = $this->getMockBuilder(SerializationContext::class)->getMock();
+        $context = $this->createMock(SerializationContext::class);
 
-        $visitor = $this->getMockBuilder(VisitorInterface::class)->getMock();
+        $visitor = $this->createMock(VisitorInterface::class);
         $visitor->method('visitString')->with('2017-06-18');
 
         $datetime = new \DateTime('2017-06-18 14:30:59', $this->timezone);
@@ -51,9 +52,7 @@ class DateHandlerTest extends \PHPUnit_Framework_TestCase
 
     public function testTimePartGetsRemoved()
     {
-        $visitor = $this->getMockBuilder(JsonDeserializationVisitor::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $visitor = $this->createMock(JsonDeserializationVisitor::class);
 
         $type = ['name' => 'DateTime', 'params' => ['Y-m-d', '', 'Y-m-d|']];
         $this->assertEquals(
@@ -64,9 +63,7 @@ class DateHandlerTest extends \PHPUnit_Framework_TestCase
 
     public function testTimePartGetsPreserved()
     {
-        $visitor = $this->getMockBuilder(JsonDeserializationVisitor::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $visitor = $this->createMock(JsonDeserializationVisitor::class);
 
         $expectedDateTime = \DateTime::createFromFormat('Y-m-d', '2017-06-18', $this->timezone);
         // if the test is executed exactly at midnight, it might not detect a possible failure since the time component will be "00:00:00
@@ -93,9 +90,7 @@ class DateHandlerTest extends \PHPUnit_Framework_TestCase
 
     public function testTimeZoneGetsPreservedWithUnixTimestamp()
     {
-        $visitor = $this->getMockBuilder(JsonDeserializationVisitor::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $visitor = $this->createMock(JsonDeserializationVisitor::class);
 
 
         $timestamp = time();
@@ -115,9 +110,7 @@ class DateHandlerTest extends \PHPUnit_Framework_TestCase
 
     public function testImmutableTimeZoneGetsPreservedWithUnixTimestamp()
     {
-        $visitor = $this->getMockBuilder(JsonDeserializationVisitor::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $visitor = $this->createMock(JsonDeserializationVisitor::class);
 
 
         $timestamp = time();

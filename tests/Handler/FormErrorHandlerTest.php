@@ -13,7 +13,7 @@ use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\Forms;
 use Symfony\Component\Translation\Translator;
 
-class FormErrorHandlerTest extends \PHPUnit_Framework_TestCase
+class FormErrorHandlerTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var \JMS\Serializer\Handler\FormErrorHandler
@@ -40,7 +40,7 @@ class FormErrorHandlerTest extends \PHPUnit_Framework_TestCase
         $this->handler = new FormErrorHandler(new Translator('en'));
         $this->visitor = new JsonSerializationVisitor(new SerializedNameAnnotationStrategy(new CamelCaseNamingStrategy()));
         $this->dispatcher = new EventDispatcher();
-        $this->factory = $this->getMockBuilder('Symfony\Component\Form\FormFactoryInterface')->getMock();
+        $this->factory = $this->createMock('Symfony\Component\Form\FormFactoryInterface');
     }
 
     protected function tearDown()
@@ -112,10 +112,13 @@ class FormErrorHandlerTest extends \PHPUnit_Framework_TestCase
 
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testDefaultTranslationDomain()
     {
         /** @var Translator|\PHPUnit_Framework_MockObject_MockObject $translator */
-        $translator = $this->getMockBuilder('Symfony\Component\Translation\TranslatorInterface')->getMock();
+        $translator = $this->createMock('Symfony\Component\Translation\TranslatorInterface');
 
         $handler = new FormErrorHandler($translator);
 
@@ -127,7 +130,7 @@ class FormErrorHandlerTest extends \PHPUnit_Framework_TestCase
                 $this->equalTo('validators')
             );
 
-        $formError = $this->getMockBuilder('Symfony\Component\Form\FormError')->disableOriginalConstructor()->getMock();
+        $formError = $this->createMock('Symfony\Component\Form\FormError');
         $formError->expects($this->once())->method('getMessageTemplate')->willReturn('error!');
         $formError->expects($this->once())->method('getMessagePluralization')->willReturn(null);
         $formError->expects($this->once())->method('getMessageParameters')->willReturn([]);
@@ -135,10 +138,13 @@ class FormErrorHandlerTest extends \PHPUnit_Framework_TestCase
         $this->invokeMethod($handler, 'getErrorMessage', [$formError,]);
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testDefaultTranslationDomainWithPluralTranslation()
     {
         /** @var Translator|\PHPUnit_Framework_MockObject_MockObject $translator */
-        $translator = $this->getMockBuilder('Symfony\Component\Translation\TranslatorInterface')->getMock();
+        $translator = $this->createMock('Symfony\Component\Translation\TranslatorInterface');
 
         $handler = new FormErrorHandler($translator);
 
@@ -151,7 +157,7 @@ class FormErrorHandlerTest extends \PHPUnit_Framework_TestCase
                 $this->equalTo('validators')
             );
 
-        $formError = $this->getMockBuilder('Symfony\Component\Form\FormError')->disableOriginalConstructor()->getMock();
+        $formError = $this->createMock('Symfony\Component\Form\FormError');
         $formError->expects($this->once())->method('getMessageTemplate')->willReturn('error!');
         $formError->expects($this->exactly(2))->method('getMessagePluralization')->willReturn(0);
         $formError->expects($this->once())->method('getMessageParameters')->willReturn([]);
@@ -159,10 +165,13 @@ class FormErrorHandlerTest extends \PHPUnit_Framework_TestCase
         $this->invokeMethod($handler, 'getErrorMessage', [$formError,]);
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testCustomTranslationDomain()
     {
         /** @var Translator|\PHPUnit_Framework_MockObject_MockObject $translator */
-        $translator = $this->getMockBuilder('Symfony\Component\Translation\TranslatorInterface')->getMock();
+        $translator = $this->createMock('Symfony\Component\Translation\TranslatorInterface');
 
         $handler = new FormErrorHandler($translator, 'custom_domain');
 
@@ -174,7 +183,7 @@ class FormErrorHandlerTest extends \PHPUnit_Framework_TestCase
                 $this->equalTo('custom_domain')
             );
 
-        $formError = $this->getMockBuilder('Symfony\Component\Form\FormError')->disableOriginalConstructor()->getMock();
+        $formError = $this->createMock('Symfony\Component\Form\FormError');
         $formError->expects($this->once())->method('getMessageTemplate')->willReturn('error!');
         $formError->expects($this->once())->method('getMessagePluralization')->willReturn(null);
         $formError->expects($this->once())->method('getMessageParameters')->willReturn([]);
@@ -182,10 +191,13 @@ class FormErrorHandlerTest extends \PHPUnit_Framework_TestCase
         $this->invokeMethod($handler, 'getErrorMessage', [$formError,]);
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testCustomTranslationDomainWithPluralTranslation()
     {
         /** @var Translator|\PHPUnit_Framework_MockObject_MockObject $translator */
-        $translator = $this->getMockBuilder('Symfony\Component\Translation\TranslatorInterface')->getMock();
+        $translator = $this->createMock('Symfony\Component\Translation\TranslatorInterface');
 
         $handler = new FormErrorHandler($translator, 'custom_domain');
 
@@ -198,7 +210,7 @@ class FormErrorHandlerTest extends \PHPUnit_Framework_TestCase
                 $this->equalTo('custom_domain')
             );
 
-        $formError = $this->getMockBuilder('Symfony\Component\Form\FormError')->disableOriginalConstructor()->getMock();
+        $formError = $this->createMock('Symfony\Component\Form\FormError');
         $formError->expects($this->once())->method('getMessageTemplate')->willReturn('error!');
         $formError->expects($this->exactly(2))->method('getMessagePluralization')->willReturn(0);
         $formError->expects($this->once())->method('getMessageParameters')->willReturn([]);
@@ -226,8 +238,8 @@ class FormErrorHandlerTest extends \PHPUnit_Framework_TestCase
      */
     protected function getMockForm($name = 'name')
     {
-        $form = $this->getMockBuilder('Symfony\Component\Form\Test\FormInterface')->getMock();
-        $config = $this->getMockBuilder('Symfony\Component\Form\FormConfigInterface')->getMock();
+        $form = $this->createMock('Symfony\Component\Form\Test\FormInterface');
+        $config = $this->createMock('Symfony\Component\Form\FormConfigInterface');
 
         $form->expects($this->any())
             ->method('getName')

@@ -10,7 +10,7 @@ use JMS\Serializer\SerializationContext;
 /**
  * @author Asmir Mustafic <goetas@gmail.com>
  */
-class ExpressionLanguageExclusionStrategyTest extends \PHPUnit_Framework_TestCase
+class ExpressionLanguageExclusionStrategyTest extends \PHPUnit\Framework\TestCase
 {
     private $visitedObject;
     private $context;
@@ -21,12 +21,10 @@ class ExpressionLanguageExclusionStrategyTest extends \PHPUnit_Framework_TestCas
     {
         $this->visitedObject = new \stdClass();
 
-        $this->context = $this->getMockBuilder(SerializationContext::class)->getMock();
+        $this->context = $this->createMock(SerializationContext::class);
         $this->context->method('getObject')->willReturn($this->visitedObject);
 
-        $this->expressionEvaluator = $this->getMockBuilder(ExpressionEvaluator::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $this->expressionEvaluator = $this->createMock(ExpressionEvaluator::class);
 
         $this->exclusionStrategy = new ExpressionLanguageExclusionStrategy($this->expressionEvaluator);
     }

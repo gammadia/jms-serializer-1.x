@@ -17,7 +17,7 @@ use Symfony\Component\ExpressionLanguage\ExpressionFunction;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Symfony\Component\Filesystem\Filesystem;
 
-class SerializerBuilderTest extends \PHPUnit_Framework_TestCase
+class SerializerBuilderTest extends \PHPUnit\Framework\TestCase
 {
     /** @var SerializerBuilder */
     private $builder;
@@ -70,12 +70,10 @@ class SerializerBuilderTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('{}', $this->builder->build()->serialize(new \DateTime('2020-04-16'), 'json'));
     }
 
-    /**
-     * @expectedException JMS\Serializer\Exception\UnsupportedFormatException
-     * @expectedExceptionMessage The format "xml" is not supported for serialization.
-     */
     public function testDoesNotAddOtherVisitorsWhenConfiguredExplicitly()
     {
+        $this->expectException(\JMS\Serializer\Exception\UnsupportedFormatException::class);
+        $this->expectExceptionMessage('The format "xml" is not supported for serialization.');
         $this->assertSame(
             $this->builder,
             $this->builder->setSerializationVisitor('json', new JsonSerializationVisitor(new CamelCaseNamingStrategy()))

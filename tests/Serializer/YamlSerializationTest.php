@@ -7,41 +7,65 @@ use JMS\Serializer\SerializationContext;
 
 class YamlSerializationTest extends BaseSerializationTest
 {
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testObjectUsingTypeCasting()
     {
         $this->markTestSkipped('This is not available for the YAML format.');
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testEmptyChild()
     {
         $this->markTestSkipped('This is not available for the YAML format.');
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testSkipEmptyChild()
     {
         $this->markTestSkipped('This is not available for the YAML format.');
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testConstraintViolation()
     {
         $this->markTestSkipped('This is not available for the YAML format.');
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testConstraintViolationList()
     {
         $this->markTestSkipped('This is not available for the YAML format.');
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testFormErrors()
     {
         $this->markTestSkipped('This is not available for the YAML format.');
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testNestedFormErrors()
     {
         $this->markTestSkipped('This is not available for the YAML format.');
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testFormErrorsWithNonFormComponents()
     {
         $this->markTestSkipped('This is not available for the YAML format.');

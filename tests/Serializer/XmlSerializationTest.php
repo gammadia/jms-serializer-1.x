@@ -48,11 +48,9 @@ use PhpCollection\Map;
 
 class XmlSerializationTest extends BaseSerializationTest
 {
-    /**
-     * @expectedException JMS\Serializer\Exception\RuntimeException
-     */
     public function testInvalidUsageOfXmlValue()
     {
+        $this->expectException(\JMS\Serializer\Exception\RuntimeException::class);
         $obj = new InvalidUsageOfXmlValue();
         $this->serialize($obj);
     }
@@ -117,12 +115,10 @@ class XmlSerializationTest extends BaseSerializationTest
         $this->assertEquals($this->getContent('person_collection'), $this->serialize($personCollection));
     }
 
-    /**
-     * @expectedException JMS\Serializer\Exception\InvalidArgumentException
-     * @expectedExceptionMessage The document type "<!DOCTYPE author [<!ENTITY foo SYSTEM "php://filter/read=convert.base64-encode/resource=XmlSerializationTest.php">]>" is not allowed. If it is safe, you may add it to the whitelist configuration.
-     */
     public function testExternalEntitiesAreDisabledByDefault()
     {
+        $this->expectException(\JMS\Serializer\Exception\InvalidArgumentException::class);
+        $this->expectExceptionMessage('The document type "<!DOCTYPE author [<!ENTITY foo SYSTEM "php://filter/read=convert.base64-encode/resource=XmlSerializationTest.php">]>" is not allowed. If it is safe, you may add it to the whitelist configuration.');
         $this->deserialize('<?xml version="1.0"?>
             <!DOCTYPE author [
                 <!ENTITY foo SYSTEM "php://filter/read=convert.base64-encode/resource=' . basename(__FILE__) . '">
@@ -132,15 +128,16 @@ class XmlSerializationTest extends BaseSerializationTest
             </result>', 'stdClass');
     }
 
-    /**
-     * @expectedException JMS\Serializer\Exception\InvalidArgumentException
-     * @expectedExceptionMessage The document type "<!DOCTYPE foo>" is not allowed. If it is safe, you may add it to the whitelist configuration.
-     */
     public function testDocumentTypesAreNotAllowed()
     {
+        $this->expectException(\JMS\Serializer\Exception\InvalidArgumentException::class);
+        $this->expectExceptionMessage('The document type "<!DOCTYPE foo>" is not allowed. If it is safe, you may add it to the whitelist configuration.');
         $this->deserialize('<?xml version="1.0"?><!DOCTYPE foo><foo></foo>', 'stdClass');
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testWhitelistedDocumentTypesAreAllowed()
     {
         $this->deserializationVisitors->get('xml')->get()->setDoctypeWhitelist(array(
@@ -319,12 +316,10 @@ class XmlSerializationTest extends BaseSerializationTest
         $this->assertEquals($this->getContent($key . '_no_cdata'), $serializer->serialize($value, $this->getFormat()));
     }
 
-    /**
-     * @expectedException JMS\Serializer\Exception\RuntimeException
-     * @expectedExceptionMessage Unsupported value type for XML attribute map. Expected array but got object
-     */
     public function testXmlAttributeMapWithoutArray()
     {
+        $this->expectException(\JMS\Serializer\Exception\RuntimeException::class);
+        $this->expectExceptionMessage('Unsupported value type for XML attribute map. Expected array but got object');
         $attributes = new \ArrayObject(array(
             'type' => 'text',
         ));
@@ -357,6 +352,9 @@ class XmlSerializationTest extends BaseSerializationTest
         $this->assertEquals($object, $deserialized);
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testDeserializingNull()
     {
         $this->markTestSkipped('Not supported in XML.');
@@ -536,17 +534,15 @@ class XmlSerializationTest extends BaseSerializationTest
         );
     }
 
-    /**
-     * @expectedException \JMS\Serializer\Exception\XmlErrorException
-     */
     public function testDeserializeEmptyString()
     {
+        $this->expectException(\JMS\Serializer\Exception\XmlErrorException::class);
         $this->deserialize('', 'stdClass');
     }
 
     public function testEvaluatesToNull()
     {
-        $namingStrategy = $this->getMockBuilder(PropertyNamingStrategyInterface::class)->getMock();
+        $namingStrategy = $this->createMock(PropertyNamingStrategyInterface::class);
         $visitor = new XmlDeserializationVisitor($namingStrategy);
         $xsdNilAsTrueElement = simplexml_load_string('<empty xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>');
         $xsdNilAsOneElement = simplexml_load_string('<empty xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="1"/>');

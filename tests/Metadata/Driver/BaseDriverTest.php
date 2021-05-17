@@ -16,7 +16,7 @@ use JMS\Serializer\Tests\Fixtures\Discriminator\ObjectWithXmlNamespaceDiscrimina
 use JMS\Serializer\Tests\Fixtures\ParentSkipWithEmptyChild;
 use Metadata\Driver\DriverInterface;
 
-abstract class BaseDriverTest extends \PHPUnit_Framework_TestCase
+abstract class BaseDriverTest extends \PHPUnit\Framework\TestCase
 {
     public function testLoadBlogPostMetadata()
     {
@@ -516,6 +516,7 @@ abstract class BaseDriverTest extends \PHPUnit_Framework_TestCase
         $first = $this->getDriver()->loadMetadataForClass(new \ReflectionClass('JMS\Serializer\Tests\Fixtures\ExcludePublicAccessor'));
 
         if ($this instanceof PhpDriverTest) {
+            $this->addToAssertionCount(1);
             return;
         }
         $this->assertArrayHasKey('id', $first->propertyMetadata);

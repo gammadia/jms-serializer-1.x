@@ -31,7 +31,7 @@ use JMS\Serializer\VisitorInterface;
 use Doctrine\Persistence\Proxy;
 use Doctrine\DBAL\Types\StringType;
 
-class ObjectConstructorTest extends \PHPUnit_Framework_TestCase
+class ObjectConstructorTest extends \PHPUnit\Framework\TestCase
 {
     /** @var ManagerRegistry */
     private $registry;
@@ -54,7 +54,7 @@ class ObjectConstructorTest extends \PHPUnit_Framework_TestCase
         $em->flush();
         $em->clear();
 
-        $fallback = $this->getMockBuilder(ObjectConstructorInterface::class)->getMock();
+        $fallback = $this->createMock(ObjectConstructorInterface::class);
 
         $type = array('name' => Author::class, 'params' => array());
         $class = new ClassMetadata(Author::class);
@@ -73,7 +73,7 @@ class ObjectConstructorTest extends \PHPUnit_Framework_TestCase
         $em->persist($author);
         $em->flush();
 
-        $fallback = $this->getMockBuilder(ObjectConstructorInterface::class)->getMock();
+        $fallback = $this->createMock(ObjectConstructorInterface::class);
 
         $type = array('name' => Author::class, 'params' => array());
         $class = new ClassMetadata(Author::class);
@@ -86,7 +86,7 @@ class ObjectConstructorTest extends \PHPUnit_Framework_TestCase
 
     public function testMissingAuthor()
     {
-        $fallback = $this->getMockBuilder(ObjectConstructorInterface::class)->getMock();
+        $fallback = $this->createMock(ObjectConstructorInterface::class);
 
         $type = array('name' => Author::class, 'params' => array());
         $class = new ClassMetadata(Author::class);
@@ -100,7 +100,7 @@ class ObjectConstructorTest extends \PHPUnit_Framework_TestCase
     {
         $author = new Author('John');
 
-        $fallback = $this->getMockBuilder(ObjectConstructorInterface::class)->getMock();
+        $fallback = $this->createMock(ObjectConstructorInterface::class);
         $fallback->expects($this->once())->method('construct')->willReturn($author);
 
         $type = array('name' => Author::class, 'params' => array());
@@ -115,7 +115,7 @@ class ObjectConstructorTest extends \PHPUnit_Framework_TestCase
     {
         $author = new \JMS\Serializer\Tests\Fixtures\DoctrinePHPCR\Author('foo');
 
-        $fallback = $this->getMockBuilder(ObjectConstructorInterface::class)->getMock();
+        $fallback = $this->createMock(ObjectConstructorInterface::class);
         $fallback->expects($this->once())->method('construct')->willReturn($author);
 
         $type = array('name' => Author::class, 'params' => array());
@@ -134,7 +134,7 @@ class ObjectConstructorTest extends \PHPUnit_Framework_TestCase
         $em->persist($author);
         $em->flush();
 
-        $fallback = $this->getMockBuilder(ObjectConstructorInterface::class)->getMock();
+        $fallback = $this->createMock(ObjectConstructorInterface::class);
 
         $type = array('name' => Author::class, 'params' => array());
         $class = new ClassMetadata(Author::class);
@@ -144,12 +144,10 @@ class ObjectConstructorTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($author, $authorFetched);
     }
 
-    /**
-     * @expectedException \JMS\Serializer\Exception\ObjectConstructionException
-     */
     public function testMissingAuthorException()
     {
-        $fallback = $this->getMockBuilder(ObjectConstructorInterface::class)->getMock();
+        $this->expectException(\JMS\Serializer\Exception\ObjectConstructionException::class);
+        $fallback = $this->createMock(ObjectConstructorInterface::class);
 
         $type = array('name' => Author::class, 'params' => array());
         $class = new ClassMetadata(Author::class);
@@ -158,12 +156,10 @@ class ObjectConstructorTest extends \PHPUnit_Framework_TestCase
         $constructor->construct($this->visitor, $class, ['id' => 5], $type, $this->context);
     }
 
-    /**
-     * @expectedException \JMS\Serializer\Exception\InvalidArgumentException
-     */
     public function testInvalidArg()
     {
-        $fallback = $this->getMockBuilder(ObjectConstructorInterface::class)->getMock();
+        $this->expectException(\JMS\Serializer\Exception\InvalidArgumentException::class);
+        $fallback = $this->createMock(ObjectConstructorInterface::class);
 
         $type = array('name' => Author::class, 'params' => array());
         $class = new ClassMetadata(Author::class);
@@ -176,7 +172,7 @@ class ObjectConstructorTest extends \PHPUnit_Framework_TestCase
     {
         $author = new Author('John');
 
-        $fallback = $this->getMockBuilder(ObjectConstructorInterface::class)->getMock();
+        $fallback = $this->createMock(ObjectConstructorInterface::class);
         $fallback->expects($this->once())->method('construct')->willReturn($author);
 
         $type = array('name' => Author::class, 'params' => array());
@@ -210,8 +206,8 @@ class ObjectConstructorTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->visitor = $this->getMockBuilder('JMS\Serializer\VisitorInterface')->getMock();
-        $this->context = $this->getMockBuilder('JMS\Serializer\DeserializationContext')->getMock();
+        $this->visitor = $this->createMock('JMS\Serializer\VisitorInterface');
+        $this->context = $this->createMock('JMS\Serializer\DeserializationContext');
 
         $connection = $this->createConnection();
         $entityManager = $this->createEntityManager($connection);

@@ -113,7 +113,7 @@ use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationList;
 use Doctrine\ORM\Version;
 
-abstract class BaseSerializationTest extends \PHPUnit_Framework_TestCase
+abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
 {
     protected $factory;
 
@@ -222,12 +222,10 @@ abstract class BaseSerializationTest extends \PHPUnit_Framework_TestCase
         }
     }
 
-    /**
-     * @expectedException \JMS\Serializer\Exception\ExpressionLanguageRequiredException
-     * @expectedExceptionMessage To use conditional exclude/expose in JMS\Serializer\Tests\Fixtures\PersonSecret you must configure the expression language.
-     */
     public function testExpressionExclusionNotConfigured()
     {
+        $this->expectException(\JMS\Serializer\Exception\ExpressionLanguageRequiredException::class);
+        $this->expectExceptionMessage('To use conditional exclude/expose in JMS\Serializer\Tests\Fixtures\PersonSecret you must configure the expression language.');
         $person = new PersonSecret();
         $person->gender = 'f';
         $person->name = 'mike';
@@ -731,12 +729,10 @@ abstract class BaseSerializationTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($this->getContent('author_expression'), $serializer->serialize($author, $this->getFormat()));
     }
 
-    /**
-     * @expectedException \JMS\Serializer\Exception\ExpressionLanguageRequiredException
-     * @expectedExceptionMessage The property firstName on JMS\Serializer\Tests\Fixtures\AuthorExpressionAccess requires the expression accessor strategy to be enabled.
-     */
     public function testExpressionAccessorStrategNotEnabled()
     {
+        $this->expectException(\JMS\Serializer\Exception\ExpressionLanguageRequiredException::class);
+        $this->expectExceptionMessage('The property firstName on JMS\Serializer\Tests\Fixtures\AuthorExpressionAccess requires the expression accessor strategy to be enabled.');
         $author = new AuthorExpressionAccess(123, "Ruud", "Kamphuis");
         $this->assertEquals($this->getContent('author_expression'), $this->serialize($author));
     }
@@ -942,11 +938,11 @@ abstract class BaseSerializationTest extends \PHPUnit_Framework_TestCase
 
     public function testNestedFormErrors()
     {
-        $dispatcher = $this->getMockBuilder('Symfony\Component\EventDispatcher\EventDispatcherInterface')->getMock();
+        $dispatcher = $this->createMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
 
         $formConfigBuilder = new \Symfony\Component\Form\FormConfigBuilder('foo', null, $dispatcher);
         $formConfigBuilder->setCompound(true);
-        $formConfigBuilder->setDataMapper($this->getMockBuilder('Symfony\Component\Form\DataMapperInterface')->getMock());
+        $formConfigBuilder->setDataMapper($this->createMock('Symfony\Component\Form\DataMapperInterface'));
         $fooConfig = $formConfigBuilder->getFormConfig();
 
         $form = new Form($fooConfig);
@@ -967,7 +963,7 @@ abstract class BaseSerializationTest extends \PHPUnit_Framework_TestCase
             $this->markTestSkipped('Not using Symfony Form >= 2.3 with submit type');
         }
 
-        $dispatcher = $this->getMockBuilder('Symfony\Component\EventDispatcher\EventDispatcherInterface')->getMock();
+        $dispatcher = $this->createMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
 
         $factoryBuilder = new FormFactoryBuilder();
         $factoryBuilder->addType(new \Symfony\Component\Form\Extension\Core\Type\SubmitType);
@@ -977,7 +973,7 @@ abstract class BaseSerializationTest extends \PHPUnit_Framework_TestCase
         $formConfigBuilder = new \Symfony\Component\Form\FormConfigBuilder('foo', null, $dispatcher);
         $formConfigBuilder->setFormFactory($factory);
         $formConfigBuilder->setCompound(true);
-        $formConfigBuilder->setDataMapper($this->getMockBuilder('Symfony\Component\Form\DataMapperInterface')->getMock());
+        $formConfigBuilder->setDataMapper($this->createMock('Symfony\Component\Form\DataMapperInterface'));
         $fooConfig = $formConfigBuilder->getFormConfig();
 
         $form = new Form($fooConfig);
@@ -985,6 +981,7 @@ abstract class BaseSerializationTest extends \PHPUnit_Framework_TestCase
 
         try {
             $this->serialize($form);
+            $this->addToAssertionCount(1);
         } catch (\Exception $e) {
             $this->assertTrue(false, 'Serialization should not throw an exception');
         }
@@ -1140,12 +1137,10 @@ abstract class BaseSerializationTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    /**
-     * @expectedException JMS\Serializer\Exception\InvalidArgumentException
-     * @expectedExceptionMessage Invalid group name "foo, bar" on "JMS\Serializer\Tests\Fixtures\InvalidGroupsObject->foo", did you mean to create multiple groups?
-     */
     public function testInvalidGroupName()
     {
+        $this->expectException(\JMS\Serializer\Exception\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid group name "foo, bar" on "JMS\Serializer\Tests\Fixtures\InvalidGroupsObject->foo", did you mean to create multiple groups?');
         $groupsObject = new InvalidGroupsObject();
 
         $this->serializer->serialize($groupsObject, $this->getFormat());
@@ -1177,6 +1172,7 @@ abstract class BaseSerializationTest extends \PHPUnit_Framework_TestCase
     public function testCustomHandler()
     {
         if (!$this->hasDeserializer()) {
+            self::markTestSkipped('No serializer.');
             return;
         }
 
@@ -1352,10 +1348,10 @@ abstract class BaseSerializationTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @group polymorphic
-     * @expectedException LogicException
      */
     public function testPolymorphicObjectsInvalidDeserialization()
     {
+        $this->expectException(\LogicException::class);
         if (!$this->hasDeserializer()) {
             throw new \LogicException('No deserializer');
         }
@@ -1399,6 +1395,7 @@ abstract class BaseSerializationTest extends \PHPUnit_Framework_TestCase
     public function testDeserializingIntoExistingObject()
     {
         if (!$this->hasDeserializer()) {
+            self::markTestSkipped('No serializer.');
             return;
         }
 
