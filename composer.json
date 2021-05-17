@@ -22,7 +22,8 @@
         "phpoption/phpoption": "^1.1",
         "phpcollection/phpcollection": "~0.1",
         "doctrine/annotations": "^1.0",
-        "doctrine/instantiator": "^1.0.3"
+        "doctrine/instantiator": "^1.0.3",
+        "symfony/polyfill-php73": "^1.22"
     },
     "conflict": {
         "twig/twig": "<1.12"
