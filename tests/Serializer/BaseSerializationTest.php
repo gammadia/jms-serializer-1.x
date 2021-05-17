@@ -111,6 +111,7 @@ use Symfony\Component\Translation\IdentityTranslator;
 use Symfony\Component\Translation\MessageSelector;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationList;
+use Doctrine\ORM\Version;
 
 abstract class BaseSerializationTest extends \PHPUnit_Framework_TestCase
 {
@@ -1007,7 +1008,7 @@ abstract class BaseSerializationTest extends \PHPUnit_Framework_TestCase
 
     public function testDoctrineProxy()
     {
-        if (!class_exists('Doctrine\ORM\Version')) {
+        if (!class_exists(Version::class)) {
             $this->markTestSkipped('Doctrine is not available.');
         }
 
@@ -1018,7 +1019,7 @@ abstract class BaseSerializationTest extends \PHPUnit_Framework_TestCase
 
     public function testInitializedDoctrineProxy()
     {
-        if (!class_exists('Doctrine\ORM\Version')) {
+        if (!class_exists(Version::class)) {
             $this->markTestSkipped('Doctrine is not available.');
         }
 

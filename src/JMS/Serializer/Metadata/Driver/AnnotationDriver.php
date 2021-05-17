@@ -8,7 +8,6 @@ use JMS\Serializer\Annotation\AccessorOrder;
 use JMS\Serializer\Annotation\AccessType;
 use JMS\Serializer\Annotation\Discriminator;
 use JMS\Serializer\Annotation\Exclude;
-use JMS\Serializer\Annotation\ExcludeIf;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 use JMS\Serializer\Annotation\Groups;
