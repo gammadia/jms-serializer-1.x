@@ -68,9 +68,6 @@ class GraphNavigatorTest extends \PHPUnit\Framework\TestCase
         $this->navigator->accept($object, null, $this->context);
     }
 
-    /**
-     * @doesNotPerformAssertions
-     */
     public function testNavigatorPassesNullOnDeserialization()
     {
         $class = __NAMESPACE__ . '\SerializableClass';

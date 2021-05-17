@@ -112,9 +112,6 @@ class FormErrorHandlerTest extends \PHPUnit\Framework\TestCase
 
     }
 
-    /**
-     * @doesNotPerformAssertions
-     */
     public function testDefaultTranslationDomain()
     {
         /** @var Translator|\PHPUnit_Framework_MockObject_MockObject $translator */
@@ -138,9 +135,6 @@ class FormErrorHandlerTest extends \PHPUnit\Framework\TestCase
         $this->invokeMethod($handler, 'getErrorMessage', [$formError,]);
     }
 
-    /**
-     * @doesNotPerformAssertions
-     */
     public function testDefaultTranslationDomainWithPluralTranslation()
     {
         /** @var Translator|\PHPUnit_Framework_MockObject_MockObject $translator */
@@ -165,9 +159,6 @@ class FormErrorHandlerTest extends \PHPUnit\Framework\TestCase
         $this->invokeMethod($handler, 'getErrorMessage', [$formError,]);
     }
 
-    /**
-     * @doesNotPerformAssertions
-     */
     public function testCustomTranslationDomain()
     {
         /** @var Translator|\PHPUnit_Framework_MockObject_MockObject $translator */
@@ -191,9 +182,6 @@ class FormErrorHandlerTest extends \PHPUnit\Framework\TestCase
         $this->invokeMethod($handler, 'getErrorMessage', [$formError,]);
     }
 
-    /**
-     * @doesNotPerformAssertions
-     */
     public function testCustomTranslationDomainWithPluralTranslation()
     {
         /** @var Translator|\PHPUnit_Framework_MockObject_MockObject $translator */

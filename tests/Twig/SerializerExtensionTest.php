@@ -31,9 +31,6 @@ class SerializerExtensionTest extends \PHPUnit\Framework\TestCase
         );
     }
 
-    /**
-     * @doesNotPerformAssertions
-     */
     public function testRuntimeSerializerHelper()
     {
         $obj = new \stdClass();
