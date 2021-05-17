@@ -18,9 +18,6 @@ class SymfonyValidatorValidatorSubscriberTest extends \PHPUnit\Framework\TestCas
     /** @var SymfonyValidatorSubscriber */
     private $subscriber;
 
-    /**
-     * @doesNotPerformAssertions
-     */
     public function testValidate()
     {
         $obj = new \stdClass;
@@ -51,9 +48,6 @@ class SymfonyValidatorValidatorSubscriberTest extends \PHPUnit\Framework\TestCas
         $this->subscriber->onPostDeserialize(new ObjectEvent($context, $obj, array()));
     }
 
-    /**
-     * @doesNotPerformAssertions
-     */
     public function testValidatorIsNotCalledWhenNoGroupsAreSet()
     {
         $this->validator->expects($this->never())

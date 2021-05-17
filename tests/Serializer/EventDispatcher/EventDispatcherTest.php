@@ -42,9 +42,6 @@ class EventDispatcherTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($this->dispatcher->hasListeners('baz', 'bAr', 'xml'));
     }
 
-    /**
-     * @doesNotPerformAssertions
-     */
     public function testDispatch()
     {
         $a = new MockListener();
@@ -192,7 +189,7 @@ class MockListener
         $this->wasReplayed = true;
     }
 
-    public function _verify($message = null)
+    public function _verify($message = '')
     {
         \PHPUnit\Framework\Assert::assertSame($this->expected, $this->actual, $message);
     }

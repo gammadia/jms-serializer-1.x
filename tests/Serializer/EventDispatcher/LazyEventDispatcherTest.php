@@ -25,9 +25,6 @@ abstract class LazyEventDispatcherTest extends EventDispatcherTest
         $this->assertTrue($this->dispatcher->hasListeners('foo', 'Foo', 'json'));
     }
 
-    /**
-     * @doesNotPerformAssertions
-     */
     public function testDispatchWithListenerAsService()
     {
         $a = new MockListener();
