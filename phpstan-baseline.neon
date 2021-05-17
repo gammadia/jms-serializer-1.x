@@ -1371,7 +1371,17 @@ parameters:
 			path: src/JMS/Serializer/Handler/FormErrorHandler.php
 
 		-
+			message: "#^Class Symfony\\\\Component\\\\Translation\\\\TranslatorInterface not found\\.$#"
+			count: 2
+			path: src/JMS/Serializer/Handler/FormErrorHandler.php
+
+		-
 			message: "#^Method JMS\\\\Serializer\\\\Handler\\\\FormErrorHandler\\:\\:__construct\\(\\) has parameter \\$translationDomain with no typehint specified\\.$#"
+			count: 1
+			path: src/JMS/Serializer/Handler/FormErrorHandler.php
+
+		-
+			message: "#^Method JMS\\\\Serializer\\\\Handler\\\\FormErrorHandler\\:\\:__construct\\(\\) has parameter \\$translator with no typehint specified\\.$#"
 			count: 1
 			path: src/JMS/Serializer/Handler/FormErrorHandler.php
 
@@ -6026,7 +6036,7 @@ parameters:
 			path: tests/Handler/DateHandlerTest.php
 
 		-
-			message: "#^Call to method expects\\(\\) on an unknown class PHPUnit_Framework_MockObject_MockObject\\.$#"
+			message: "#^Class Symfony\\\\Component\\\\Translation\\\\TranslatorInterface not found\\.$#"
 			count: 4
 			path: tests/Handler/FormErrorHandlerTest.php
 
@@ -6101,12 +6111,7 @@ parameters:
 			path: tests/Handler/FormErrorHandlerTest.php
 
 		-
-			message: "#^PHPDoc tag @var for variable \\$translator contains unknown class PHPUnit_Framework_MockObject_MockObject\\.$#"
-			count: 4
-			path: tests/Handler/FormErrorHandlerTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$translator of class JMS\\\\Serializer\\\\Handler\\\\FormErrorHandler constructor expects Symfony\\\\Component\\\\Translation\\\\TranslatorInterface\\|null, PHPUnit_Framework_MockObject_MockObject\\|Symfony\\\\Component\\\\Translation\\\\Translator given\\.$#"
+			message: "#^Parameter \\#1 \\$className of method PHPUnit\\\\Framework\\\\TestCase\\:\\:getMockBuilder\\(\\) expects array\\<string\\>\\|class\\-string\\<Symfony\\\\Component\\\\Translation\\\\TranslatorInterface\\|Symfony\\\\Contracts\\\\Translation\\\\TranslatorInterface\\>, class\\-string given\\.$#"
 			count: 4
 			path: tests/Handler/FormErrorHandlerTest.php
 
@@ -6138,6 +6143,11 @@ parameters:
 		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Handler\\\\FormErrorHandlerTest\\:\\:\\$visitor \\(JMS\\\\Serializer\\\\VisitorInterface\\) does not accept null\\.$#"
 			count: 1
+			path: tests/Handler/FormErrorHandlerTest.php
+
+		-
+			message: "#^Result of \\|\\| is always true\\.$#"
+			count: 4
 			path: tests/Handler/FormErrorHandlerTest.php
 
 		-
