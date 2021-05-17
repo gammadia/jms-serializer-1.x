@@ -82,7 +82,7 @@ final class GraphNavigator implements GraphNavigatorInterface
      * @param Context $context
      * @return mixed the return value depends on the direction, and type of visitor
      */
-    public function accept($data, array $type = null, Context $context)
+    public function accept($data, ?array $type, Context $context)
     {
         $visitor = $context->getVisitor();
 
