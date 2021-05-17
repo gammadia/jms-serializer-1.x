@@ -8,6 +8,7 @@ use Doctrine\ODM\PHPCR\DocumentManager;
 use Doctrine\ODM\PHPCR\Mapping\Driver\AnnotationDriver as DoctrinePHPCRDriver;
 use JMS\Serializer\Metadata\Driver\AnnotationDriver;
 use JMS\Serializer\Metadata\Driver\DoctrinePHPCRTypeDriver;
+use Doctrine\Persistence\ManagerRegistry;
 
 class DoctrinePHPCRDriverTest extends \PHPUnit_Framework_TestCase
 {
@@ -98,7 +99,7 @@ class DoctrinePHPCRDriverTest extends \PHPUnit_Framework_TestCase
 
     protected function getDoctrinePHPCRDriver()
     {
-        $registry = $this->getMockBuilder('Doctrine\Common\Persistence\ManagerRegistry')->getMock();
+        $registry = $this->getMockBuilder(ManagerRegistry::class)->getMock();
         $registry->expects($this->atLeastOnce())
             ->method('getManagerForClass')
             ->will($this->returnValue($this->getDocumentManager()));

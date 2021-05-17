@@ -4,8 +4,8 @@ namespace JMS\Serializer\Tests\Serializer\Doctrine;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\Reader;
-use Doctrine\Common\Persistence\AbstractManagerRegistry;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\AbstractManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 use Doctrine\ORM\Configuration;
@@ -28,6 +28,8 @@ use JMS\Serializer\Tests\Fixtures\Doctrine\Author;
 use JMS\Serializer\Tests\Fixtures\Doctrine\IdentityFields\Server;
 use JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance\Excursion;
 use JMS\Serializer\VisitorInterface;
+use Doctrine\Persistence\Proxy;
+use Doctrine\DBAL\Types\StringType;
 
 class ObjectConstructorTest extends \PHPUnit_Framework_TestCase
 {
@@ -294,15 +296,15 @@ class ObjectConstructorTest extends \PHPUnit_Framework_TestCase
     }
 }
 
-\Doctrine\DBAL\Types\Type::addType('Author', 'Doctrine\DBAL\Types\StringType');
-\Doctrine\DBAL\Types\Type::addType('some_custom_type', 'Doctrine\DBAL\Types\StringType');
+\Doctrine\DBAL\Types\Type::addType('Author', StringType::class);
+\Doctrine\DBAL\Types\Type::addType('some_custom_type', StringType::class);
 
 class SimpleBaseManagerRegistry extends AbstractManagerRegistry
 {
     private $services = array();
     private $serviceCreator;
 
-    public function __construct($serviceCreator, $name = 'anonymous', array $connections = array('default' => 'default_connection'), array $managers = array('default' => 'default_manager'), $defaultConnection = null, $defaultManager = null, $proxyInterface = 'Doctrine\Common\Persistence\Proxy')
+    public function __construct($serviceCreator, $name = 'anonymous', array $connections = array('default' => 'default_connection'), array $managers = array('default' => 'default_manager'), $defaultConnection = null, $defaultManager = null, $proxyInterface = Proxy::class)
     {
         if (null === $defaultConnection) {
             $defaultConnection = key($connections);
