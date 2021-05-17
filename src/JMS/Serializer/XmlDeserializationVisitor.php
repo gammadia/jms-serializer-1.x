@@ -48,7 +48,10 @@ class XmlDeserializationVisitor extends AbstractVisitor implements NullAwareVisi
         $previous = libxml_use_internal_errors(true);
         libxml_clear_errors();
 
-        $previousEntityLoaderState = libxml_disable_entity_loader($this->disableExternalEntities);
+        $previousEntityLoaderState = null;
+        if (\LIBXML_VERSION < 20900) {
+            $previousEntityLoaderState = libxml_disable_entity_loader($this->disableExternalEntities);
+        }
 
         if (false !== stripos($data, '<!doctype')) {
             $internalSubset = $this->getDomDocumentTypeEntitySubset($data);
@@ -63,7 +66,10 @@ class XmlDeserializationVisitor extends AbstractVisitor implements NullAwareVisi
         $doc = simplexml_load_string($data);
 
         libxml_use_internal_errors($previous);
-        libxml_disable_entity_loader($previousEntityLoaderState);
+
+        if (\LIBXML_VERSION < 20900) {
+            libxml_disable_entity_loader($previousEntityLoaderState);
+        }
 
         if (false === $doc) {
             throw new XmlErrorException(libxml_get_last_error());
