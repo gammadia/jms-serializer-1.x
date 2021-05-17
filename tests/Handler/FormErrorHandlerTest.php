@@ -6,12 +6,15 @@ use JMS\Serializer\Handler\FormErrorHandler;
 use JMS\Serializer\JsonSerializationVisitor;
 use JMS\Serializer\Naming\CamelCaseNamingStrategy;
 use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
+use PHPUnit\Framework\MockObject\MockObject;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\Forms;
 use Symfony\Component\Translation\Translator;
+use Symfony\Component\Translation\TranslatorInterface as LegacyTranslatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class FormErrorHandlerTest extends \PHPUnit\Framework\TestCase
 {
@@ -114,8 +117,11 @@ class FormErrorHandlerTest extends \PHPUnit\Framework\TestCase
 
     public function testDefaultTranslationDomain()
     {
-        /** @var Translator|\PHPUnit_Framework_MockObject_MockObject $translator */
-        $translator = $this->createMock(\Symfony\Component\Translation\TranslatorInterface::class);
+        $interface = interface_exists(TranslatorInterface::class)
+            ? TranslatorInterface::class
+            : LegacyTranslatorInterface::class;
+        $translator = $this->getMockBuilder($interface)->getMock();
+        assert($translator instanceof Translator || $translator instanceof MockObject);
 
         $handler = new FormErrorHandler($translator);
 
@@ -137,19 +143,32 @@ class FormErrorHandlerTest extends \PHPUnit\Framework\TestCase
 
     public function testDefaultTranslationDomainWithPluralTranslation()
     {
-        /** @var Translator|\PHPUnit_Framework_MockObject_MockObject $translator */
-        $translator = $this->createMock(\Symfony\Component\Translation\TranslatorInterface::class);
+        $interface = interface_exists(TranslatorInterface::class)
+            ? TranslatorInterface::class
+            : LegacyTranslatorInterface::class;
+        $translator = $this->getMockBuilder($interface)->getMock();
+        assert($translator instanceof Translator || $translator instanceof MockObject);
 
         $handler = new FormErrorHandler($translator);
 
-        $translator->expects($this->once())
-            ->method('transChoice')
-            ->with(
-                $this->equalTo('error!'),
-                $this->equalTo(0),
-                $this->equalTo([]),
-                $this->equalTo('validators')
-            );
+        if (TranslatorInterface::class === $interface) {
+            $translator->expects($this->once())
+                ->method('trans')
+                ->with(
+                    $this->equalTo('error!'),
+                    $this->equalTo(['%count%' => 0]),
+                    $this->equalTo('validators')
+                );
+        } else {
+            $translator->expects($this->once())
+                ->method('transChoice')
+                ->with(
+                    $this->equalTo('error!'),
+                    $this->equalTo(0),
+                    $this->equalTo([]),
+                    $this->equalTo('validators')
+                );
+        }
 
         $formError = $this->createMock(\Symfony\Component\Form\FormError::class);
         $formError->expects($this->once())->method('getMessageTemplate')->willReturn('error!');
@@ -161,8 +180,11 @@ class FormErrorHandlerTest extends \PHPUnit\Framework\TestCase
 
     public function testCustomTranslationDomain()
     {
-        /** @var Translator|\PHPUnit_Framework_MockObject_MockObject $translator */
-        $translator = $this->createMock(\Symfony\Component\Translation\TranslatorInterface::class);
+        $interface = interface_exists(TranslatorInterface::class)
+            ? TranslatorInterface::class
+            : LegacyTranslatorInterface::class;
+        $translator = $this->getMockBuilder($interface)->getMock();
+        assert($translator instanceof Translator || $translator instanceof MockObject);
 
         $handler = new FormErrorHandler($translator, 'custom_domain');
 
@@ -184,19 +206,32 @@ class FormErrorHandlerTest extends \PHPUnit\Framework\TestCase
 
     public function testCustomTranslationDomainWithPluralTranslation()
     {
-        /** @var Translator|\PHPUnit_Framework_MockObject_MockObject $translator */
-        $translator = $this->createMock(\Symfony\Component\Translation\TranslatorInterface::class);
+        $interface = interface_exists(TranslatorInterface::class)
+            ? TranslatorInterface::class
+            : LegacyTranslatorInterface::class;
+        $translator = $this->getMockBuilder($interface)->getMock();
+        assert($translator instanceof Translator || $translator instanceof MockObject);
 
         $handler = new FormErrorHandler($translator, 'custom_domain');
 
-        $translator->expects($this->once())
-            ->method('transChoice')
-            ->with(
-                $this->equalTo('error!'),
-                $this->equalTo(0),
-                $this->equalTo([]),
-                $this->equalTo('custom_domain')
-            );
+        if (TranslatorInterface::class === $interface) {
+            $translator->expects($this->once())
+                ->method('trans')
+                ->with(
+                    $this->equalTo('error!'),
+                    $this->equalTo(['%count%' => 0]),
+                    $this->equalTo('custom_domain')
+                );
+        } else {
+            $translator->expects($this->once())
+                ->method('transChoice')
+                ->with(
+                    $this->equalTo('error!'),
+                    $this->equalTo(0),
+                    $this->equalTo([]),
+                    $this->equalTo('custom_domain')
+                );
+        }
 
         $formError = $this->createMock(\Symfony\Component\Form\FormError::class);
         $formError->expects($this->once())->method('getMessageTemplate')->willReturn('error!');
