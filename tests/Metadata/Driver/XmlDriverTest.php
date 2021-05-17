@@ -2,12 +2,15 @@
 
 namespace JMS\Serializer\Tests\Metadata\Driver;
 
+use DMS\PHPUnitExtensions\ArraySubset\ArraySubsetAsserts;
 use JMS\Serializer\Metadata\Driver\XmlDriver;
 use JMS\Serializer\Metadata\PropertyMetadata;
 use Metadata\Driver\FileLocator;
 
 class XmlDriverTest extends BaseDriverTest
 {
+    use ArraySubsetAsserts;
+
     public function testInvalidXml()
     {
         $this->expectException(\JMS\Serializer\Exception\XmlErrorException::class);

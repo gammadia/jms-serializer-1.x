@@ -1447,7 +1447,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
         return $this->serializer->deserialize($content, $type, $this->getFormat(), $context);
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->factory = new MetadataFactory(new AnnotationDriver(new AnnotationReader()));
 

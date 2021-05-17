@@ -249,7 +249,7 @@ class SerializerBuilderTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals("bar", $person->name);
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->builder = SerializerBuilder::create();
         $this->fs = new Filesystem();
@@ -259,7 +259,7 @@ class SerializerBuilderTest extends \PHPUnit\Framework\TestCase
         clearstatcache();
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->fs->remove($this->tmpDir);
     }

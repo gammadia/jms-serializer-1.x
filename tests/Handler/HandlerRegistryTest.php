@@ -9,7 +9,7 @@ class HandlerRegistryTest extends \PHPUnit\Framework\TestCase
 {
     protected $handlerRegistry;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->handlerRegistry = $this->createHandlerRegistry();
     }

@@ -140,7 +140,7 @@ class EventDispatcherTest extends \PHPUnit\Framework\TestCase
         ), 'listeners', $this->dispatcher);
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->dispatcher = $this->createEventDispatcher();
         $this->event = new ObjectEvent($this->createMock('JMS\Serializer\Context'), new \stdClass(), array('name' => 'foo', 'params' => array()));

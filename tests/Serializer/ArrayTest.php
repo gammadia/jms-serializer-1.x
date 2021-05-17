@@ -22,7 +22,7 @@ class ArrayTest extends \PHPUnit\Framework\TestCase
 {
     protected $serializer;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $namingStrategy = new SerializedNameAnnotationStrategy(new CamelCaseNamingStrategy());
 

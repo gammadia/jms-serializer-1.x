@@ -131,7 +131,7 @@ class GraphNavigatorTest extends \PHPUnit\Framework\TestCase
         $this->navigator->accept($object, null, $this->context);
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->context = $this->createMock('JMS\Serializer\Context');
         $this->dispatcher = new EventDispatcher();

@@ -125,7 +125,7 @@ class DoctrineProxySubscriberTest extends \PHPUnit\Framework\TestCase
         $this->assertSame(['name' => SimpleObject::class, 'params' => ['baz']], $event->getType());
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->subscriber = new DoctrineProxySubscriber();
         $this->visitor = $this->createMock('JMS\Serializer\Context');
