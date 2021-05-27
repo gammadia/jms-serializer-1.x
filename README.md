@@ -3,7 +3,7 @@ JMS Serializer 1.14.1
 
 Learn more about it in its [documentation](http://jmsyst.com/libs/serializer/1.x).
 
-A fork for modern days [![Build Status](https://travis-ci.org/gnutix/jms-serializer-1.x.svg?branch=master)](https://travis-ci.org/gnutix/jms-serializer-1.x)
+A fork for modern days [![Build Status](https://www.travis-ci.com/gnutix/jms-serializer-1.x.svg?branch=master)](https://www.travis-ci.com/gnutix/jms-serializer-1.x)
 ==========
 
 This is a fork of `jms/serializer` at the version `1.14.1` adapted for modern PHP development, which supports :
