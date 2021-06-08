@@ -9,7 +9,7 @@ A fork for modern days [![Build Status](https://www.travis-ci.com/gnutix/jms-ser
 This is a fork of `jms/serializer` at the version `1.14.1` adapted for modern PHP development, which supports :
 
 * PHP `7.2` <-> `8.0`
-* Symfony `3.4` <-> `5.2`
+* Symfony `3.4` <-> `5.3`
 
 The following changes were applied to the dev dependencies :
 
