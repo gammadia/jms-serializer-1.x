@@ -1,7 +1,10 @@
 {
-    "name": "jms/serializer",
+    "name": "gammadia/jms-serializer-1.x",
     "type": "library",
-    "description": "Library for (de-)serializing data of any complexity; supports XML, JSON, and YAML.",
+    "description": "Fork of jms/serializer 1.14.1 with support for modern PHP versions.",
+    "replace": {
+        "jms/serializer": "^1.14"
+    },
     "keywords": ["serialization", "deserialization", "json", "jaxb", "xml"],
     "homepage": "http://jmsyst.com/libs/serializer",
     "license": "MIT",
