@@ -3,7 +3,7 @@ JMS Serializer 1.14.1
 
 Learn more about it in its [documentation](http://jmsyst.com/libs/serializer/1.x).
 
-A fork for modern days [![Build Status](https://www.travis-ci.com/gnutix/jms-serializer-1.x.svg?branch=master)](https://www.travis-ci.com/gnutix/jms-serializer-1.x)
+A fork for modern days [![CI](https://github.com/gnutix/jms-serializer-1.x/actions/workflows/ci.yaml/badge.svg)](https://github.com/gnutix/jms-serializer-1.x/actions/workflows/ci.yaml)
 ==========
 
 This is a fork of `jms/serializer` at the version `1.14.1` adapted for modern PHP development, which supports :
@@ -16,6 +16,7 @@ The following changes were applied to the dev dependencies :
 * PHPUnit upgraded to 8.x
 * PHPStan baseline added to keep the code in good health
 * Rector installed to ease automated refactorings
+* Migrate Travis CI to GitHub Actions
 
 ### BC break changes
 
