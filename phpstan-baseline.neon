@@ -1601,41 +1601,6 @@ parameters:
 			path: src/JMS/Serializer/Handler/PhpCollectionHandler.php
 
 		-
-			message: "#^Method JMS\\\\Serializer\\\\Handler\\\\PropelCollectionHandler\\:\\:deserializeCollection\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/JMS/Serializer/Handler/PropelCollectionHandler.php
-
-		-
-			message: "#^Method JMS\\\\Serializer\\\\Handler\\\\PropelCollectionHandler\\:\\:deserializeCollection\\(\\) has parameter \\$data with no typehint specified\\.$#"
-			count: 1
-			path: src/JMS/Serializer/Handler/PropelCollectionHandler.php
-
-		-
-			message: "#^Method JMS\\\\Serializer\\\\Handler\\\\PropelCollectionHandler\\:\\:deserializeCollection\\(\\) has parameter \\$type with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/JMS/Serializer/Handler/PropelCollectionHandler.php
-
-		-
-			message: "#^Method JMS\\\\Serializer\\\\Handler\\\\PropelCollectionHandler\\:\\:getSubscribingMethods\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/JMS/Serializer/Handler/PropelCollectionHandler.php
-
-		-
-			message: "#^Method JMS\\\\Serializer\\\\Handler\\\\PropelCollectionHandler\\:\\:serializeCollection\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/JMS/Serializer/Handler/PropelCollectionHandler.php
-
-		-
-			message: "#^Method JMS\\\\Serializer\\\\Handler\\\\PropelCollectionHandler\\:\\:serializeCollection\\(\\) has parameter \\$collection with no value type specified in iterable type PropelCollection\\.$#"
-			count: 1
-			path: src/JMS/Serializer/Handler/PropelCollectionHandler.php
-
-		-
-			message: "#^Method JMS\\\\Serializer\\\\Handler\\\\PropelCollectionHandler\\:\\:serializeCollection\\(\\) has parameter \\$type with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/JMS/Serializer/Handler/PropelCollectionHandler.php
-
-		-
 			message: "#^Method JMS\\\\Serializer\\\\Handler\\\\StdClassHandler\\:\\:getSubscribingMethods\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/JMS/Serializer/Handler/StdClassHandler.php
@@ -2016,7 +1981,7 @@ parameters:
 			path: src/JMS/Serializer/Metadata/Driver/AbstractDoctrineTypeDriver.php
 
 		-
-			message: "#^Parameter \\#1 \\$className of method Doctrine\\\\Persistence\\\\Mapping\\\\ClassMetadataFactory\\<Doctrine\\\\Persistence\\\\Mapping\\\\ClassMetadata\\>\\:\\:isTransient\\(\\) expects class\\-string, string given\\.$#"
+			message: "#^Parameter \\#1 \\$className of method Doctrine\\\\Persistence\\\\Mapping\\\\ClassMetadataFactory\\<Doctrine\\\\Persistence\\\\Mapping\\\\ClassMetadata\\<object\\>\\>\\:\\:isTransient\\(\\) expects class\\-string, string given\\.$#"
 			count: 1
 			path: src/JMS/Serializer/Metadata/Driver/AbstractDoctrineTypeDriver.php
 
@@ -3397,6 +3362,11 @@ parameters:
 
 		-
 			message: "#^PHPDoc tag @param references unknown parameter\\: \\$child$#"
+			count: 1
+			path: src/JMS/Serializer/XmlDeserializationVisitor.php
+
+		-
+			message: "#^Parameter \\#1 \\$disable of function libxml_disable_entity_loader expects bool, bool\\|null given\\.$#"
 			count: 1
 			path: src/JMS/Serializer/XmlDeserializationVisitor.php
 
@@ -6266,31 +6236,6 @@ parameters:
 			path: tests/Handler/LazyHandlerRegistryWithSymfonyContainerTest.php
 
 		-
-			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Handler\\\\PropelCollectionHandlerTest\\:\\:testSerializePropelObjectCollection\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Handler/PropelCollectionHandlerTest.php
-
-		-
-			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Handler\\\\TestSubject\\:\\:__construct\\(\\) has parameter \\$name with no typehint specified\\.$#"
-			count: 1
-			path: tests/Handler/PropelCollectionHandlerTest.php
-
-		-
-			message: "#^PHPDoc tag @var has invalid value \\(\\$serializer \\\\JMS\\\\Serializer\\\\Serializer\\)\\: Unexpected token \"\\$serializer\", expected type at offset 10$#"
-			count: 1
-			path: tests/Handler/PropelCollectionHandlerTest.php
-
-		-
-			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Handler\\\\PropelCollectionHandlerTest\\:\\:\\$serializer has no typehint specified\\.$#"
-			count: 1
-			path: tests/Handler/PropelCollectionHandlerTest.php
-
-		-
-			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Handler\\\\TestSubject\\:\\:\\$name has no typehint specified\\.$#"
-			count: 1
-			path: tests/Handler/PropelCollectionHandlerTest.php
-
-		-
 			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Metadata\\\\AbstractPropertyMetadataTest\\:\\:setNonDefaultMetadataValues\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Metadata/AbstractPropertyMetadataTest.php
@@ -7631,11 +7576,6 @@ parameters:
 			path: tests/Serializer/Doctrine/IntegrationTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$classes of method Doctrine\\\\ORM\\\\Tools\\\\SchemaTool\\:\\:createSchema\\(\\) expects array\\<int, Doctrine\\\\ORM\\\\Mapping\\\\ClassMetadata\\>, array\\<Doctrine\\\\Persistence\\\\Mapping\\\\ClassMetadata\\> given\\.$#"
-			count: 1
-			path: tests/Serializer/Doctrine/IntegrationTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$data of method JMS\\\\Serializer\\\\Serializer\\:\\:serialize\\(\\) expects array\\|bool\\|float\\|int\\|object\\|string, JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\SingleTableInheritance\\\\Clazz\\|null given\\.$#"
 			count: 1
 			path: tests/Serializer/Doctrine/IntegrationTest.php
@@ -7732,11 +7672,6 @@ parameters:
 
 		-
 			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Serializer\\\\Doctrine\\\\SimpleBaseManagerRegistry\\:\\:__construct\\(\\) has parameter \\$serviceCreator with no typehint specified\\.$#"
-			count: 1
-			path: tests/Serializer/Doctrine/ObjectConstructorTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$classes of method Doctrine\\\\ORM\\\\Tools\\\\SchemaTool\\:\\:createSchema\\(\\) expects array\\<int, Doctrine\\\\ORM\\\\Mapping\\\\ClassMetadata\\>, array\\<Doctrine\\\\Persistence\\\\Mapping\\\\ClassMetadata\\> given\\.$#"
 			count: 1
 			path: tests/Serializer/Doctrine/ObjectConstructorTest.php
 
