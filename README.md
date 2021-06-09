@@ -21,10 +21,7 @@ The following changes were applied to the dev dependencies :
 ### BC break changes
 
 * Doctrine dependency bumped from `~2.1` to `^2.8` (because of namespaces changes)
-
-### Probable issues
-
-* Propel 1 support is probably broken on PHP 8 because of this error (and maybe others) :
+* Propel support was removed as `propel/propel1` is not working with PHP 8 :
 
 ```
 PHP Fatal error:

@@ -322,6 +322,7 @@ class ClassMetadata extends MergeableClassMetadata
 
             case self::ACCESSOR_ORDER_CUSTOM:
                 $order = $this->customOrder;
+                /** @var array<int|string, int> $currentSorting */
                 $currentSorting = $this->propertyMetadata ? array_combine(array_keys($this->propertyMetadata), range(1, \count($this->propertyMetadata))) : [];
                 uksort($this->propertyMetadata, function ($a, $b) use ($order, $currentSorting) {
                     $existsA = isset($order[$a]);
