@@ -3826,6 +3826,11 @@ parameters:
 			path: src/JMS/Serializer/YamlSerializationVisitor.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\YamlSerializationVisitor\\:\\:\\$stack is never read, only written\\.$#"
+			count: 1
+			path: src/JMS/Serializer/YamlSerializationVisitor.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\YamlSerializationVisitor\\:\\:\\$writer has no typehint specified\\.$#"
 			count: 1
 			path: src/JMS/Serializer/YamlSerializationVisitor.php
@@ -3971,7 +3976,17 @@ parameters:
 			path: tests/Fixtures/AccessorOrderChild.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\AccessorOrderChild\\:\\:\\$c is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/AccessorOrderChild.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\AccessorOrderChild\\:\\:\\$d has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/AccessorOrderChild.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\AccessorOrderChild\\:\\:\\$d is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/AccessorOrderChild.php
 
@@ -3981,7 +3996,17 @@ parameters:
 			path: tests/Fixtures/AccessorOrderMethod.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\AccessorOrderMethod\\:\\:\\$a is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/AccessorOrderMethod.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\AccessorOrderMethod\\:\\:\\$b has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/AccessorOrderMethod.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\AccessorOrderMethod\\:\\:\\$b is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/AccessorOrderMethod.php
 
@@ -3991,7 +4016,17 @@ parameters:
 			path: tests/Fixtures/AccessorOrderParent.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\AccessorOrderParent\\:\\:\\$a is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/AccessorOrderParent.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\AccessorOrderParent\\:\\:\\$b has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/AccessorOrderParent.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\AccessorOrderParent\\:\\:\\$b is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/AccessorOrderParent.php
 
@@ -4036,7 +4071,17 @@ parameters:
 			path: tests/Fixtures/AllExcludedObject.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\AllExcludedObject\\:\\:\\$bar is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/AllExcludedObject.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\AllExcludedObject\\:\\:\\$foo has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/AllExcludedObject.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\AllExcludedObject\\:\\:\\$foo is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/AllExcludedObject.php
 
@@ -4132,6 +4177,11 @@ parameters:
 
 		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\AuthorExpressionAccess\\:\\:\\$id has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/AuthorExpressionAccess.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\AuthorExpressionAccess\\:\\:\\$id is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/AuthorExpressionAccess.php
 
@@ -4286,6 +4336,11 @@ parameters:
 			path: tests/Fixtures/BlogPost.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$author is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/BlogPost.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$comments has no typehint specified\\.$#"
 			count: 1
 			path: tests/Fixtures/BlogPost.php
@@ -4306,7 +4361,17 @@ parameters:
 			path: tests/Fixtures/BlogPost.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$etag is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/BlogPost.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$id has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/BlogPost.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$id is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/BlogPost.php
 
@@ -4321,12 +4386,27 @@ parameters:
 			path: tests/Fixtures/BlogPost.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$published is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/BlogPost.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$publisher has no typehint specified\\.$#"
 			count: 1
 			path: tests/Fixtures/BlogPost.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$publisher is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/BlogPost.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$reviewed has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/BlogPost.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$reviewed is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/BlogPost.php
 
@@ -4337,6 +4417,11 @@ parameters:
 
 		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$title has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/BlogPost.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$title is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/BlogPost.php
 
@@ -4376,6 +4461,11 @@ parameters:
 			path: tests/Fixtures/CircularReferenceParent.php
 
 		-
+			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\CircularReferenceParent\\:\\:afterDeserialization\\(\\) is unused\\.$#"
+			count: 1
+			path: tests/Fixtures/CircularReferenceParent.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\CircularReferenceParent\\:\\:\\$anotherCollection has no typehint specified\\.$#"
 			count: 1
 			path: tests/Fixtures/CircularReferenceParent.php
@@ -4406,7 +4496,17 @@ parameters:
 			path: tests/Fixtures/Comment.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Comment\\:\\:\\$text is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/Comment.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\CurrencyAwareOrder\\:\\:\\$cost has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/CurrencyAwareOrder.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\CurrencyAwareOrder\\:\\:\\$cost is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/CurrencyAwareOrder.php
 
@@ -4426,7 +4526,17 @@ parameters:
 			path: tests/Fixtures/CurrencyAwarePrice.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\CurrencyAwarePrice\\:\\:\\$amount is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/CurrencyAwarePrice.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\CurrencyAwarePrice\\:\\:\\$currency has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/CurrencyAwarePrice.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\CurrencyAwarePrice\\:\\:\\$currency is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/CurrencyAwarePrice.php
 
@@ -4531,12 +4641,22 @@ parameters:
 			path: tests/Fixtures/Doctrine/BlogPost.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\BlogPost\\:\\:\\$author is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/Doctrine/BlogPost.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\BlogPost\\:\\:\\$comments has no typehint specified\\.$#"
 			count: 1
 			path: tests/Fixtures/Doctrine/BlogPost.php
 
 		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\BlogPost\\:\\:\\$createdAt has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/Doctrine/BlogPost.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\BlogPost\\:\\:\\$createdAt is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/Doctrine/BlogPost.php
 
@@ -4551,7 +4671,17 @@ parameters:
 			path: tests/Fixtures/Doctrine/BlogPost.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\BlogPost\\:\\:\\$published is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/Doctrine/BlogPost.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\BlogPost\\:\\:\\$ref has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/Doctrine/BlogPost.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\BlogPost\\:\\:\\$ref is never written, only read\\.$#"
 			count: 1
 			path: tests/Fixtures/Doctrine/BlogPost.php
 
@@ -4562,6 +4692,11 @@ parameters:
 
 		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\BlogPost\\:\\:\\$title has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/Doctrine/BlogPost.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\BlogPost\\:\\:\\$title is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/Doctrine/BlogPost.php
 
@@ -4586,12 +4721,22 @@ parameters:
 			path: tests/Fixtures/Doctrine/Comment.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\Comment\\:\\:\\$blogPost is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/Doctrine/Comment.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\Comment\\:\\:\\$id has no typehint specified\\.$#"
 			count: 1
 			path: tests/Fixtures/Doctrine/Comment.php
 
 		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\Comment\\:\\:\\$text has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/Doctrine/Comment.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\Comment\\:\\:\\$text is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/Doctrine/Comment.php
 
@@ -4621,6 +4766,11 @@ parameters:
 			path: tests/Fixtures/Doctrine/SingleTableInheritance/Clazz.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\SingleTableInheritance\\\\Clazz\\:\\:\\$id is never written, only read\\.$#"
+			count: 1
+			path: tests/Fixtures/Doctrine/SingleTableInheritance/Clazz.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\SingleTableInheritance\\\\Clazz\\:\\:\\$students has no typehint specified\\.$#"
 			count: 1
 			path: tests/Fixtures/Doctrine/SingleTableInheritance/Clazz.php
@@ -4636,7 +4786,17 @@ parameters:
 			path: tests/Fixtures/Doctrine/SingleTableInheritance/Organization.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\SingleTableInheritance\\\\Organization\\:\\:\\$id is unused\\.$#"
+			count: 1
+			path: tests/Fixtures/Doctrine/SingleTableInheritance/Organization.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\SingleTableInheritance\\\\Person\\:\\:\\$id has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/Doctrine/SingleTableInheritance/Person.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\SingleTableInheritance\\\\Person\\:\\:\\$id is unused\\.$#"
 			count: 1
 			path: tests/Fixtures/Doctrine/SingleTableInheritance/Person.php
 
@@ -4681,12 +4841,22 @@ parameters:
 			path: tests/Fixtures/DoctrinePHPCR/BlogPost.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\DoctrinePHPCR\\\\BlogPost\\:\\:\\$author is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/DoctrinePHPCR/BlogPost.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\DoctrinePHPCR\\\\BlogPost\\:\\:\\$comments has no typehint specified\\.$#"
 			count: 1
 			path: tests/Fixtures/DoctrinePHPCR/BlogPost.php
 
 		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\DoctrinePHPCR\\\\BlogPost\\:\\:\\$createdAt has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/DoctrinePHPCR/BlogPost.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\DoctrinePHPCR\\\\BlogPost\\:\\:\\$createdAt is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/DoctrinePHPCR/BlogPost.php
 
@@ -4701,12 +4871,22 @@ parameters:
 			path: tests/Fixtures/DoctrinePHPCR/BlogPost.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\DoctrinePHPCR\\\\BlogPost\\:\\:\\$published is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/DoctrinePHPCR/BlogPost.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\DoctrinePHPCR\\\\BlogPost\\:\\:\\$slug has no typehint specified\\.$#"
 			count: 1
 			path: tests/Fixtures/DoctrinePHPCR/BlogPost.php
 
 		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\DoctrinePHPCR\\\\BlogPost\\:\\:\\$title has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/DoctrinePHPCR/BlogPost.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\DoctrinePHPCR\\\\BlogPost\\:\\:\\$title is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/DoctrinePHPCR/BlogPost.php
 
@@ -4731,6 +4911,11 @@ parameters:
 			path: tests/Fixtures/DoctrinePHPCR/Comment.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\DoctrinePHPCR\\\\Comment\\:\\:\\$blogPost is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/DoctrinePHPCR/Comment.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\DoctrinePHPCR\\\\Comment\\:\\:\\$id has no typehint specified\\.$#"
 			count: 1
 			path: tests/Fixtures/DoctrinePHPCR/Comment.php
@@ -4741,7 +4926,17 @@ parameters:
 			path: tests/Fixtures/DoctrinePHPCR/Comment.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\DoctrinePHPCR\\\\Comment\\:\\:\\$text is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/DoctrinePHPCR/Comment.php
+
+		-
 			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ExcludePublicAccessor\\:\\:getId\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/ExcludePublicAccessor.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ExcludePublicAccessor\\:\\:\\$iShallNotBeAccessed is unused\\.$#"
 			count: 1
 			path: tests/Fixtures/ExcludePublicAccessor.php
 
@@ -4786,12 +4981,27 @@ parameters:
 			path: tests/Fixtures/GetSetObject.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GetSetObject\\:\\:\\$excludedProperty is unused\\.$#"
+			count: 1
+			path: tests/Fixtures/GetSetObject.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GetSetObject\\:\\:\\$id has no typehint specified\\.$#"
 			count: 1
 			path: tests/Fixtures/GetSetObject.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GetSetObject\\:\\:\\$id is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/GetSetObject.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GetSetObject\\:\\:\\$name has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/GetSetObject.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GetSetObject\\:\\:\\$name is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/GetSetObject.php
 
@@ -4806,7 +5016,17 @@ parameters:
 			path: tests/Fixtures/GroupsObject.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GroupsObject\\:\\:\\$bar is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/GroupsObject.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GroupsObject\\:\\:\\$foo has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/GroupsObject.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GroupsObject\\:\\:\\$foo is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/GroupsObject.php
 
@@ -4816,7 +5036,17 @@ parameters:
 			path: tests/Fixtures/GroupsObject.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GroupsObject\\:\\:\\$foobar is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/GroupsObject.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GroupsObject\\:\\:\\$none has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/GroupsObject.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GroupsObject\\:\\:\\$none is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/GroupsObject.php
 
@@ -4856,7 +5086,17 @@ parameters:
 			path: tests/Fixtures/GroupsUser.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GroupsUser\\:\\:\\$friends is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/GroupsUser.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GroupsUser\\:\\:\\$manager has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/GroupsUser.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GroupsUser\\:\\:\\$manager is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/GroupsUser.php
 
@@ -4866,7 +5106,17 @@ parameters:
 			path: tests/Fixtures/GroupsUser.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GroupsUser\\:\\:\\$name is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/GroupsUser.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GroupsUser\\:\\:\\$nickname has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/GroupsUser.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GroupsUser\\:\\:\\$nickname is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/GroupsUser.php
 
@@ -4946,12 +5196,27 @@ parameters:
 			path: tests/Fixtures/InlineParent.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\InlineParent\\:\\:\\$c is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/InlineParent.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\InlineParent\\:\\:\\$child has no typehint specified\\.$#"
 			count: 1
 			path: tests/Fixtures/InlineParent.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\InlineParent\\:\\:\\$child is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/InlineParent.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\InlineParent\\:\\:\\$d has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/InlineParent.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\InlineParent\\:\\:\\$d is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/InlineParent.php
 
@@ -4966,7 +5231,17 @@ parameters:
 			path: tests/Fixtures/Input.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Input\\:\\:\\$attributes is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/Input.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\InvalidGroupsObject\\:\\:\\$foo has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/InvalidGroupsObject.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\InvalidGroupsObject\\:\\:\\$foo is unused\\.$#"
 			count: 1
 			path: tests/Fixtures/InvalidGroupsObject.php
 
@@ -4976,7 +5251,17 @@ parameters:
 			path: tests/Fixtures/InvalidUsageOfXmlValue.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\InvalidUsageOfXmlValue\\:\\:\\$element is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/InvalidUsageOfXmlValue.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\InvalidUsageOfXmlValue\\:\\:\\$value has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/InvalidUsageOfXmlValue.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\InvalidUsageOfXmlValue\\:\\:\\$value is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/InvalidUsageOfXmlValue.php
 
@@ -5081,7 +5366,17 @@ parameters:
 			path: tests/Fixtures/ObjectWithEmptyArrayAndHash.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithEmptyArrayAndHash\\:\\:\\$array is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithEmptyArrayAndHash.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithEmptyArrayAndHash\\:\\:\\$hash has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithEmptyArrayAndHash.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithEmptyArrayAndHash\\:\\:\\$hash is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithEmptyArrayAndHash.php
 
@@ -5091,7 +5386,17 @@ parameters:
 			path: tests/Fixtures/ObjectWithEmptyArrayAndHash.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithEmptyArrayAndHash\\:\\:\\$object is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithEmptyArrayAndHash.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithEmptyHash\\:\\:\\$hash has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithEmptyHash.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithEmptyHash\\:\\:\\$hash is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithEmptyHash.php
 
@@ -5186,7 +5491,17 @@ parameters:
 			path: tests/Fixtures/ObjectWithIntListAndIntMap.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithIntListAndIntMap\\:\\:\\$list is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithIntListAndIntMap.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithIntListAndIntMap\\:\\:\\$map has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithIntListAndIntMap.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithIntListAndIntMap\\:\\:\\$map is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithIntListAndIntMap.php
 
@@ -5206,12 +5521,27 @@ parameters:
 			path: tests/Fixtures/ObjectWithLifecycleCallbacks.php
 
 		-
+			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithLifecycleCallbacks\\:\\:afterDeserialization\\(\\) is unused\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithLifecycleCallbacks.php
+
+		-
 			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithLifecycleCallbacks\\:\\:cleanUpAfterSerialization\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithLifecycleCallbacks.php
 
 		-
+			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithLifecycleCallbacks\\:\\:cleanUpAfterSerialization\\(\\) is unused\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithLifecycleCallbacks.php
+
+		-
 			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithLifecycleCallbacks\\:\\:prepareForSerialization\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithLifecycleCallbacks.php
+
+		-
+			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithLifecycleCallbacks\\:\\:prepareForSerialization\\(\\) is unused\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithLifecycleCallbacks.php
 
@@ -5291,7 +5621,17 @@ parameters:
 			path: tests/Fixtures/ObjectWithObjectProperty.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithObjectProperty\\:\\:\\$author is never written, only read\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithObjectProperty.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithObjectProperty\\:\\:\\$foo has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithObjectProperty.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithObjectProperty\\:\\:\\$foo is never written, only read\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithObjectProperty.php
 
@@ -5376,6 +5716,11 @@ parameters:
 			path: tests/Fixtures/ObjectWithVirtualXmlProperties.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlKeyValuePairs\\:\\:\\$array is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithXmlKeyValuePairs.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlKeyValuePairs\\:\\:\\$array type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithXmlKeyValuePairs.php
@@ -5387,6 +5732,11 @@ parameters:
 
 		-
 			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlKeyValuePairsWithObjectType\\:\\:create1\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithXmlKeyValuePairsWithObjectType.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlKeyValuePairsWithObjectType\\:\\:\\$list is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithXmlKeyValuePairsWithObjectType.php
 
@@ -5416,7 +5766,17 @@ parameters:
 			path: tests/Fixtures/ObjectWithXmlKeyValuePairsWithType.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlKeyValuePairsWithType\\:\\:\\$list is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithXmlKeyValuePairsWithType.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlKeyValuePairsWithType\\:\\:\\$list type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithXmlKeyValuePairsWithType.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlKeyValuePairsWithType\\:\\:\\$list2 is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithXmlKeyValuePairsWithType.php
 
@@ -5446,6 +5806,11 @@ parameters:
 			path: tests/Fixtures/ObjectWithXmlNamespaces.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespaces\\:\\:\\$author is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithXmlNamespaces.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespaces\\:\\:\\$createdAt has no typehint specified\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithXmlNamespaces.php
@@ -5456,12 +5821,27 @@ parameters:
 			path: tests/Fixtures/ObjectWithXmlNamespaces.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespaces\\:\\:\\$etag is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithXmlNamespaces.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespaces\\:\\:\\$language has no typehint specified\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithXmlNamespaces.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespaces\\:\\:\\$language is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithXmlNamespaces.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespaces\\:\\:\\$title has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithXmlNamespaces.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespaces\\:\\:\\$title is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithXmlNamespaces.php
 
@@ -5481,7 +5861,17 @@ parameters:
 			path: tests/Fixtures/ObjectWithXmlNamespacesAndObjectProperty.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespacesAndObjectProperty\\:\\:\\$author is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithXmlNamespacesAndObjectProperty.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespacesAndObjectProperty\\:\\:\\$title has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithXmlNamespacesAndObjectProperty.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespacesAndObjectProperty\\:\\:\\$title is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithXmlNamespacesAndObjectProperty.php
 
@@ -5501,12 +5891,27 @@ parameters:
 			path: tests/Fixtures/ObjectWithXmlNamespacesAndObjectPropertyAuthor.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespacesAndObjectPropertyAuthor\\:\\:\\$author is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithXmlNamespacesAndObjectPropertyAuthor.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespacesAndObjectPropertyAuthor\\:\\:\\$info has no typehint specified\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithXmlNamespacesAndObjectPropertyAuthor.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespacesAndObjectPropertyAuthor\\:\\:\\$info is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithXmlNamespacesAndObjectPropertyAuthor.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespacesAndObjectPropertyAuthor\\:\\:\\$name has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithXmlNamespacesAndObjectPropertyAuthor.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespacesAndObjectPropertyAuthor\\:\\:\\$name is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithXmlNamespacesAndObjectPropertyAuthor.php
 
@@ -5526,7 +5931,17 @@ parameters:
 			path: tests/Fixtures/ObjectWithXmlNamespacesAndObjectPropertyVirtual.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespacesAndObjectPropertyVirtual\\:\\:\\$author is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithXmlNamespacesAndObjectPropertyVirtual.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespacesAndObjectPropertyVirtual\\:\\:\\$title has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithXmlNamespacesAndObjectPropertyVirtual.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespacesAndObjectPropertyVirtual\\:\\:\\$title is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithXmlNamespacesAndObjectPropertyVirtual.php
 
@@ -5551,6 +5966,11 @@ parameters:
 			path: tests/Fixtures/ObjectWithXmlRootNamespace.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlRootNamespace\\:\\:\\$author is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithXmlRootNamespace.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlRootNamespace\\:\\:\\$createdAt has no typehint specified\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithXmlRootNamespace.php
@@ -5561,7 +5981,17 @@ parameters:
 			path: tests/Fixtures/ObjectWithXmlRootNamespace.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlRootNamespace\\:\\:\\$etag is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithXmlRootNamespace.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlRootNamespace\\:\\:\\$language has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithXmlRootNamespace.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlRootNamespace\\:\\:\\$language is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithXmlRootNamespace.php
 
@@ -5571,7 +6001,17 @@ parameters:
 			path: tests/Fixtures/ObjectWithXmlRootNamespace.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlRootNamespace\\:\\:\\$title is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/ObjectWithXmlRootNamespace.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Order\\:\\:\\$cost has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/Order.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Order\\:\\:\\$cost is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/Order.php
 
@@ -5586,7 +6026,22 @@ parameters:
 			path: tests/Fixtures/ParentDoNotSkipWithEmptyChild.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ParentDoNotSkipWithEmptyChild\\:\\:\\$c is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/ParentDoNotSkipWithEmptyChild.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ParentDoNotSkipWithEmptyChild\\:\\:\\$child is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/ParentDoNotSkipWithEmptyChild.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ParentDoNotSkipWithEmptyChild\\:\\:\\$d has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/ParentDoNotSkipWithEmptyChild.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ParentDoNotSkipWithEmptyChild\\:\\:\\$d is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/ParentDoNotSkipWithEmptyChild.php
 
@@ -5601,7 +6056,22 @@ parameters:
 			path: tests/Fixtures/ParentSkipWithEmptyChild.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ParentSkipWithEmptyChild\\:\\:\\$c is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/ParentSkipWithEmptyChild.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ParentSkipWithEmptyChild\\:\\:\\$child is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/ParentSkipWithEmptyChild.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ParentSkipWithEmptyChild\\:\\:\\$d has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/ParentSkipWithEmptyChild.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ParentSkipWithEmptyChild\\:\\:\\$d is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/ParentSkipWithEmptyChild.php
 
@@ -5721,6 +6191,11 @@ parameters:
 			path: tests/Fixtures/Price.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Price\\:\\:\\$price is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/Price.php
+
+		-
 			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Publisher\\:\\:__construct\\(\\) has parameter \\$name with no typehint specified\\.$#"
 			count: 1
 			path: tests/Fixtures/Publisher.php
@@ -5762,6 +6237,11 @@ parameters:
 
 		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\SimpleInternalObject\\:\\:\\$bar has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/SimpleInternalObject.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\SimpleInternalObject\\:\\:\\$bar is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/SimpleInternalObject.php
 
@@ -5821,6 +6301,11 @@ parameters:
 			path: tests/Fixtures/SimpleObjectProxy.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\SimpleObjectProxy\\:\\:\\$baz is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/SimpleObjectProxy.php
+
+		-
 			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\SimpleObjectWithStaticProp\\:\\:__construct\\(\\) has parameter \\$bar with no typehint specified\\.$#"
 			count: 1
 			path: tests/Fixtures/SimpleObjectWithStaticProp.php
@@ -5842,6 +6327,16 @@ parameters:
 
 		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\SimpleObjectWithStaticProp\\:\\:\\$foo has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/SimpleObjectWithStaticProp.php
+
+		-
+			message: "#^Static property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\SimpleObjectWithStaticProp\\:\\:\\$bar is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/SimpleObjectWithStaticProp.php
+
+		-
+			message: "#^Static property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\SimpleObjectWithStaticProp\\:\\:\\$foo is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/SimpleObjectWithStaticProp.php
 
@@ -5921,7 +6416,17 @@ parameters:
 			path: tests/Fixtures/VersionedObject.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\VersionedObject\\:\\:\\$name is never read, only written\\.$#"
+			count: 1
+			path: tests/Fixtures/VersionedObject.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\VersionedObject\\:\\:\\$name2 has no typehint specified\\.$#"
+			count: 1
+			path: tests/Fixtures/VersionedObject.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\VersionedObject\\:\\:\\$name2 is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/VersionedObject.php
 
@@ -6401,7 +6906,17 @@ parameters:
 			path: tests/Metadata/ClassMetadataTest.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Metadata\\\\PropertyMetadataOrder\\:\\:\\$a is unused\\.$#"
+			count: 1
+			path: tests/Metadata/ClassMetadataTest.php
+
+		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Metadata\\\\PropertyMetadataOrder\\:\\:\\$b has no typehint specified\\.$#"
+			count: 1
+			path: tests/Metadata/ClassMetadataTest.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Metadata\\\\PropertyMetadataOrder\\:\\:\\$b is unused\\.$#"
 			count: 1
 			path: tests/Metadata/ClassMetadataTest.php
 
@@ -6427,6 +6942,11 @@ parameters:
 
 		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Metadata\\\\PropertyMetadataPublicMethod\\:\\:\\$e has no typehint specified\\.$#"
+			count: 1
+			path: tests/Metadata/ClassMetadataTest.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Metadata\\\\PropertyMetadataPublicMethod\\:\\:\\$e is unused\\.$#"
 			count: 1
 			path: tests/Metadata/ClassMetadataTest.php
 
@@ -7496,6 +8016,11 @@ parameters:
 			path: tests/Serializer/ContextTest.php
 
 		-
+			message: "#^Anonymous function uses \\$this assigned to variable \\$self\\. Use \\$this directly in the function body\\.$#"
+			count: 4
+			path: tests/Serializer/ContextTest.php
+
+		-
 			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Serializer\\\\ContextTest\\:\\:getScalars\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Serializer/ContextTest.php
@@ -7682,6 +8207,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#5 \\$defaultManager of method Doctrine\\\\Persistence\\\\AbstractManagerRegistry\\:\\:__construct\\(\\) expects string, int\\|string\\|null given\\.$#"
+			count: 1
+			path: tests/Serializer/Doctrine/ObjectConstructorTest.php
+
+		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Serializer\\\\Doctrine\\\\ObjectConstructorTest\\:\\:\\$serializer is never read, only written\\.$#"
 			count: 1
 			path: tests/Serializer/Doctrine/ObjectConstructorTest.php
 
@@ -8094,6 +8624,11 @@ parameters:
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Serializer\\\\EventDispatcher\\\\Subscriber\\\\SymfonyValidatorValidatorSubscriberTest\\:\\:\\$validator has no typehint specified\\.$#"
 			count: 1
 			path: tests/Serializer/EventDispatcher/Subscriber/SymfonyValidatorValidatorSubscriberTest.php
+
+		-
+			message: "#^Anonymous function uses \\$this assigned to variable \\$self\\. Use \\$this directly in the function body\\.$#"
+			count: 2
+			path: tests/Serializer/GraphNavigatorTest.php
 
 		-
 			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Serializer\\\\GraphNavigatorTest\\:\\:testNavigatorChangeTypeOnSerialization\\(\\) has no return typehint specified\\.$#"
