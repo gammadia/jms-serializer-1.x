@@ -10,6 +10,7 @@ This is a fork of `jms/serializer` at the version `1.14.1` adapted for modern PH
 
 * PHP `7.2` <-> `8.0`
 * Symfony `3.4` <-> `5.3`
+* Doctrine `2.8` <-> `2.9`
 
 The following changes were applied to the dev dependencies :
 
