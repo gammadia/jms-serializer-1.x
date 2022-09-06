@@ -15,7 +15,7 @@ use Metadata\MethodMetadata;
 
 class XmlDriver extends AbstractFileDriver
 {
-    protected function loadMetadataFromFile(\ReflectionClass $class, $path)
+    protected function loadMetadataFromFile(\ReflectionClass $class, $path): \Metadata\ClassMetadata|null
     {
         $previous = libxml_use_internal_errors(true);
         libxml_clear_errors();
@@ -184,9 +184,9 @@ class XmlDriver extends AbstractFileDriver
                     }
 
                     if (null !== $groups = $pElem->attributes()->groups) {
-                        $pMetadata->groups = preg_split('/\s*,\s*/', (string) trim($groups));
+                        $pMetadata->groups = preg_split('/\s*,\s*/', (string)trim($groups));
                     } elseif (isset($pElem->groups)) {
-                        $pMetadata->groups = (array) $pElem->groups->value;
+                        $pMetadata->groups = (array)$pElem->groups->value;
                     }
 
                     if (isset($pElem->{'xml-list'})) {
@@ -338,7 +338,7 @@ class XmlDriver extends AbstractFileDriver
         return $metadata;
     }
 
-    protected function getExtension()
+    protected function getExtension(): string
     {
         return 'xml';
     }

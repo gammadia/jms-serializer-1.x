@@ -2,8 +2,9 @@
 
 namespace JMS\Serializer\Tests\Fixtures;
 
+use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\ReadOnly;
+use JMS\Serializer\Annotation\ReadOnlyProperty;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlRoot;
@@ -12,7 +13,7 @@ use JMS\Serializer\Annotation\XmlRoot;
 class AuthorReadOnly
 {
     /**
-     * @ReadOnly
+     * @ReadOnlyProperty
      * @SerializedName("id")
      */
     private $id;

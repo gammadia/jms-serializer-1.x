@@ -91,7 +91,7 @@ class ClassMetadata extends MergeableClassMetadata
         $this->sortProperties();
     }
 
-    public function addPropertyMetadata(BasePropertyMetadata $metadata)
+    public function addPropertyMetadata(BasePropertyMetadata $metadata):void
     {
         parent::addPropertyMetadata($metadata);
         $this->sortProperties();
@@ -125,7 +125,7 @@ class ClassMetadata extends MergeableClassMetadata
         $this->handlerCallbacks[$direction][$format] = $methodName;
     }
 
-    public function merge(MergeableInterface $object)
+    public function merge(MergeableInterface $object):void
     {
         if (!$object instanceof ClassMetadata) {
             throw new InvalidArgumentException('$object must be an instance of ClassMetadata.');
@@ -273,8 +273,8 @@ class ClassMetadata extends MergeableClassMetadata
                 if ($this->discriminatorBaseClass === $this->name) {
                     @trigger_error(
                         'Discriminator map was configured on non-abstract parent class but parent class'
-                        .' was not included into discriminator map. It will throw exception in next major version.'
-                        .' Either declare parent as abstract class or add it into discriminator map.',
+                        . ' was not included into discriminator map. It will throw exception in next major version.'
+                        . ' Either declare parent as abstract class or add it into discriminator map.',
                         E_USER_DEPRECATED
                     );
                 } else {

@@ -17,7 +17,7 @@ use JMS\Serializer\Annotation\MaxDepth;
 use JMS\Serializer\Annotation\PostDeserialize;
 use JMS\Serializer\Annotation\PostSerialize;
 use JMS\Serializer\Annotation\PreSerialize;
-use JMS\Serializer\Annotation\ReadOnly;
+use JMS\Serializer\Annotation\ReadOnlyProperty;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Since;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
@@ -52,7 +52,7 @@ class AnnotationDriver implements DriverInterface
         $this->reader = $reader;
     }
 
-    public function loadMetadataForClass(\ReflectionClass $class)
+    public function loadMetadataForClass(\ReflectionClass $class): \Metadata\ClassMetadata|null
     {
         $classMetadata = new ClassMetadata($name = $class->name);
         $classMetadata->fileResources[] = $class->getFilename();
@@ -76,7 +76,7 @@ class AnnotationDriver implements DriverInterface
                 $excludeAll = true;
             } elseif ($annot instanceof AccessType) {
                 $classAccessType = $annot->type;
-            } elseif ($annot instanceof ReadOnly) {
+            } elseif ($annot instanceof ReadOnlyProperty) {
                 $readOnlyClass = true;
             } elseif ($annot instanceof AccessorOrder) {
                 $classMetadata->setAccessorOrder($annot->order, $annot->custom);
@@ -195,7 +195,7 @@ class AnnotationDriver implements DriverInterface
                         $propertyMetadata->xmlElementCData = $annot->cdata;
                     } elseif ($annot instanceof AccessType) {
                         $accessType = $annot->type;
-                    } elseif ($annot instanceof ReadOnly) {
+                    } elseif ($annot instanceof ReadOnlyProperty) {
                         $propertyMetadata->readOnly = $annot->readOnly;
                     } elseif ($annot instanceof Accessor) {
                         $accessor = array($annot->getter, $annot->setter);

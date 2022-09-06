@@ -10,6 +10,7 @@ use JMS\Serializer\EventDispatcher\Subscriber\SymfonyValidatorValidatorSubscribe
 use JMS\Serializer\SerializerBuilder;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationList;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class SymfonyValidatorValidatorSubscriberTest extends \PHPUnit\Framework\TestCase
 {
@@ -81,6 +82,7 @@ class SymfonyValidatorValidatorSubscriberTest extends \PHPUnit\Framework\TestCas
 
     protected function setUp(): void
     {
+
         if (!interface_exists(\Symfony\Component\Validator\Validator\ValidatorInterface::class)) {
             $this->markTestSkipped('Symfony\Component\Validator\Validator\ValidatorInterface ^2.6|^3.0 is not available');
         }
