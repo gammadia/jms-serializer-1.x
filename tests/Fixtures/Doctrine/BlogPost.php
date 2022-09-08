@@ -19,7 +19,8 @@ use JMS\Serializer\Annotation\XmlRoot;
 class BlogPost
 {
     /**
-     * @ORM\Id @ORM\Column(type="guid") @ORM\GeneratedValue(strategy="UUID")
+     * @ORM\Id @ORM\Column(type="guid") @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
     protected $id;
 

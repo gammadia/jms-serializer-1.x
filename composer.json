@@ -33,7 +33,8 @@
     "doctrine/annotations": "^1.13",
     "doctrine/instantiator": "^1.4",
     "symfony/polyfill-php73": "^1.23",
-    "doctrine/dbal": "2.13.9"
+    "doctrine/dbal": "^3.3.7",
+    "ramsey/uuid-doctrine": "^1.8"
   },
   "conflict": {
     "jms/metadata": ">=2.0",
