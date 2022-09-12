@@ -8,7 +8,7 @@ parameters:
     paths:
         - 'src'
         - 'tests'
-    reportUnmatchedIgnoredErrors: true
+    reportUnmatchedIgnoredErrors: false
     checkFunctionNameCase: true
     checkUninitializedProperties: true
     tipsOfTheDay: false
