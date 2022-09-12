@@ -25,7 +25,7 @@ class DoctrinePHPCRTypeDriver extends AbstractDoctrineTypeDriver
     protected function setPropertyType(DoctrineClassMetadata $doctrineMetadata, PropertyMetadata $propertyMetadata)
     {
         $propertyName = $propertyMetadata->name;
-        if ($doctrineMetadata->hasField($propertyName) && $fieldType = $this->normalizeFieldType($doctrineMetadata->getTypeOfField($propertyName))) {
+        if ($doctrineMetadata->hasField($propertyName) && $fieldType = $this->normalizeFieldType((string) $doctrineMetadata->getTypeOfField($propertyName))) {
             $field = $doctrineMetadata->getFieldMapping($propertyName);
             if (!empty($field['multivalue'])) {
                 $fieldType = 'array';
@@ -39,7 +39,7 @@ class DoctrinePHPCRTypeDriver extends AbstractDoctrineTypeDriver
                 return;
             }
 
-            if (null === $this->tryLoadingDoctrineMetadata($targetEntity)) {
+            if (null === $this->tryLoadingDoctrineMetadata((string) $targetEntity)) {
                 return;
             }
 

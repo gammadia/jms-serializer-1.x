@@ -27,12 +27,12 @@ class DoctrineTypeDriver extends AbstractDoctrineTypeDriver
     protected function setPropertyType(DoctrineClassMetadata $doctrineMetadata, PropertyMetadata $propertyMetadata)
     {
         $propertyName = $propertyMetadata->name;
-        if ($doctrineMetadata->hasField($propertyName) && $fieldType = $this->normalizeFieldType($doctrineMetadata->getTypeOfField($propertyName))) {
+        if ($doctrineMetadata->hasField($propertyName) && $fieldType = $this->normalizeFieldType((string) $doctrineMetadata->getTypeOfField((string) $propertyName))) {
             $propertyMetadata->setType($fieldType);
         } elseif ($doctrineMetadata->hasAssociation($propertyName)) {
             $targetEntity = $doctrineMetadata->getAssociationTargetClass($propertyName);
 
-            if (null === $targetMetadata = $this->tryLoadingDoctrineMetadata($targetEntity)) {
+            if (null === $targetMetadata = $this->tryLoadingDoctrineMetadata((string) $targetEntity)) {
                 return;
             }
 
