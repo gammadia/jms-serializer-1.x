@@ -15,7 +15,7 @@ use Metadata\MethodMetadata;
 
 class XmlDriver extends AbstractFileDriver
 {
-    protected function loadMetadataFromFile(\ReflectionClass $class, $path): \Metadata\ClassMetadata|null
+    protected function loadMetadataFromFile(\ReflectionClass $class, $path)
     {
         $previous = libxml_use_internal_errors(true);
         libxml_clear_errors();

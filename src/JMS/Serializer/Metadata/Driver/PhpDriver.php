@@ -8,7 +8,7 @@ use Metadata\Driver\AbstractFileDriver;
 
 class PhpDriver extends AbstractFileDriver
 {
-    protected function loadMetadataFromFile(\ReflectionClass $class, $file): \Metadata\ClassMetadata|null
+    protected function loadMetadataFromFile(\ReflectionClass $class, $file)
     {
         $metadata = require $file;
 

@@ -62,7 +62,7 @@ abstract class AbstractDoctrineTypeDriver implements DriverInterface
         $this->registry = $registry;
     }
 
-    public function loadMetadataForClass(\ReflectionClass $class): \Metadata\ClassMetadata|null
+    public function loadMetadataForClass(\ReflectionClass $class)
     {
         /** @var $classMetadata ClassMetadata */
         $classMetadata = $this->delegate->loadMetadataForClass($class);
