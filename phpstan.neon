@@ -7,7 +7,6 @@ parameters:
     tmpDir: 'var/cache/phpstan'
     paths:
         - 'src'
-        - 'tests'
     reportUnmatchedIgnoredErrors: false
     checkFunctionNameCase: true
     checkUninitializedProperties: true
