@@ -10,5 +10,12 @@ parameters:
 	    - "#^ArrayObject<.*> does not accept array<.*>\\.#" #ArrayObject<*NEVER*, *NEVER*> does not accept array<XXX, mixed>.
 	    - "#^Method.* should return.*but returns mixed\\.#" #Method XXX should return YYY but returns mixed.
 
+	    # In the tests folder
+	    - "#^Call to method expects\\(\\) on an unknown class .*\\.#"
+	    - "#^Function .* type specified\\.#"
+	    - "#^Cannot access offset 'readonly' on .*\\.#"
+	    - "#^Method .* has invalid return type PHPUnit_Framework_MockObject_MockObject\\.#"
+	    - "#^Return type mixed of method .*\\n.*\\.#"
+	    - "#Property.*only written\\.#"
 	checkGenericClassInNonGenericObjectType: false
 
