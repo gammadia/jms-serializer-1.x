@@ -1,12 +1,14 @@
 includes:
     - 'vendor/phpstan/phpstan/conf/bleedingEdge.neon'
     - 'phpstan-baseline.neon'
+    - 'phpstan-1.8.x-baseline.neon'
 
 parameters:
     level: max
     tmpDir: 'var/cache/phpstan'
     paths:
         - 'src'
+        - 'tests'
     reportUnmatchedIgnoredErrors: false
     checkFunctionNameCase: true
     checkUninitializedProperties: true
