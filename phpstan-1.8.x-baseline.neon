@@ -9,6 +9,7 @@ parameters:
 	    - "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.#"
 	    - "#^ArrayObject<.*> does not accept array<.*>\\.#" #ArrayObject<*NEVER*, *NEVER*> does not accept array<XXX, mixed>.
 	    - "#^Method.* should return.*but returns mixed\\.#" #Method XXX should return YYY but returns mixed.
+	    - "#^Unable to resolve the template type T in call to method Doctrine\\\\Instantiator\\\\Instantiator::instantiate\\(\\)#"
 
 	    # In the tests folder
 	    - "#^Call to method expects\\(\\) on an unknown class .*\\.#"
