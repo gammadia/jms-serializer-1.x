@@ -55,7 +55,7 @@ class ExpressionPropertyMetadata extends PropertyMetadata
 
     public function __unserialize(array $data): void
     {
-        [$this->expression,$this->class,$this->name, $parentStr] = $data;
+        [$this->expression, $this->class, $this->name, $parentStr] = $data;
         parent::unserializeProperties($parentStr);
     }
 
