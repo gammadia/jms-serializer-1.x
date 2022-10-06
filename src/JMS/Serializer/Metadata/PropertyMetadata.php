@@ -123,9 +123,9 @@ class PropertyMetadata extends BasePropertyMetadata
         $this->type = self::$typeParser->parse($type);
     }
 
-    public function serialize()
+    public function __serialize(): array
     {
-        return serialize(array(
+        return [
             $this->sinceVersion,
             $this->untilVersion,
             $this->groups,
@@ -151,21 +151,12 @@ class PropertyMetadata extends BasePropertyMetadata
             'xmlCollectionSkipWhenEmpty' => $this->xmlCollectionSkipWhenEmpty,
             'excludeIf' => $this->excludeIf,
             'skipWhenEmpty' => $this->skipWhenEmpty,
-        ));
+        ];
     }
 
-    public function unserialize($str)
+    public function __unserialize(array $data): void
     {
-        $parentStr = $this->unserializeProperties($str);
-        parent::unserialize($parentStr);
-
-        $this->initAccessor();
-    }
-
-    protected function unserializeProperties($str)
-    {
-        $unserialized = unserialize($str);
-        list(
+        [
             $this->sinceVersion,
             $this->untilVersion,
             $this->groups,
@@ -187,21 +178,73 @@ class PropertyMetadata extends BasePropertyMetadata
             $this->xmlAttributeMap,
             $this->maxDepth,
             $parentStr
-            ) = $unserialized;
+        ] = $data;
 
-        if (isset($unserialized['xmlEntryNamespace'])) {
-            $this->xmlEntryNamespace = $unserialized['xmlEntryNamespace'];
+        if (isset($data['xmlEntryNamespace'])) {
+            $this->xmlEntryNamespace = $data['xmlEntryNamespace'];
         }
-        if (isset($unserialized['xmlCollectionSkipWhenEmpty'])) {
-            $this->xmlCollectionSkipWhenEmpty = $unserialized['xmlCollectionSkipWhenEmpty'];
+        if (isset($data['xmlCollectionSkipWhenEmpty'])) {
+            $this->xmlCollectionSkipWhenEmpty = $data['xmlCollectionSkipWhenEmpty'];
         }
-        if (isset($unserialized['excludeIf'])) {
-            $this->excludeIf = $unserialized['excludeIf'];
+        if (isset($data['excludeIf'])) {
+            $this->excludeIf = $data['excludeIf'];
         }
-        if (isset($unserialized['skipWhenEmpty'])) {
-            $this->skipWhenEmpty = $unserialized['skipWhenEmpty'];
+        if (isset($data['skipWhenEmpty'])) {
+            $this->skipWhenEmpty = $data['skipWhenEmpty'];
+        }
+
+        $this->unserializeFromArray(unserialize($parentStr));
+
+        $this->initAccessor();
+    }
+
+
+    protected function propertiesToVariable(array $properties)
+    {
+        [
+            $this->sinceVersion,
+            $this->untilVersion,
+            $this->groups,
+            $this->serializedName,
+            $this->type,
+            $this->xmlCollection,
+            $this->xmlCollectionInline,
+            $this->xmlEntryName,
+            $this->xmlKeyAttribute,
+            $this->xmlAttribute,
+            $this->xmlValue,
+            $this->xmlNamespace,
+            $this->xmlKeyValuePairs,
+            $this->xmlElementCData,
+            $this->getter,
+            $this->setter,
+            $this->inline,
+            $this->readOnly,
+            $this->xmlAttributeMap,
+            $this->maxDepth,
+            $parentStr
+        ] = $properties;
+
+        if (isset($properties['xmlEntryNamespace'])) {
+            $this->xmlEntryNamespace = $properties['xmlEntryNamespace'];
+        }
+        if (isset($properties['xmlCollectionSkipWhenEmpty'])) {
+            $this->xmlCollectionSkipWhenEmpty = $properties['xmlCollectionSkipWhenEmpty'];
+        }
+        if (isset($properties['excludeIf'])) {
+            $this->excludeIf = $properties['excludeIf'];
+        }
+        if (isset($properties['skipWhenEmpty'])) {
+            $this->skipWhenEmpty = $properties['skipWhenEmpty'];
         }
 
         return $parentStr;
+    }
+
+    protected function unserializeProperties($str)
+    {
+        $unserialized = unserialize($str);
+
+        return $this->propertiesToVariable($unserialized);
     }
 }
