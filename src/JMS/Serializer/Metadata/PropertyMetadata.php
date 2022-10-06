@@ -198,8 +198,7 @@ class PropertyMetadata extends BasePropertyMetadata
         $this->initAccessor();
     }
 
-
-    protected function propertiesToVariable(array $properties)
+    protected function propertiesToVariable(array $properties): string
     {
         [
             $this->sinceVersion,

@@ -2672,7 +2672,7 @@ parameters:
 
 		-
 			message: "#^Cannot use array destructuring on mixed\\.$#"
-			count: 2
+			count: 1
 			path: src/JMS/Serializer/Metadata/ExpressionPropertyMetadata.php
 
 		-
@@ -2727,33 +2727,8 @@ parameters:
 
 		-
 			message: "#^Property JMS\\\\Serializer\\\\Metadata\\\\ExpressionPropertyMetadata\\:\\:\\$expression \\(string\\) does not accept mixed\\.$#"
-			count: 1
+			count: 2
 			path: src/JMS/Serializer/Metadata/ExpressionPropertyMetadata.php
-
-		-
-			message: "#^Cannot access offset 'excludeIf' on mixed\\.$#"
-			count: 2
-			path: src/JMS/Serializer/Metadata/PropertyMetadata.php
-
-		-
-			message: "#^Cannot access offset 'skipWhenEmpty' on mixed\\.$#"
-			count: 2
-			path: src/JMS/Serializer/Metadata/PropertyMetadata.php
-
-		-
-			message: "#^Cannot access offset 'xmlCollectionSkipWh…' on mixed\\.$#"
-			count: 2
-			path: src/JMS/Serializer/Metadata/PropertyMetadata.php
-
-		-
-			message: "#^Cannot access offset 'xmlEntryNamespace' on mixed\\.$#"
-			count: 2
-			path: src/JMS/Serializer/Metadata/PropertyMetadata.php
-
-		-
-			message: "#^Cannot use array destructuring on mixed\\.$#"
-			count: 1
-			path: src/JMS/Serializer/Metadata/PropertyMetadata.php
 
 		-
 			message: "#^Method JMS\\\\Serializer\\\\Metadata\\\\PropertyMetadata\\:\\:__construct\\(\\) has parameter \\$class with no type specified\\.$#"
@@ -2767,6 +2742,11 @@ parameters:
 
 		-
 			message: "#^Method JMS\\\\Serializer\\\\Metadata\\\\PropertyMetadata\\:\\:initAccessor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/JMS/Serializer/Metadata/PropertyMetadata.php
+
+		-
+			message: "#^Method JMS\\\\Serializer\\\\Metadata\\\\PropertyMetadata\\:\\:propertiesToVariable\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/JMS/Serializer/Metadata/PropertyMetadata.php
 
@@ -2812,6 +2792,21 @@ parameters:
 
 		-
 			message: "#^Method JMS\\\\Serializer\\\\Metadata\\\\PropertyMetadata\\:\\:unserializeProperties\\(\\) has parameter \\$str with no type specified\\.$#"
+			count: 1
+			path: src/JMS/Serializer/Metadata/PropertyMetadata.php
+
+		-
+			message: "#^Parameter \\#1 \\$data of function unserialize expects string, mixed given\\.$#"
+			count: 1
+			path: src/JMS/Serializer/Metadata/PropertyMetadata.php
+
+		-
+			message: "#^Parameter \\#1 \\$data of method Metadata\\\\PropertyMetadata\\:\\:unserializeFromArray\\(\\) expects array, mixed given\\.$#"
+			count: 1
+			path: src/JMS/Serializer/Metadata/PropertyMetadata.php
+
+		-
+			message: "#^Parameter \\#1 \\$properties of method JMS\\\\Serializer\\\\Metadata\\\\PropertyMetadata\\:\\:propertiesToVariable\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/JMS/Serializer/Metadata/PropertyMetadata.php
 
@@ -2946,11 +2941,6 @@ parameters:
 			path: src/JMS/Serializer/Metadata/PropertyMetadata.php
 
 		-
-			message: "#^Cannot use array destructuring on mixed\\.$#"
-			count: 2
-			path: src/JMS/Serializer/Metadata/StaticPropertyMetadata.php
-
-		-
 			message: "#^Method JMS\\\\Serializer\\\\Metadata\\\\StaticPropertyMetadata\\:\\:__construct\\(\\) has parameter \\$className with no type specified\\.$#"
 			count: 1
 			path: src/JMS/Serializer/Metadata/StaticPropertyMetadata.php
@@ -2992,16 +2982,6 @@ parameters:
 
 		-
 			message: "#^Method JMS\\\\Serializer\\\\Metadata\\\\StaticPropertyMetadata\\:\\:setValue\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: src/JMS/Serializer/Metadata/StaticPropertyMetadata.php
-
-		-
-			message: "#^Method JMS\\\\Serializer\\\\Metadata\\\\StaticPropertyMetadata\\:\\:unserializeProperties\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: src/JMS/Serializer/Metadata/StaticPropertyMetadata.php
-
-		-
-			message: "#^Method JMS\\\\Serializer\\\\Metadata\\\\StaticPropertyMetadata\\:\\:unserializeProperties\\(\\) has parameter \\$str with no type specified\\.$#"
 			count: 1
 			path: src/JMS/Serializer/Metadata/StaticPropertyMetadata.php
 
