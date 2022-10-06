@@ -157,10 +157,14 @@ class PropertyMetadata extends BasePropertyMetadata
     public function __unserialize(array $data): void
     {
         $parentStr = $this->propertiesToVariable($data);
-        $this->unserializeFromArray(unserialize($parentStr));
+        $this->unserializeFromArray((array) unserialize($parentStr));
         $this->initAccessor();
     }
 
+    /**
+     * @param Mixed[] $properties
+     * @return string
+     */
     protected function propertiesToVariable(array $properties): string
     {
         [
@@ -200,12 +204,12 @@ class PropertyMetadata extends BasePropertyMetadata
             $this->skipWhenEmpty = $properties['skipWhenEmpty'];
         }
 
-        return $parentStr;
+        return strval($parentStr);
     }
 
     protected function unserializeProperties($str)
     {
-        $unserialized = unserialize($str);
+        $unserialized = (array) unserialize($str);
 
         return $this->propertiesToVariable($unserialized);
     }
