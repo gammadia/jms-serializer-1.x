@@ -156,45 +156,8 @@ class PropertyMetadata extends BasePropertyMetadata
 
     public function __unserialize(array $data): void
     {
-        [
-            $this->sinceVersion,
-            $this->untilVersion,
-            $this->groups,
-            $this->serializedName,
-            $this->type,
-            $this->xmlCollection,
-            $this->xmlCollectionInline,
-            $this->xmlEntryName,
-            $this->xmlKeyAttribute,
-            $this->xmlAttribute,
-            $this->xmlValue,
-            $this->xmlNamespace,
-            $this->xmlKeyValuePairs,
-            $this->xmlElementCData,
-            $this->getter,
-            $this->setter,
-            $this->inline,
-            $this->readOnly,
-            $this->xmlAttributeMap,
-            $this->maxDepth,
-            $parentStr
-        ] = $data;
-
-        if (isset($data['xmlEntryNamespace'])) {
-            $this->xmlEntryNamespace = $data['xmlEntryNamespace'];
-        }
-        if (isset($data['xmlCollectionSkipWhenEmpty'])) {
-            $this->xmlCollectionSkipWhenEmpty = $data['xmlCollectionSkipWhenEmpty'];
-        }
-        if (isset($data['excludeIf'])) {
-            $this->excludeIf = $data['excludeIf'];
-        }
-        if (isset($data['skipWhenEmpty'])) {
-            $this->skipWhenEmpty = $data['skipWhenEmpty'];
-        }
-
+        $parentStr = $this->propertiesToVariable($data);
         $this->unserializeFromArray(unserialize($parentStr));
-
         $this->initAccessor();
     }
 
