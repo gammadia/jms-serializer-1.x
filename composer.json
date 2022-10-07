@@ -1,83 +1,77 @@
 {
-  "name": "gammadia/jms-serializer-1.x",
-  "type": "library",
-  "description": "Fork of jms/serializer 1.14.1 with support for modern PHP versions.",
-  "replace": {
-    "jms/serializer": "^1.14"
-  },
-  "keywords": [
-    "serialization",
-    "deserialization",
-    "json",
-    "jaxb",
-    "xml"
-  ],
-  "homepage": "http://jmsyst.com/libs/serializer",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Johannes M. Schmitt",
-      "email": "schmittjoh@gmail.com"
+    "name": "gammadia/jms-serializer-1.x",
+    "type": "library",
+    "description": "Fork of jms/serializer 1.14.1 with support for modern PHP versions.",
+    "replace": {
+        "jms/serializer": "^1.14"
     },
-    {
-      "name": "Asmir Mustafic",
-      "email": "goetas@gmail.com"
+    "keywords": ["serialization", "deserialization", "json", "jaxb", "xml"],
+    "homepage": "http://jmsyst.com/libs/serializer",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Johannes M. Schmitt",
+            "email": "schmittjoh@gmail.com"
+        },
+        {
+            "name": "Asmir Mustafic",
+            "email": "goetas@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "gammadia/jms-metadata-1.x": "^1.7",
+        "jms/parser-lib": "^1.0",
+        "phpoption/phpoption": "^1.7",
+        "phpcollection/phpcollection": "^0.6",
+        "doctrine/annotations": "^1.13",
+        "doctrine/instantiator": "^1.4",
+        "symfony/polyfill-php73": "^1.23",
+        "doctrine/dbal": "^3.3.7"
+    },
+    "conflict": {
+        "jms/metadata": ">=2.0",
+        "twig/twig": "<1.12"
+    },
+    "suggest": {
+        "symfony/yaml": "Required if you'd like to serialize data to YAML format.",
+        "doctrine/collections": "Required if you like to use doctrine collection types as ArrayCollection.",
+        "doctrine/cache": "Required if you like to use cache functionality."
+    },
+    "require-dev": {
+        "ext-json": "*",
+        "ext-pdo_sqlite": "*",
+        "twig/twig": "~1.12|~2.0",
+        "doctrine/orm": "^2.13.1",
+        "jackalope/jackalope-doctrine-dbal": "^1.1.5",
+        "doctrine/phpcr-odm": "^1.3|^2.0",
+        "psr/container": "^1.0",
+        "symfony/dependency-injection": "^3.4|^4.0|^5.0|^6.0",
+        "symfony/yaml": "^3.4|^4.0|^5.0|^6.0",
+        "symfony/translation": "^3.4|^4.0|^5.0|^6.0",
+        "symfony/validator": "^5.4",
+        "symfony/form": "^3.4|^4.0|^5.0|^6.0",
+        "symfony/filesystem": "^3.4|^4.0|^5.0|^6.0",
+        "symfony/expression-language": "^3.4|^4.0|^5.0|^6.0",
+        "dms/phpunit-arraysubset-asserts": "^0.3",
+        "phpunit/phpunit": "8.5.29",
+        "phpstan/phpstan": "1.8.5",
+        "overtrue/phplint": "^2.4|^3.0|^4.0|^5.0|^6.0",
+        "ramsey/uuid-doctrine": "^1.8"
+    },
+    "autoload": {
+        "psr-0": {
+            "JMS\\Serializer": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JMS\\Serializer\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-1.x": "1.14-dev"
+        }
     }
-  ],
-  "require": {
-    "php": "^7.4|^8.0",
-    "gammadia/jms-metadata-1.x": "^1.7",
-    "jms/parser-lib": "^1.0",
-    "phpoption/phpoption": "^1.7",
-    "phpcollection/phpcollection": "^0.6",
-    "doctrine/annotations": "^1.13",
-    "doctrine/instantiator": "^1.4",
-    "symfony/polyfill-php73": "^1.23",
-    "doctrine/dbal": "^3.3.7"
-  },
-  "conflict": {
-    "jms/metadata": ">=2.0",
-    "twig/twig": "<1.12"
-  },
-  "suggest": {
-    "symfony/yaml": "Required if you'd like to serialize data to YAML format.",
-    "doctrine/collections": "Required if you like to use doctrine collection types as ArrayCollection.",
-    "doctrine/cache": "Required if you like to use cache functionality."
-  },
-  "require-dev": {
-    "ext-json": "*",
-    "ext-pdo_sqlite": "*",
-    "twig/twig": "~1.12|~2.0",
-    "doctrine/orm": "^2.13.1",
-    "jackalope/jackalope-doctrine-dbal": "^1.1.5",
-    "doctrine/phpcr-odm": "^1.3|^2.0",
-    "psr/container": "^1.0",
-    "symfony/dependency-injection": "^3.4|^4.0|^5.0|^6.0",
-    "symfony/yaml": "^3.4|^4.0|^5.0|^6.0",
-    "symfony/translation": "^3.4|^4.0|^5.0|^6.0",
-    "symfony/validator": "^5.4",
-    "symfony/form": "^3.4|^4.0|^5.0|^6.0",
-    "symfony/filesystem": "^3.4|^4.0|^5.0|^6.0",
-    "symfony/expression-language": "^3.4|^4.0|^5.0|^6.0",
-    "dms/phpunit-arraysubset-asserts": "^0.3",
-    "phpunit/phpunit": "8.5.29",
-    "phpstan/phpstan": "1.8.5",
-    "overtrue/phplint": "^2.4|^3.0|^4.0|^5.0|^6.0",
-    "ramsey/uuid-doctrine": "^1.8"
-  },
-  "autoload": {
-    "psr-0": {
-      "JMS\\Serializer": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "JMS\\Serializer\\Tests\\": "tests/"
-    }
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-1.x": "1.14-dev"
-    }
-  }
 }

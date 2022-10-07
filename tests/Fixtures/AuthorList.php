@@ -2,6 +2,7 @@
 
 namespace JMS\Serializer\Tests\Fixtures;
 
+use ArrayIterator;
 use JMS\Serializer\Annotation as Serializer;
 use ReturnTypeWillChange;
 
@@ -27,9 +28,9 @@ class AuthorList implements \IteratorAggregate, \Countable, \ArrayAccess
     /**
      * @see IteratorAggregate
      */
-    public function getIterator(): \ArrayIterator
+    public function getIterator(): ArrayIterator
     {
-        return new \ArrayIterator($this->authors);
+        return new ArrayIterator($this->authors);
     }
 
     /**

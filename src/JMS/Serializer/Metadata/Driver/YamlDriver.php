@@ -243,7 +243,7 @@ class YamlDriver extends AbstractFileDriver
         return $metadata;
     }
 
-    protected function getExtension():string
+    protected function getExtension(): string
     {
         return 'yml';
     }

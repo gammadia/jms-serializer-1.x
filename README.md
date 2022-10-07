@@ -21,6 +21,7 @@ The following changes were applied to the dev dependencies :
 
 ### BC break changes
 
+* `ReadOnly` annotation was renamed to `ReadOnlyProperty` to avoid conflicts with PHP 8.1 readonly reserved keyword
 * PHP version bumped to PHP 7.4 to prevent having to deal with PHP's Serializable cross-version compatibility...
 * Doctrine dependency bumped from `~2.1` to `^2.8` (because of namespaces changes)
 * Propel support was removed as `propel/propel1` is not working with PHP 8 :

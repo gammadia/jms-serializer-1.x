@@ -1,4 +1,5 @@
 <?php
+
 namespace JMS\Serializer\Annotation;
 
 /**
@@ -10,7 +11,7 @@ namespace JMS\Serializer\Annotation;
 /* final */ class ReadOnlyProperty
 {
     /**
-     * @var bool
+     * @var boolean
      */
     public $readOnly = true;
 }
