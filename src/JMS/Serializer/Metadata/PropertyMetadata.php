@@ -162,11 +162,13 @@ class PropertyMetadata extends BasePropertyMetadata
     }
 
     /**
-     * @param Mixed[] $properties
+     * @param mixed[] $properties
+     *
      * @return string
      */
     protected function propertiesToVariable(array $properties): string
     {
+        /** @var string $parentStr */
         [
             $this->sinceVersion,
             $this->untilVersion,
@@ -204,12 +206,13 @@ class PropertyMetadata extends BasePropertyMetadata
             $this->skipWhenEmpty = $properties['skipWhenEmpty'];
         }
 
-        return strval($parentStr);
+        return $parentStr;
     }
 
     protected function unserializeProperties($str)
     {
-        $unserialized = (array) unserialize($str);
+        /** @var mixed[] $unserialized */
+        $unserialized = unserialize($str);
 
         return $this->propertiesToVariable($unserialized);
     }

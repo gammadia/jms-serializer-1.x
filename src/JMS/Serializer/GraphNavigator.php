@@ -154,8 +154,8 @@ final class GraphNavigator implements GraphNavigatorInterface
                     // If we're serializing a polymorphic type, then we'll be interested in the
                     // metadata for the actual type of the object, not the base class.
                     if (class_exists($type['name'], false) || interface_exists($type['name'], false)) {
-                        if (is_subclass_of((object)$data, $type['name'], false)) {
-                            $type = array('name' => \get_class((object)$data), 'params' => array());
+                        if (is_subclass_of((object) $data, $type['name'], false)) {
+                            $type = array('name' => \get_class((object) $data), 'params' => array());
                         }
                     }
                 } elseif ($context instanceof DeserializationContext) {

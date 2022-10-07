@@ -23,14 +23,15 @@ class YamlDriver extends AbstractFileDriver
             throw new RuntimeException(sprintf('Expected metadata for class %s to be defined in %s.', $class->name, $file));
         }
 
-        $config = (array)$config[$name];
+        /** @var mixed[] $config */
+        $config = $config[$name];
         $metadata = new ClassMetadata($name);
         $metadata->fileResources[] = $file;
         $metadata->fileResources[] = $class->getFileName();
         $exclusionPolicy = isset($config['exclusion_policy']) ? strtoupper(strval($config['exclusion_policy'])) : 'NONE';
-        $excludeAll = isset($config['exclude']) ? (boolean)$config['exclude'] : false;
+        $excludeAll = isset($config['exclude']) ? (Boolean)$config['exclude'] : false;
         $classAccessType = isset($config['access_type']) ? $config['access_type'] : PropertyMetadata::ACCESS_TYPE_PROPERTY;
-        $readOnlyClass = isset($config['read_only']) ? (boolean)$config['read_only'] : false;
+        $readOnlyClass = isset($config['read_only']) ? (Boolean)$config['read_only'] : false;
         $this->addClassProperties($metadata, $config);
 
         $propertiesMetadata = array();
@@ -72,7 +73,7 @@ class YamlDriver extends AbstractFileDriver
                     $pConfig = $config['properties'][$pName];
 
                     if (isset($pConfig['exclude'])) {
-                        $isExclude = (boolean)$pConfig['exclude'];
+                        $isExclude = (Boolean)$pConfig['exclude'];
                     }
 
                     if ($isExclude) {
@@ -80,11 +81,11 @@ class YamlDriver extends AbstractFileDriver
                     }
 
                     if (isset($pConfig['expose'])) {
-                        $isExpose = (boolean)$pConfig['expose'];
+                        $isExpose = (Boolean)$pConfig['expose'];
                     }
 
                     if (isset($pConfig['skip_when_empty'])) {
-                        $pMetadata->skipWhenEmpty = (boolean)$pConfig['skip_when_empty'];
+                        $pMetadata->skipWhenEmpty = (Boolean)$pConfig['skip_when_empty'];
                     }
 
                     if (isset($pConfig['since_version'])) {
@@ -120,7 +121,7 @@ class YamlDriver extends AbstractFileDriver
 
                         $colConfig = $pConfig['xml_list'];
                         if (isset($colConfig['inline'])) {
-                            $pMetadata->xmlCollectionInline = (boolean)$colConfig['inline'];
+                            $pMetadata->xmlCollectionInline = (Boolean)$colConfig['inline'];
                         }
 
                         if (isset($colConfig['entry_name'])) {
@@ -128,7 +129,7 @@ class YamlDriver extends AbstractFileDriver
                         }
 
                         if (isset($colConfig['skip_when_empty'])) {
-                            $pMetadata->xmlCollectionSkipWhenEmpty = (boolean)$colConfig['skip_when_empty'];
+                            $pMetadata->xmlCollectionSkipWhenEmpty = (Boolean)$colConfig['skip_when_empty'];
                         } else {
                             $pMetadata->xmlCollectionSkipWhenEmpty = true;
                         }
@@ -143,7 +144,7 @@ class YamlDriver extends AbstractFileDriver
 
                         $colConfig = $pConfig['xml_map'];
                         if (isset($colConfig['inline'])) {
-                            $pMetadata->xmlCollectionInline = (boolean)$colConfig['inline'];
+                            $pMetadata->xmlCollectionInline = (Boolean)$colConfig['inline'];
                         }
 
                         if (isset($colConfig['entry_name'])) {
@@ -163,7 +164,7 @@ class YamlDriver extends AbstractFileDriver
                     if (isset($pConfig['xml_element'])) {
                         $colConfig = $pConfig['xml_element'];
                         if (isset($colConfig['cdata'])) {
-                            $pMetadata->xmlElementCData = (boolean)$colConfig['cdata'];
+                            $pMetadata->xmlElementCData = (Boolean)$colConfig['cdata'];
                         }
 
                         if (isset($colConfig['namespace'])) {
@@ -172,24 +173,24 @@ class YamlDriver extends AbstractFileDriver
                     }
 
                     if (isset($pConfig['xml_attribute'])) {
-                        $pMetadata->xmlAttribute = (boolean)$pConfig['xml_attribute'];
+                        $pMetadata->xmlAttribute = (Boolean)$pConfig['xml_attribute'];
                     }
 
                     if (isset($pConfig['xml_attribute_map'])) {
-                        $pMetadata->xmlAttributeMap = (boolean)$pConfig['xml_attribute_map'];
+                        $pMetadata->xmlAttributeMap = (Boolean)$pConfig['xml_attribute_map'];
                     }
 
                     if (isset($pConfig['xml_value'])) {
-                        $pMetadata->xmlValue = (boolean)$pConfig['xml_value'];
+                        $pMetadata->xmlValue = (Boolean)$pConfig['xml_value'];
                     }
 
                     if (isset($pConfig['xml_key_value_pairs'])) {
-                        $pMetadata->xmlKeyValuePairs = (boolean)$pConfig['xml_key_value_pairs'];
+                        $pMetadata->xmlKeyValuePairs = (Boolean)$pConfig['xml_key_value_pairs'];
                     }
 
                     //we need read_only before setter and getter set, because that method depends on flag being set
                     if (isset($pConfig['read_only'])) {
-                        $pMetadata->readOnly = (boolean)$pConfig['read_only'];
+                        $pMetadata->readOnly = (Boolean)$pConfig['read_only'];
                     } else {
                         $pMetadata->readOnly = $pMetadata->readOnly || $readOnlyClass;
                     }
@@ -201,7 +202,7 @@ class YamlDriver extends AbstractFileDriver
                     );
 
                     if (isset($pConfig['inline'])) {
-                        $pMetadata->inline = (boolean)$pConfig['inline'];
+                        $pMetadata->inline = (Boolean)$pConfig['inline'];
                     }
 
                     if (isset($pConfig['max_depth'])) {
@@ -242,7 +243,7 @@ class YamlDriver extends AbstractFileDriver
         return $metadata;
     }
 
-    protected function getExtension(): string
+    protected function getExtension():string
     {
         return 'yml';
     }
