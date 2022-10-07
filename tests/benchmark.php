@@ -56,7 +56,7 @@ $metrics['benchmark-collection-' . $format] = benchmark($f, $iterations);
 $output = json_encode(array('metrics' => $metrics));
 
 if (isset($_SERVER['argv'][3])) {
-    file_put_contents($_SERVER['argv'][3], $output);
+    file_put_contents(strval($_SERVER['argv'][3]), $output);
     echo "Done." . PHP_EOL;
 } else {
     echo $output . PHP_EOL;
