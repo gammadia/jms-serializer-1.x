@@ -23,11 +23,12 @@ class YamlDriver extends AbstractFileDriver
             throw new RuntimeException(sprintf('Expected metadata for class %s to be defined in %s.', $class->name, $file));
         }
 
+        /** @var mixed[] $config */
         $config = $config[$name];
         $metadata = new ClassMetadata($name);
         $metadata->fileResources[] = $file;
         $metadata->fileResources[] = $class->getFileName();
-        $exclusionPolicy = isset($config['exclusion_policy']) ? strtoupper($config['exclusion_policy']) : 'NONE';
+        $exclusionPolicy = isset($config['exclusion_policy']) ? strtoupper(strval($config['exclusion_policy'])) : 'NONE';
         $excludeAll = isset($config['exclude']) ? (Boolean)$config['exclude'] : false;
         $classAccessType = isset($config['access_type']) ? $config['access_type'] : PropertyMetadata::ACCESS_TYPE_PROPERTY;
         $readOnlyClass = isset($config['read_only']) ? (Boolean)$config['read_only'] : false;
@@ -242,7 +243,7 @@ class YamlDriver extends AbstractFileDriver
         return $metadata;
     }
 
-    protected function getExtension()
+    protected function getExtension(): string
     {
         return 'yml';
     }

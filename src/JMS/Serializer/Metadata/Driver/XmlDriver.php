@@ -338,7 +338,7 @@ class XmlDriver extends AbstractFileDriver
         return $metadata;
     }
 
-    protected function getExtension()
+    protected function getExtension(): string
     {
         return 'xml';
     }

@@ -8,8 +8,8 @@ A fork for modern days [![CI](https://github.com/gammadia/jms-serializer-1.x/act
 
 This is a fork of `jms/serializer` at the version `1.14.1` adapted for modern PHP development, which supports :
 
-* PHP `7.2` <-> `8.0`
-* Symfony `3.4` <-> `5.3`
+* PHP `7.4` <-> `8.1`
+* Symfony `3.4` <-> `6.0`
 * Doctrine `2.8` <-> `2.9`
 
 The following changes were applied to the dev dependencies :
@@ -21,6 +21,8 @@ The following changes were applied to the dev dependencies :
 
 ### BC break changes
 
+* `ReadOnly` annotation was renamed to `ReadOnlyProperty` to avoid conflicts with PHP 8.1 readonly reserved keyword
+* PHP version bumped to PHP 7.4 to prevent having to deal with PHP's Serializable cross-version compatibility...
 * Doctrine dependency bumped from `~2.1` to `^2.8` (because of namespaces changes)
 * Propel support was removed as `propel/propel1` is not working with PHP 8 :
 

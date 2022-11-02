@@ -5,8 +5,10 @@ namespace JMS\Serializer\Annotation;
 /**
  * @Annotation
  * @Target({"CLASS","PROPERTY"})
+ *
+ * @final
  */
-final class ReadOnly
+/* final */ class ReadOnlyProperty
 {
     /**
      * @var boolean
