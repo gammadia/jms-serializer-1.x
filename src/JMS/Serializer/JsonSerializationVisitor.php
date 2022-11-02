@@ -209,7 +209,7 @@ class JsonSerializationVisitor extends GenericSerializationVisitor
     }
 
     /**
-     * @param array|\ArrayObject $data the passed data must be understood by whatever encoding function is applied later.
+     * @param array<mixed>|\ArrayObject $data the passed data must be understood by whatever encoding function is applied later.
      */
     public function setRoot($data)
     {

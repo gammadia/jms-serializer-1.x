@@ -91,7 +91,7 @@ class ClassMetadata extends MergeableClassMetadata
         $this->sortProperties();
     }
 
-    public function addPropertyMetadata(BasePropertyMetadata $metadata)
+    public function addPropertyMetadata(BasePropertyMetadata $metadata): void
     {
         parent::addPropertyMetadata($metadata);
         $this->sortProperties();
@@ -125,7 +125,7 @@ class ClassMetadata extends MergeableClassMetadata
         $this->handlerCallbacks[$direction][$format] = $methodName;
     }
 
-    public function merge(MergeableInterface $object)
+    public function merge(MergeableInterface $object): void
     {
         if (!$object instanceof ClassMetadata) {
             throw new InvalidArgumentException('$object must be an instance of ClassMetadata.');

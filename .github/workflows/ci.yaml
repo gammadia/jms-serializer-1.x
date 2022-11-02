@@ -9,10 +9,10 @@ on:
 jobs:
     build-test:
         runs-on: ubuntu-latest
-
+        continue-on-error: true
         strategy:
             matrix:
-                php: [ '7.2', '7.3', '7.4', '8.0' ]
+                php: [ '7.4', '8.0', '8.1' ]
 
         steps:
             -   name: Checkout
