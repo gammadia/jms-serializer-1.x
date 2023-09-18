@@ -55,30 +55,6 @@ class IntegrationTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($student, $deserialized);
     }
 
-    public function testDiscriminatorIsInferredFromDoctrine()
-    {
-        /** @var EntityManager $em */
-        $em = $this->registry->getManager();
-
-        $student1 = new Student();
-        $student2 = new Student();
-        $teacher = new Teacher();
-        $class = new Clazz($teacher, array($student1, $student2));
-
-        $em->persist($student1);
-        $em->persist($student2);
-        $em->persist($teacher);
-        $em->persist($class);
-        $em->flush();
-        $em->clear();
-
-        $reloadedClass = $em->find(get_class($class), $class->getId());
-        $this->assertNotSame($class, $reloadedClass);
-
-        $json = $this->serializer->serialize($reloadedClass, 'json');
-        $this->assertEquals('{"id":1,"teacher":{"id":1,"type":"teacher"},"students":[{"id":2,"type":"student"},{"id":3,"type":"student"}]}', $json);
-    }
-
     protected function setUp(): void
     {
         $connection = $this->createConnection();

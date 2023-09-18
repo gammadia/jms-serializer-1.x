@@ -11,21 +11,21 @@ use JMS\Serializer\Annotation\Type;
 class GetSetObject
 {
     /** @AccessType("property") @Type("integer") */
-    private $id = 1;
+    public $id = 1;
 
     /** @Type("string") */
-    private $name = 'Foo';
+    public $name = 'Foo';
 
     /**
      * @ReadOnlyProperty
      */
-    private $readOnlyProperty = 42;
+    public $readOnlyProperty = 42;
 
     /**
      * This property should be exlcluded
      * @Exclude()
      */
-    private $excludedProperty;
+    public $excludedProperty;
 
     public function getId()
     {
