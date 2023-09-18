@@ -207,7 +207,7 @@ class ObjectConstructorTest extends \PHPUnit\Framework\TestCase
         );
     }
 
-    public function testFallbackOnEmbeddableClassWithXmlDriver()
+    public function testFallbackOnEmbeddableClassWithXmlDriver(): void
     {
         if (ORMVersion::compare('2.5') >= 0) {
             $this->markTestSkipped('Not using Doctrine ORM >= 2.5 with Embedded entities');
@@ -219,7 +219,7 @@ class ObjectConstructorTest extends \PHPUnit\Framework\TestCase
         $connection = $this->createConnection();
         $entityManager = $this->createXmlEntityManager($connection);
 
-        $this->registry = $registry = new SimpleBaseManagerRegistry(
+        $this->registry = new SimpleBaseManagerRegistry(
             static function ($id) use ($connection, $entityManager) {
                 switch ($id) {
                     case 'default_connection':

@@ -4926,6 +4926,11 @@ parameters:
 			path: tests/Fixtures/Doctrine/Comment.php
 
 		-
+			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\Embeddable\\\\BlogPostSeo\\:\\:\\$metaTitle is unused\\.$#"
+			count: 1
+			path: tests/Fixtures/Doctrine/Embeddable/BlogPostSeo.php
+
+		-
 			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\SingleTableInheritance\\\\Clazz\\:\\:__construct\\(\\) has parameter \\$students with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Fixtures/Doctrine/SingleTableInheritance/Clazz.php
