@@ -389,10 +389,10 @@ class XmlSerializationTest extends BaseSerializationTest
 
         $deserialized = $this->deserialize($this->getContent('object_with_xml_namespacesalias'), get_class($object));
         $this->assertEquals('2011-07-30T00:00:00+0000', $this->getField($deserialized, 'createdAt')->format(\DateTime::ISO8601));
-        $this->assertAttributeEquals('This is a nice title.', 'title', $deserialized);
-        $this->assertAttributeSame('1edf9bf60a32d89afbb85b2be849e3ceed5f5b10', 'etag', $deserialized);
-        $this->assertAttributeSame('en', 'language', $deserialized);
-        $this->assertAttributeEquals('Foo Bar', 'author', $deserialized);
+        $this->assertEquals('This is a nice title.', $deserialized->title);
+        $this->assertEquals('1edf9bf60a32d89afbb85b2be849e3ceed5f5b10', $deserialized->etag);
+        $this->assertEquals('en', $deserialized->language);
+        $this->assertEquals('Foo Bar', $deserialized->author);
 
     }
 

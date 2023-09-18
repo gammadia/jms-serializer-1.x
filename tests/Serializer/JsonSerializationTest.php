@@ -229,7 +229,20 @@ class JsonSerializationTest extends BaseSerializationTest
         if ($primitiveType == 'double') {
             $primitiveType = 'float';
         }
-        $this->assertInternalType($primitiveType, $result);
+        switch ($primitiveType) {
+            case 'float':
+                self::assertIsFloat($result);
+                break;
+            case 'integer':
+                self::assertIsInt($result);
+                break;
+            case 'boolean':
+                self::assertIsBool($result);
+                break;
+            case 'string':
+                self::assertIsString($result);
+                break;
+        }
     }
 
     /**

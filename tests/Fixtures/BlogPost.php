@@ -29,20 +29,20 @@ class BlogPost
      * @XmlElement(cdata=false)
      * @Groups({"comments","post"})
      */
-    private $id = 'what_a_nice_id';
+    public $id = 'what_a_nice_id';
 
     /**
      * @Type("string")
      * @Groups({"comments","post"})
      * @XmlElement(namespace="http://purl.org/dc/elements/1.1/");
      */
-    private $title;
+    public $title;
 
     /**
      * @Type("DateTime")
      * @XmlAttribute
      */
-    private $createdAt;
+    public $createdAt;
 
     /**
      * @Type("boolean")
@@ -50,7 +50,7 @@ class BlogPost
      * @XmlAttribute
      * @Groups({"post"})
      */
-    private $published;
+    public $published;
 
     /**
      * @Type("bool")
@@ -58,52 +58,52 @@ class BlogPost
      * @XmlAttribute
      * @Groups({"post"})
      */
-    private $reviewed;
+    public $reviewed;
 
     /**
      * @Type("string")
      * @XmlAttribute(namespace="http://schemas.google.com/g/2005")
      * @Groups({"post"})
      */
-    private $etag;
+    public $etag;
 
     /**
      * @Type("ArrayCollection<JMS\Serializer\Tests\Fixtures\Comment>")
      * @XmlList(inline=true, entry="comment")
      * @Groups({"comments"})
      */
-    private $comments;
+    public $comments;
 
     /**
      * @Type("PhpCollection\Sequence<JMS\Serializer\Tests\Fixtures\Comment>")
      * @XmlList(inline=true, entry="comment2")
      * @Groups({"comments"})
      */
-    private $comments2;
+    public $comments2;
 
     /**
      * @Type("PhpCollection\Map<string,string>")
      * @XmlMap(keyAttribute = "key")
      */
-    private $metadata;
+    public $metadata;
 
     /**
      * @Type("JMS\Serializer\Tests\Fixtures\Author")
      * @Groups({"post"})
      * @XmlElement(namespace="http://www.w3.org/2005/Atom")
      */
-    private $author;
+    public $author;
 
     /**
      * @Type("JMS\Serializer\Tests\Fixtures\Publisher")
      */
-    private $publisher;
+    public $publisher;
 
     /**
      * @Type("array<JMS\Serializer\Tests\Fixtures\Tag>")
      * @XmlList(inline=true, entry="tag", namespace="http://purl.org/dc/elements/1.1/");
      */
-    private $tag;
+    public $tag;
 
     public function __construct($title, Author $author, \DateTime $createdAt, Publisher $publisher)
     {

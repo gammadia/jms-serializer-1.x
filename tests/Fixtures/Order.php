@@ -9,7 +9,7 @@ use JMS\Serializer\Annotation\XmlRoot;
 class Order
 {
     /** @Type("JMS\Serializer\Tests\Fixtures\Price") */
-    private $cost;
+    public $cost;
 
     public function __construct(Price $price = null)
     {

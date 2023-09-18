@@ -121,25 +121,6 @@ class EventDispatcherTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($listener3);
     }
 
-    public function testAddSubscriber()
-    {
-        $subscriber = new MockSubscriber();
-        MockSubscriber::$events = array(
-            array('event' => 'foo.bar_baz', 'format' => 'foo'),
-            array('event' => 'bar', 'method' => 'bar', 'class' => 'foo'),
-        );
-
-        $this->dispatcher->addSubscriber($subscriber);
-        $this->assertAttributeEquals(array(
-            'foo.bar_baz' => array(
-                array(array($subscriber, 'onfoobarbaz'), null, 'foo'),
-            ),
-            'bar' => array(
-                array(array($subscriber, 'bar'), 'foo', null),
-            ),
-        ), 'listeners', $this->dispatcher);
-    }
-
     protected function setUp(): void
     {
         $this->dispatcher = $this->createEventDispatcher();

@@ -561,7 +561,7 @@ parameters:
 			path: src/JMS/Serializer/EventDispatcher/Subscriber/DoctrineProxySubscriber.php
 
 		-
-			message: "#^Parameter \\#1 \\$typeName of method JMS\\\\Serializer\\\\EventDispatcher\\\\PreSerializeEvent\\:\\:setType\\(\\) expects string, false given\\.$#"
+			message: "#^Parameter \\#1 \\$typeName of method JMS\\\\Serializer\\\\EventDispatcher\\\\PreSerializeEvent\\:\\:setType\\(\\) expects string, class\\-string\\|false given\\.$#"
 			count: 1
 			path: src/JMS/Serializer/EventDispatcher/Subscriber/DoctrineProxySubscriber.php
 
@@ -616,8 +616,18 @@ parameters:
 			path: src/JMS/Serializer/Exclusion/DepthExclusionStrategy.php
 
 		-
+			message: "#^Instanceof between iterable\\<JMS\\\\Serializer\\\\Exclusion\\\\ExclusionStrategyInterface\\>&PhpCollection\\\\SequenceInterface and PhpCollection\\\\SequenceInterface will always evaluate to true\\.$#"
+			count: 1
+			path: src/JMS/Serializer/Exclusion/DisjunctExclusionStrategy.php
+
+		-
 			message: "#^Method JMS\\\\Serializer\\\\Exclusion\\\\DisjunctExclusionStrategy\\:\\:addStrategy\\(\\) has no return type specified\\.$#"
 			count: 1
+			path: src/JMS/Serializer/Exclusion/DisjunctExclusionStrategy.php
+
+		-
+			message: "#^PHPDoc tag @var has invalid value \\(\\$delegate ExclusionStrategyInterface\\)\\: Unexpected token \"\\$delegate\", expected type at offset 9 on line 1$#"
+			count: 2
 			path: src/JMS/Serializer/Exclusion/DisjunctExclusionStrategy.php
 
 		-
@@ -669,6 +679,11 @@ parameters:
 			message: "#^Property JMS\\\\Serializer\\\\Exclusion\\\\VersionExclusionStrategy\\:\\:\\$version has no type specified\\.$#"
 			count: 1
 			path: src/JMS/Serializer/Exclusion/VersionExclusionStrategy.php
+
+		-
+			message: "#^Call to function is_string\\(\\) with string will always evaluate to true\\.$#"
+			count: 1
+			path: src/JMS/Serializer/Expression/ExpressionEvaluator.php
 
 		-
 			message: "#^Method JMS\\\\Serializer\\\\Expression\\\\ExpressionEvaluator\\:\\:__construct\\(\\) has parameter \\$cache with no value type specified in iterable type array\\.$#"
@@ -956,6 +971,11 @@ parameters:
 			path: src/JMS/Serializer/GraphNavigator.php
 
 		-
+			message: "#^Call to function is_subclass_of\\(\\) with arguments stdClass, class\\-string and false will always evaluate to true\\.$#"
+			count: 1
+			path: src/JMS/Serializer/GraphNavigator.php
+
+		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: src/JMS/Serializer/GraphNavigator.php
@@ -1006,7 +1026,7 @@ parameters:
 			path: src/JMS/Serializer/GraphNavigator.php
 
 		-
-			message: "#^PHPDoc tag @var has invalid value \\(\\$metadata ClassMetadata\\)\\: Unexpected token \"\\$metadata\", expected type at offset 9$#"
+			message: "#^PHPDoc tag @var has invalid value \\(\\$metadata ClassMetadata\\)\\: Unexpected token \"\\$metadata\", expected type at offset 9 on line 1$#"
 			count: 1
 			path: src/JMS/Serializer/GraphNavigator.php
 
@@ -2101,7 +2121,12 @@ parameters:
 			path: src/JMS/Serializer/Metadata/Driver/AbstractDoctrineTypeDriver.php
 
 		-
-			message: "#^PHPDoc tag @var has invalid value \\(\\$classMetadata ClassMetadata\\)\\: Unexpected token \"\\$classMetadata\", expected type at offset 9$#"
+			message: "#^PHPDoc tag @var has invalid value \\(\\$classMetadata ClassMetadata\\)\\: Unexpected token \"\\$classMetadata\", expected type at offset 9 on line 1$#"
+			count: 1
+			path: src/JMS/Serializer/Metadata/Driver/AbstractDoctrineTypeDriver.php
+
+		-
+			message: "#^PHPDoc tag @var has invalid value \\(\\$propertyMetadata PropertyMetadata\\)\\: Unexpected token \"\\$propertyMetadata\", expected type at offset 9 on line 1$#"
 			count: 1
 			path: src/JMS/Serializer/Metadata/Driver/AbstractDoctrineTypeDriver.php
 
@@ -2207,6 +2232,11 @@ parameters:
 
 		-
 			message: "#^Call to an undefined method Doctrine\\\\Persistence\\\\Mapping\\\\ClassMetadata\\:\\:isRootEntity\\(\\)\\.$#"
+			count: 1
+			path: src/JMS/Serializer/Metadata/Driver/DoctrineTypeDriver.php
+
+		-
+			message: "#^Instanceof between Doctrine\\\\Persistence\\\\Mapping\\\\ClassMetadata and Doctrine\\\\Persistence\\\\Mapping\\\\ClassMetadata will always evaluate to true\\.$#"
 			count: 1
 			path: src/JMS/Serializer/Metadata/Driver/DoctrineTypeDriver.php
 
@@ -2966,12 +2996,12 @@ parameters:
 			path: src/JMS/Serializer/Serializer.php
 
 		-
-			message: "#^Parameter \\#1 \\$callable of method PhpOption\\\\Option\\<mixed\\>\\:\\:map\\(\\) expects callable\\(mixed\\)\\: array, Closure\\(JMS\\\\Serializer\\\\JsonSerializationVisitor\\)\\: array given\\.$#"
+			message: "#^Parameter \\#1 \\$callable of method PhpOption\\\\Option\\<mixed\\>\\:\\:map\\(\\) expects callable\\(mixed\\)\\: \\(array\\|bool\\|float\\|int\\|object\\|string\\), Closure\\(JMS\\\\Serializer\\\\VisitorInterface\\)\\: \\(array\\|bool\\|float\\|int\\|object\\|string\\) given\\.$#"
 			count: 1
 			path: src/JMS/Serializer/Serializer.php
 
 		-
-			message: "#^Parameter \\#1 \\$callable of method PhpOption\\\\Option\\<mixed\\>\\:\\:map\\(\\) expects callable\\(mixed\\)\\: array\\|bool\\|float\\|int\\|object\\|string, Closure\\(JMS\\\\Serializer\\\\VisitorInterface\\)\\: array\\|bool\\|float\\|int\\|object\\|string given\\.$#"
+			message: "#^Parameter \\#1 \\$callable of method PhpOption\\\\Option\\<mixed\\>\\:\\:map\\(\\) expects callable\\(mixed\\)\\: array, Closure\\(JMS\\\\Serializer\\\\JsonSerializationVisitor\\)\\: array given\\.$#"
 			count: 1
 			path: src/JMS/Serializer/Serializer.php
 
@@ -3572,11 +3602,6 @@ parameters:
 
 		-
 			message: "#^PHPDoc tag @param references unknown parameter\\: \\$child$#"
-			count: 1
-			path: src/JMS/Serializer/XmlDeserializationVisitor.php
-
-		-
-			message: "#^Parameter \\#1 \\$disable of function libxml_disable_entity_loader expects bool, bool\\|null given\\.$#"
 			count: 1
 			path: src/JMS/Serializer/XmlDeserializationVisitor.php
 
@@ -4531,11 +4556,6 @@ parameters:
 			path: tests/Fixtures/BlogPost.php
 
 		-
-			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$author is never read, only written\\.$#"
-			count: 1
-			path: tests/Fixtures/BlogPost.php
-
-		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$comments has no type specified\\.$#"
 			count: 1
 			path: tests/Fixtures/BlogPost.php
@@ -4556,17 +4576,7 @@ parameters:
 			path: tests/Fixtures/BlogPost.php
 
 		-
-			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$etag is never read, only written\\.$#"
-			count: 1
-			path: tests/Fixtures/BlogPost.php
-
-		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$id has no type specified\\.$#"
-			count: 1
-			path: tests/Fixtures/BlogPost.php
-
-		-
-			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$id is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/BlogPost.php
 
@@ -4581,17 +4591,7 @@ parameters:
 			path: tests/Fixtures/BlogPost.php
 
 		-
-			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$published is never read, only written\\.$#"
-			count: 1
-			path: tests/Fixtures/BlogPost.php
-
-		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$publisher has no type specified\\.$#"
-			count: 1
-			path: tests/Fixtures/BlogPost.php
-
-		-
-			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$publisher is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/BlogPost.php
 
@@ -4601,27 +4601,12 @@ parameters:
 			path: tests/Fixtures/BlogPost.php
 
 		-
-			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$reviewed is never read, only written\\.$#"
-			count: 1
-			path: tests/Fixtures/BlogPost.php
-
-		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$tag has no type specified\\.$#"
 			count: 1
 			path: tests/Fixtures/BlogPost.php
 
 		-
-			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$tag is never read, only written\\.$#"
-			count: 1
-			path: tests/Fixtures/BlogPost.php
-
-		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$title has no type specified\\.$#"
-			count: 1
-			path: tests/Fixtures/BlogPost.php
-
-		-
-			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\BlogPost\\:\\:\\$title is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/BlogPost.php
 
@@ -5181,27 +5166,12 @@ parameters:
 			path: tests/Fixtures/GetSetObject.php
 
 		-
-			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GetSetObject\\:\\:\\$excludedProperty is unused\\.$#"
-			count: 1
-			path: tests/Fixtures/GetSetObject.php
-
-		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GetSetObject\\:\\:\\$id has no type specified\\.$#"
 			count: 1
 			path: tests/Fixtures/GetSetObject.php
 
 		-
-			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GetSetObject\\:\\:\\$id is never read, only written\\.$#"
-			count: 1
-			path: tests/Fixtures/GetSetObject.php
-
-		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GetSetObject\\:\\:\\$name has no type specified\\.$#"
-			count: 1
-			path: tests/Fixtures/GetSetObject.php
-
-		-
-			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\GetSetObject\\:\\:\\$name is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/GetSetObject.php
 
@@ -6021,11 +5991,6 @@ parameters:
 			path: tests/Fixtures/ObjectWithXmlNamespaces.php
 
 		-
-			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespaces\\:\\:\\$author is never read, only written\\.$#"
-			count: 1
-			path: tests/Fixtures/ObjectWithXmlNamespaces.php
-
-		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespaces\\:\\:\\$createdAt has no type specified\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithXmlNamespaces.php
@@ -6036,27 +6001,12 @@ parameters:
 			path: tests/Fixtures/ObjectWithXmlNamespaces.php
 
 		-
-			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespaces\\:\\:\\$etag is never read, only written\\.$#"
-			count: 1
-			path: tests/Fixtures/ObjectWithXmlNamespaces.php
-
-		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespaces\\:\\:\\$language has no type specified\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithXmlNamespaces.php
 
 		-
-			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespaces\\:\\:\\$language is never read, only written\\.$#"
-			count: 1
-			path: tests/Fixtures/ObjectWithXmlNamespaces.php
-
-		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespaces\\:\\:\\$title has no type specified\\.$#"
-			count: 1
-			path: tests/Fixtures/ObjectWithXmlNamespaces.php
-
-		-
-			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\ObjectWithXmlNamespaces\\:\\:\\$title is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/ObjectWithXmlNamespaces.php
 
@@ -6222,11 +6172,6 @@ parameters:
 
 		-
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Order\\:\\:\\$cost has no type specified\\.$#"
-			count: 1
-			path: tests/Fixtures/Order.php
-
-		-
-			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Order\\:\\:\\$cost is never read, only written\\.$#"
 			count: 1
 			path: tests/Fixtures/Order.php
 
@@ -6706,12 +6651,22 @@ parameters:
 			path: tests/Handler/DateHandlerTest.php
 
 		-
+			message: "#^Call to function assert\\(\\) with true will always evaluate to true\\.$#"
+			count: 4
+			path: tests/Handler/FormErrorHandlerTest.php
+
+		-
 			message: "#^Call to method expects\\(\\) on an unknown class Symfony\\\\Component\\\\Translation\\\\TranslatorInterface\\.$#"
 			count: 6
 			path: tests/Handler/FormErrorHandlerTest.php
 
 		-
 			message: "#^Class Symfony\\\\Component\\\\Translation\\\\TranslatorInterface not found\\.$#"
+			count: 4
+			path: tests/Handler/FormErrorHandlerTest.php
+
+		-
+			message: "#^Instanceof between \\(PHPUnit\\\\Framework\\\\MockObject\\\\MockObject&Symfony\\\\Component\\\\Translation\\\\TranslatorInterface\\)\\|\\(PHPUnit\\\\Framework\\\\MockObject\\\\MockObject&Symfony\\\\Contracts\\\\Translation\\\\TranslatorInterface\\) and PHPUnit\\\\Framework\\\\MockObject\\\\MockObject will always evaluate to true\\.$#"
 			count: 4
 			path: tests/Handler/FormErrorHandlerTest.php
 
@@ -7231,6 +7186,16 @@ parameters:
 			path: tests/Metadata/Driver/BaseDriverTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with Metadata\\\\ClassMetadata will always evaluate to true\\.$#"
+			count: 15
+			path: tests/Metadata/Driver/BaseDriverTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with JMS\\\\Serializer\\\\Metadata\\\\ClassMetadata will always evaluate to true\\.$#"
+			count: 2
+			path: tests/Metadata/Driver/BaseDriverTest.php
+
+		-
 			message: "#^Cannot access offset 'class' on mixed\\.$#"
 			count: 2
 			path: tests/Metadata/Driver/BaseDriverTest.php
@@ -7361,7 +7326,7 @@ parameters:
 			path: tests/Metadata/Driver/BaseDriverTest.php
 
 		-
-			message: "#^PHPDoc tag @var has invalid value \\(\\$m ClassMetadata\\)\\: Unexpected token \"\\$m\", expected type at offset 9$#"
+			message: "#^PHPDoc tag @var has invalid value \\(\\$m ClassMetadata\\)\\: Unexpected token \"\\$m\", expected type at offset 9 on line 1$#"
 			count: 8
 			path: tests/Metadata/Driver/BaseDriverTest.php
 
@@ -7617,6 +7582,21 @@ parameters:
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: tests/Serializer/BaseSerializationTest.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:getTimestamp\\(\\)\\.$#"
+			count: 2
+			path: tests/Serializer/BaseSerializationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\) with null will always evaluate to true\\.$#"
+			count: 1
+			path: tests/Serializer/BaseSerializationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with false and 'Serialization…' will always evaluate to false\\.$#"
 			count: 1
 			path: tests/Serializer/BaseSerializationTest.php
 
@@ -8186,11 +8166,6 @@ parameters:
 			path: tests/Serializer/BaseSerializationTest.php
 
 		-
-			message: "#^Parameter \\#3 \\$classOrObject of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertAttributeInstanceOf\\(\\) expects object\\|string, array\\|bool\\|float\\|int\\|object\\|string given\\.$#"
-			count: 1
-			path: tests/Serializer/BaseSerializationTest.php
-
-		-
 			message: "#^Parameter \\#3 \\$context of method JMS\\\\Serializer\\\\Serializer\\:\\:serialize\\(\\) expects JMS\\\\Serializer\\\\SerializationContext\\|null, JMS\\\\Serializer\\\\Context\\|null given\\.$#"
 			count: 1
 			path: tests/Serializer/BaseSerializationTest.php
@@ -8306,11 +8281,6 @@ parameters:
 			path: tests/Serializer/Doctrine/IntegrationTest.php
 
 		-
-			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Serializer\\\\Doctrine\\\\IntegrationTest\\:\\:testDiscriminatorIsInferredFromDoctrine\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Serializer/Doctrine/IntegrationTest.php
-
-		-
 			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Serializer\\\\Doctrine\\\\SimpleManagerRegistry\\:\\:__construct\\(\\) has parameter \\$proxyInterface with no type specified\\.$#"
 			count: 1
 			path: tests/Serializer/Doctrine/IntegrationTest.php
@@ -8322,11 +8292,6 @@ parameters:
 
 		-
 			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Serializer\\\\Doctrine\\\\SimpleManagerRegistry\\:\\:getService\\(\\) should return Doctrine\\\\Persistence\\\\ObjectManager but returns mixed\\.$#"
-			count: 1
-			path: tests/Serializer/Doctrine/IntegrationTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$data of method JMS\\\\Serializer\\\\Serializer\\:\\:serialize\\(\\) expects array\\|bool\\|float\\|int\\|object\\|string, JMS\\\\Serializer\\\\Tests\\\\Fixtures\\\\Doctrine\\\\SingleTableInheritance\\\\Clazz\\|null given\\.$#"
 			count: 1
 			path: tests/Serializer/Doctrine/IntegrationTest.php
 
@@ -8349,6 +8314,11 @@ parameters:
 			message: "#^Property JMS\\\\Serializer\\\\Tests\\\\Serializer\\\\Doctrine\\\\SimpleManagerRegistry\\:\\:\\$services has no type specified\\.$#"
 			count: 1
 			path: tests/Serializer/Doctrine/IntegrationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\) with object will always evaluate to false\\.$#"
+			count: 1
+			path: tests/Serializer/Doctrine/ObjectConstructorTest.php
 
 		-
 			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Serializer\\\\Doctrine\\\\ObjectConstructorTest\\:\\:createConnection\\(\\) has no return type specified\\.$#"
@@ -8492,11 +8462,6 @@ parameters:
 
 		-
 			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Serializer\\\\EventDispatcher\\\\EventDispatcherTest\\:\\:dispatch\\(\\) has parameter \\$format with no type specified\\.$#"
-			count: 1
-			path: tests/Serializer/EventDispatcher/EventDispatcherTest.php
-
-		-
-			message: "#^Method JMS\\\\Serializer\\\\Tests\\\\Serializer\\\\EventDispatcher\\\\EventDispatcherTest\\:\\:testAddSubscriber\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: tests/Serializer/EventDispatcher/EventDispatcherTest.php
 
@@ -8811,7 +8776,7 @@ parameters:
 			path: tests/Serializer/EventDispatcher/Subscriber/SymfonyValidatorSubscriberTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$originalClassName of method PHPUnit\\\\Framework\\\\TestCase\\:\\:createMock\\(\\) expects array\\<string\\>\\|class\\-string\\<Symfony\\\\Component\\\\Validator\\\\ValidatorInterface\\>, string given\\.$#"
+			message: "#^Parameter \\#1 \\$originalClassName of method PHPUnit\\\\Framework\\\\TestCase\\:\\:createMock\\(\\) expects class\\-string\\<Symfony\\\\Component\\\\Validator\\\\ValidatorInterface\\>, string given\\.$#"
 			count: 1
 			path: tests/Serializer/EventDispatcher/Subscriber/SymfonyValidatorSubscriberTest.php
 
@@ -9632,7 +9597,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 3 on mixed\\.$#"
-			count: 2
+			count: 3
 			path: tests/benchmark.php
 
 		-

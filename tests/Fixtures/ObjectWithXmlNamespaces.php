@@ -20,31 +20,31 @@ class ObjectWithXmlNamespaces
      * @Type("string")
      * @XmlElement(namespace="http://purl.org/dc/elements/1.1/");
      */
-    private $title;
+    public $title;
 
     /**
      * @Type("DateTime")
      * @XmlAttribute
      */
-    private $createdAt;
+    public $createdAt;
 
     /**
      * @Type("string")
      * @XmlAttribute(namespace="http://schemas.google.com/g/2005")
      */
-    private $etag;
+    public $etag;
 
     /**
      * @Type("string")
      * @XmlElement(namespace="http://www.w3.org/2005/Atom")
      */
-    private $author;
+    public $author;
 
     /**
      * @Type("string")
      * @XmlAttribute(namespace="http://purl.org/dc/elements/1.1/");
      */
-    private $language;
+    public $language;
 
     public function __construct($title, $author, \DateTime $createdAt, $language)
     {

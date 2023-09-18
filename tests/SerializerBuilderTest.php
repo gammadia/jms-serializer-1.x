@@ -41,18 +41,14 @@ class SerializerBuilderTest extends \PHPUnit\Framework\TestCase
 
     public function testWithCache()
     {
-        $this->assertFileNotExists($this->tmpDir);
+        $this->assertFileDoesNotExist($this->tmpDir);
 
         $this->assertSame($this->builder, $this->builder->setCacheDir($this->tmpDir));
-        $serializer = $this->builder->build();
+        $this->builder->build();
 
         $this->assertFileExists($this->tmpDir);
         $this->assertFileExists($this->tmpDir . '/annotations');
         $this->assertFileExists($this->tmpDir . '/metadata');
-
-        $factory = $this->getField($serializer, 'factory');
-        $this->assertAttributeSame(false, 'debug', $factory);
-        $this->assertAttributeNotSame(null, 'cache', $factory);
     }
 
     public function testDoesAddDefaultHandlers()

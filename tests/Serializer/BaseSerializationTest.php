@@ -674,14 +674,14 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
         if ($this->hasDeserializer()) {
             $deserialized = $this->deserialize($this->getContent('blog_post'), get_class($post));
             $this->assertEquals('2011-07-30T00:00:00+0000', $this->getField($deserialized, 'createdAt')->format(\DateTime::ISO8601));
-            $this->assertAttributeEquals('This is a nice title.', 'title', $deserialized);
-            $this->assertAttributeSame(false, 'published', $deserialized);
-            $this->assertAttributeSame(false, 'reviewed', $deserialized);
-            $this->assertAttributeSame('1edf9bf60a32d89afbb85b2be849e3ceed5f5b10', 'etag', $deserialized);
-            $this->assertAttributeEquals(new ArrayCollection(array($comment)), 'comments', $deserialized);
-            $this->assertAttributeEquals(new Sequence(array($comment)), 'comments2', $deserialized);
-            $this->assertAttributeEquals($author, 'author', $deserialized);
-            $this->assertAttributeEquals(array($tag1, $tag2), 'tag', $deserialized);
+            $this->assertEquals('This is a nice title.', $deserialized->title);
+            $this->assertEquals(false, $deserialized->published);
+            $this->assertEquals(false, $deserialized->reviewed);
+            $this->assertEquals('1edf9bf60a32d89afbb85b2be849e3ceed5f5b10', $deserialized->etag);
+            $this->assertEquals(new ArrayCollection(array($comment)), $deserialized->comments);
+            $this->assertEquals(new Sequence(array($comment)), $deserialized->comments2);
+            $this->assertEquals($author, $deserialized->author);
+            $this->assertEquals(array($tag1, $tag2), $deserialized->tag);
         }
     }
 
@@ -701,11 +701,11 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
             $deserialized = $this->deserialize($this->getContent('blog_post_unauthored'), get_class($post), DeserializationContext::create()->setSerializeNull(true));
 
             $this->assertEquals('2011-07-30T00:00:00+0000', $this->getField($deserialized, 'createdAt')->format(\DateTime::ISO8601));
-            $this->assertAttributeEquals('This is a nice title.', 'title', $deserialized);
-            $this->assertAttributeSame(false, 'published', $deserialized);
-            $this->assertAttributeSame(false, 'reviewed', $deserialized);
-            $this->assertAttributeEquals(new ArrayCollection(), 'comments', $deserialized);
-            $this->assertEquals(null, $this->getField($deserialized, 'author'));
+            $this->assertEquals('This is a nice title.', $deserialized->title);
+            $this->assertEquals(false, $deserialized->published);
+            $this->assertEquals(false, $deserialized->reviewed);
+            $this->assertEquals(new ArrayCollection(), $deserialized->comments);
+            $this->assertNull($this->getField($deserialized, 'author'));
         }
     }
 
@@ -917,7 +917,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
     {
         $object = new ObjectWithLifecycleCallbacks();
         $this->assertEquals($this->getContent('lifecycle_callbacks'), $this->serialize($object));
-        $this->assertAttributeSame(null, 'name', $object);
+        $this->assertNull($object->name);
 
         if ($this->hasDeserializer()) {
             $deserialized = $this->deserialize($this->getContent('lifecycle_callbacks'), get_class($object));
@@ -1040,9 +1040,9 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
 
         if ($this->hasDeserializer()) {
             $object = $this->deserialize($this->getContent('mixed_access_types'), \JMS\Serializer\Tests\Fixtures\GetSetObject::class);
-            $this->assertAttributeEquals(1, 'id', $object);
-            $this->assertAttributeEquals('Johannes', 'name', $object);
-            $this->assertAttributeEquals(42, 'readOnlyProperty', $object);
+            $this->assertEquals(1, $object->id);
+            $this->assertEquals('Johannes', $object->name);
+            $this->assertEquals(42, $object->readOnlyProperty);
         }
     }
 
@@ -1418,7 +1418,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
 
         $this->assertSame($order, $deseralizedOrder);
         $this->assertEquals(new Order(new Price(12.34)), $deseralizedOrder);
-        $this->assertAttributeInstanceOf(\JMS\Serializer\Tests\Fixtures\Price::class, 'cost', $deseralizedOrder);
+        $this->assertInstanceOf(\JMS\Serializer\Tests\Fixtures\Price::class, $deseralizedOrder->cost);
     }
 
     public function testObjectWithNullableArrays()

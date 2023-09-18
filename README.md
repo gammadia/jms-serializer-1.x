@@ -8,15 +8,18 @@ A fork for modern days [![CI](https://github.com/gammadia/jms-serializer-1.x/act
 
 This is a fork of `jms/serializer` at the version `1.14.1` adapted for modern PHP development, which supports :
 
-* PHP `7.4` <-> `8.1`
-* Symfony `3.4` <-> `6.0`
+* PHP `7.4` <-> `8.2` (CI green on `8.3-beta`)
+* Symfony `3.4` <-> `6.3`
 * Doctrine `2.8` <-> `2.9`
+
+The following changes were backported from more recent versions :
+
+* Use symfony/cache for FileSystem cache implementation instead of doctrine/cache (needed to allow doctrine/annotations 2.0)
 
 The following changes were applied to the dev dependencies :
 
-* PHPUnit upgraded to 8.x
+* PHPUnit upgraded to 9.x
 * PHPStan baseline added to keep the code in good health
-* Rector installed to ease automated refactorings
 * Migrate Travis CI to GitHub Actions
 
 ### BC break changes
