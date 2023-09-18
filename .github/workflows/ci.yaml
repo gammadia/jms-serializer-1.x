@@ -7,16 +7,21 @@ on:
     pull_request:
 
 jobs:
-    build-test:
+    lint:
         runs-on: ubuntu-latest
         continue-on-error: true
         strategy:
             matrix:
-                php: [ '7.4', '8.0', '8.1', '8.2' ]
+                php:
+                    - "7.4"
+                    - "8.0"
+                    - "8.1"
+                    - "8.2"
+                    - "8.3"
 
         steps:
             -   name: Checkout
-                uses: actions/checkout@v2
+                uses: actions/checkout@v3
 
             -   name: Setup PHP
                 uses: shivammathur/setup-php@v2
@@ -29,28 +34,56 @@ jobs:
                     fail-fast: true
                     update: true
 
-            -   name: Validate composer.json
-                run: composer validate --strict
-
-            -   name: Get composer cache directory
-                id: composercache
-                run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-            -   name: Cache dependencies
-                uses: actions/cache@v2
+            -   name: Setup Composer
+                uses: "ramsey/composer-install@v2"
                 with:
-                    path: ${{ steps.composercache.outputs.dir }}
-                    key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-                    restore-keys: ${{ runner.os }}-composer-
-
-            -   name: Install dependencies
-                run: composer install --prefer-dist --no-progress
+                    dependency-versions: "${{ matrix.dependencies }}"
+                    composer-options: "${{ matrix.composer-options }}"
 
             -   name: Lint PHP files
                 run: vendor/bin/phplint
 
             -   name: Run PHPStan
                 run: vendor/bin/phpstan
+
+    test:
+        runs-on: ubuntu-latest
+        continue-on-error: true
+        strategy:
+            matrix:
+                php:
+                    - "7.4"
+                    - "8.0"
+                    - "8.1"
+                    - "8.2"
+                    - "8.3"
+                dependencies:
+                    - "lowest"
+                    - "highest"
+
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v3
+
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    coverage: "none"
+                    extensions: "pdo,sqlite"
+                    ini-values: "memory_limit=-1"
+                    php-version: "${{ matrix.php }}"
+                env:
+                    fail-fast: true
+                    update: true
+
+            -   name: Setup Composer
+                uses: "ramsey/composer-install@v2"
+                with:
+                    dependency-versions: "${{ matrix.dependencies }}"
+                    composer-options: "${{ matrix.composer-options }}"
+
+            -   name: Validate composer.json
+                run: composer validate --strict
 
             -   name: Run tests
                 run: vendor/bin/phpunit
