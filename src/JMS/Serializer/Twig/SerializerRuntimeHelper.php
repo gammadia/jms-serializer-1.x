@@ -23,7 +23,7 @@ final class SerializerRuntimeHelper
      * @param SerializationContext|null $context
      * @return string
      */
-    public function serialize($object, $type = 'json', SerializationContext $context = null)
+    public function serialize($object, $type = 'json', ?SerializationContext $context = null)
     {
         return $this->serializer->serialize($object, $type, $context);
     }

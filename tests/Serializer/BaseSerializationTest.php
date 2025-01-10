@@ -110,6 +110,7 @@ use Symfony\Component\Form\FormFactoryBuilder;
 use Symfony\Component\Translation\IdentityTranslator;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationList;
+use Traversable;
 use Doctrine\ORM\Version;
 
 abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
@@ -1436,12 +1437,12 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
         return true;
     }
 
-    protected function serialize($data, Context $context = null)
+    protected function serialize($data, ?Context $context = null)
     {
         return $this->serializer->serialize($data, $this->getFormat(), $context);
     }
 
-    protected function deserialize($content, $type, Context $context = null)
+    protected function deserialize($content, $type, ?Context $context = null)
     {
         return $this->serializer->deserialize($content, $type, $this->getFormat(), $context);
     }
@@ -1458,7 +1459,7 @@ abstract class BaseSerializationTest extends \PHPUnit\Framework\TestCase
         $this->handlerRegistry->registerSubscribingHandler(new PhpCollectionHandler());
         $this->handlerRegistry->registerSubscribingHandler(new ArrayCollectionHandler());
         $this->handlerRegistry->registerHandler(GraphNavigator::DIRECTION_SERIALIZATION, 'AuthorList', $this->getFormat(),
-            function (VisitorInterface $visitor, $object, array $type, Context $context) {
+            function (VisitorInterface $visitor, Traversable $object, array $type, Context $context) {
                 return $visitor->visitArray(iterator_to_array($object), $type, $context);
             }
         );

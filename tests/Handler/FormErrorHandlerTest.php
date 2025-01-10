@@ -249,7 +249,7 @@ class FormErrorHandlerTest extends \PHPUnit\Framework\TestCase
      *
      * @return FormBuilder
      */
-    protected function getBuilder($name = 'name', EventDispatcherInterface $dispatcher = null, $dataClass = null)
+    protected function getBuilder($name = 'name', ?EventDispatcherInterface $dispatcher = null, $dataClass = null)
     {
         return new FormBuilder($name, $dataClass, $dispatcher ?: $this->dispatcher, $this->factory);
     }

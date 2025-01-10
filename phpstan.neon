@@ -1,6 +1,6 @@
 includes:
     - 'vendor/phpstan/phpstan/conf/bleedingEdge.neon'
-    - 'phpstan-baseline.neon'
+    - 'phpstan-baselines.php'
 
 parameters:
     level: max
@@ -8,7 +8,7 @@ parameters:
     paths:
         - 'src'
         - 'tests'
-    reportUnmatchedIgnoredErrors: true
+    reportUnmatchedIgnoredErrors: false # this helps in dealing with multiple PHP versions
     checkFunctionNameCase: true
     checkUninitializedProperties: true
     tipsOfTheDay: false

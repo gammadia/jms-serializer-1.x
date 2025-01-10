@@ -73,7 +73,7 @@ abstract class Context
      * @param array|null $type
      * @return mixed
      */
-    public function accept($data, array $type = null)
+    public function accept($data, ?array $type = null)
     {
         return $this->navigator->accept($data, $type, $this);
     }
