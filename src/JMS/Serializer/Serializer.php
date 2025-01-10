@@ -64,9 +64,9 @@ class Serializer implements SerializerInterface, ArrayTransformerInterface
         ObjectConstructorInterface $objectConstructor,
         MapInterface $serializationVisitors,
         MapInterface $deserializationVisitors,
-        EventDispatcherInterface $dispatcher = null,
-        TypeParser $typeParser = null,
-        ExpressionEvaluatorInterface $expressionEvaluator = null
+        ?EventDispatcherInterface $dispatcher = null,
+        ?TypeParser $typeParser = null,
+        ?ExpressionEvaluatorInterface $expressionEvaluator = null
     )
     {
         $this->factory = $factory;
@@ -83,7 +83,7 @@ class Serializer implements SerializerInterface, ArrayTransformerInterface
         $this->deserializationContextFactory = new DefaultDeserializationContextFactory();
     }
 
-    public function serialize($data, $format, SerializationContext $context = null)
+    public function serialize($data, $format, ?SerializationContext $context = null)
     {
         if (null === $context) {
             $context = $this->serializationContextFactory->createSerializationContext();
@@ -100,7 +100,7 @@ class Serializer implements SerializerInterface, ArrayTransformerInterface
             ->getOrThrow(new UnsupportedFormatException(sprintf('The format "%s" is not supported for serialization.', $format)));
     }
 
-    public function deserialize($data, $type, $format, DeserializationContext $context = null)
+    public function deserialize($data, $type, $format, ?DeserializationContext $context = null)
     {
         if (null === $context) {
             $context = $this->deserializationContextFactory->createDeserializationContext();
@@ -119,7 +119,7 @@ class Serializer implements SerializerInterface, ArrayTransformerInterface
     /**
      * {@InheritDoc}
      */
-    public function toArray($data, SerializationContext $context = null)
+    public function toArray($data, ?SerializationContext $context = null)
     {
         if (null === $context) {
             $context = $this->serializationContextFactory->createSerializationContext();
@@ -148,7 +148,7 @@ class Serializer implements SerializerInterface, ArrayTransformerInterface
     /**
      * {@InheritDoc}
      */
-    public function fromArray(array $data, $type, DeserializationContext $context = null)
+    public function fromArray(array $data, $type, ?DeserializationContext $context = null)
     {
         if (null === $context) {
             $context = $this->deserializationContextFactory->createDeserializationContext();
@@ -163,7 +163,7 @@ class Serializer implements SerializerInterface, ArrayTransformerInterface
             ->get();
     }
 
-    private function visit(VisitorInterface $visitor, Context $context, $data, $format, array $type = null)
+    private function visit(VisitorInterface $visitor, Context $context, $data, $format, ?array $type = null)
     {
         $context->initialize(
             $format,

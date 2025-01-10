@@ -61,8 +61,8 @@ final class GraphNavigator implements GraphNavigatorInterface
         MetadataFactoryInterface $metadataFactory,
         HandlerRegistryInterface $handlerRegistry,
         ObjectConstructorInterface $objectConstructor,
-        EventDispatcherInterface $dispatcher = null,
-        ExpressionEvaluatorInterface $expressionEvaluator = null
+        ?EventDispatcherInterface $dispatcher = null,
+        ?ExpressionEvaluatorInterface $expressionEvaluator = null
     )
     {
         $this->dispatcher = $dispatcher;

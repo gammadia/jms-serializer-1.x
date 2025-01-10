@@ -14,7 +14,7 @@ abstract class AbstractVisitor implements VisitorInterface
      */
     protected $accessor;
 
-    public function __construct($namingStrategy, AccessorStrategyInterface $accessorStrategy = null)
+    public function __construct($namingStrategy, ?AccessorStrategyInterface $accessorStrategy = null)
     {
         $this->namingStrategy = $namingStrategy;
         $this->accessor = $accessorStrategy ?: new DefaultAccessorStrategy();

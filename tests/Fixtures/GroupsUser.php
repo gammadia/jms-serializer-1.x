@@ -23,7 +23,7 @@ class GroupsUser
      */
     private $friends;
 
-    public function __construct($name, GroupsUser $manager = null, array $friends = array())
+    public function __construct($name, ?GroupsUser $manager = null, array $friends = array())
     {
         $this->name = $name;
         $this->manager = $manager;

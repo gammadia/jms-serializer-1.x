@@ -296,7 +296,7 @@ class ObjectConstructorTest extends \PHPUnit\Framework\TestCase
         return $con;
     }
 
-    private function createEntityManager(Connection $con, Configuration $cfg = null)
+    private function createEntityManager(Connection $con, ?Configuration $cfg = null)
     {
         if (!$cfg) {
             $cfg = new Configuration();

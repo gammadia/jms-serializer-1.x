@@ -132,7 +132,7 @@ class EventDispatcherTest extends \PHPUnit\Framework\TestCase
         return new EventDispatcher();
     }
 
-    protected function dispatch($eventName, $class = 'Foo', $format = 'json', Event $event = null)
+    protected function dispatch($eventName, $class = 'Foo', $format = 'json', ?Event $event = null)
     {
         $this->dispatcher->dispatch($eventName, $class, $format, $event ?: $this->event);
     }

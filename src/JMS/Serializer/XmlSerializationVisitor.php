@@ -34,7 +34,7 @@ class XmlSerializationVisitor extends AbstractVisitor
     /** @var boolean */
     private $formatOutput;
 
-    public function __construct($namingStrategy, AccessorStrategyInterface $accessorStrategy = null)
+    public function __construct($namingStrategy, ?AccessorStrategyInterface $accessorStrategy = null)
     {
         parent::__construct($namingStrategy, $accessorStrategy);
         $this->objectMetadataStack = new \SplStack;

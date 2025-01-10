@@ -25,7 +25,7 @@ class YamlSerializationVisitor extends AbstractVisitor
     private $metadataStack;
     private $currentMetadata;
 
-    public function __construct($namingStrategy, AccessorStrategyInterface $accessorStrategy = null)
+    public function __construct($namingStrategy, ?AccessorStrategyInterface $accessorStrategy = null)
     {
         parent::__construct($namingStrategy, $accessorStrategy);
 
